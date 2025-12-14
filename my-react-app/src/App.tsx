@@ -135,7 +135,7 @@ function App() {
             type="password"
             placeholder="••••••••••"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => { const v = e.target.value; setInput(v); if (feedback) setFeedback(null); }}
             disabled={solved || destroyed || !deadlineTs}
             autoFocus
             autoComplete="new-password"
