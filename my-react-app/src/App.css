@@ -93,9 +93,8 @@
 }
 
 .story {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem 1rem 0;
+  margin: 0;
+  padding: 1rem 2rem 0;
   line-height: 1.6;
   color: #e9f7f5;
 }
@@ -103,8 +102,7 @@
 .story .warning { color: var(--danger); font-weight: 600; }
 
 .panel {
-  max-width: 900px;
-  margin: 0.5rem auto 0;
+  margin: 0.5rem 2rem 0;
   background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.008));
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px;
