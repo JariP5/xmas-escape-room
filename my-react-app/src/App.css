@@ -160,6 +160,71 @@
 
 .story .warning { color: var(--danger); font-weight: 600; }
 
+/* Overlays */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(3px) saturate(1.2);
+  pointer-events: auto; /* intercept clicks to make it non-interactive underneath */
+}
+.overlay .overlay-content {
+  max-width: 800px;
+  text-align: center;
+  padding: 2rem 2.25rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  box-shadow: 0 10px 35px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;
+}
+.overlay h2 { margin: 0 0 .5rem; font-size: clamp(1.6rem, 4vw, 2.2rem); }
+.overlay p { margin: .5rem 0; color: #eaf7f3; }
+.overlay .sub { color: var(--muted); font-size: .95rem; }
+
+/* Success overlay styling */
+.overlay-success { background: rgba(0, 30, 20, 0.8); }
+.overlay-success .overlay-content {
+  border-color: rgba(61,220,132,0.4);
+  box-shadow: 0 0 40px rgba(61,220,132,0.25), 0 0 0 1px rgba(61,220,132,0.35) inset, 0 10px 35px rgba(0,0,0,0.6);
+}
+.overlay-success h2 { color: var(--ok); text-shadow: 0 0 16px rgba(61,220,132,.35); }
+
+/* Timeout dramatic overlay */
+.overlay-timeout { animation: shutdown-bg 6s linear forwards; }
+.overlay-timeout .overlay-content.dramatic { animation: shutdown-fade 4s ease-out forwards; }
+.overlay-timeout h2 { color: var(--danger); text-shadow: 0 0 18px rgba(255,65,65,.45); }
+.overlay-timeout .shutdown-bar {
+  margin: 1rem auto 0;
+  width: min(420px, 60vw);
+  height: 10px;
+  background: linear-gradient(90deg, #fff, #ffcece, #ff7a7a);
+  box-shadow: 0 0 12px rgba(255,255,255,.5);
+  animation: bar-shrink 4s ease-in forwards;
+}
+
+/* Keyframes for dramatic shutdown */
+@keyframes bar-shrink {
+  0% { width: min(420px, 60vw); opacity: 1; }
+  60% { width: 30%; opacity: .9; }
+  95% { width: 2px; opacity: .7; }
+  100% { width: 0; opacity: 0; }
+}
+@keyframes shutdown-fade {
+  0% { opacity: 1; filter: none; }
+  40% { opacity: .95; filter: contrast(120%) brightness(110%); }
+  70% { opacity: .4; filter: contrast(80%) brightness(70%); }
+  100% { opacity: 0; filter: contrast(60%) brightness(0%); }
+}
+@keyframes shutdown-bg {
+  0% { background: rgba(0, 0, 0, 0.85); }
+  50% { background: rgba(0, 0, 0, 0.9); }
+  100% { background: #000; }
+}
+
 .panel {
   margin: 0.5rem 2rem 0;
   background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.008));

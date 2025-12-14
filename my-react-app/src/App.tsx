@@ -128,7 +128,7 @@ function App() {
         </div>
 
         <form className="access" onSubmit={handleSubmit} autoComplete="off">
-          <label htmlFor="pw">ENDPASSWORT</label>
+          <label htmlFor="pw">PASSWORT</label>
           <input
             id="pw"
             name="archive-key"
@@ -158,21 +158,28 @@ function App() {
         {feedback && !solved && !destroyed && deadlineTs && (
           <div className="feedback danger" role="alert">{feedback}</div>
         )}
-
-        {solved && (
-          <div className="success" role="status">
-            <h2>Weihnachten ist gerettet!</h2>
-            <p>Authentifizierung erfolgreich. Flugrouten kalibriert. Geschenk-Subsystem online.</p>
-          </div>
-        )}
-
-        {destroyed && !solved && (
-          <div className="failure" role="alert">
-            <h2>ZEIT ABGELAUFEN</h2>
-            <p>Countdown erreicht 0. Archiv unrettbar zerstört.</p>
-          </div>
-        )}
       </section>
+
+      {/* Overlays */}
+      {solved && (
+        <div className="overlay overlay-success" role="dialog" aria-modal="true" aria-labelledby="success-title">
+          <div className="overlay-content">
+            <h2 id="success-title">Weihnachten ist gerettet!</h2>
+            <p>Zugang bestätigt. Systeme werden hochgefahren, Routen synchronisiert, Sicherheit wiederhergestellt.</p>
+            <p className="sub">Die Mission ist abgeschlossen.</p>
+          </div>
+        </div>
+      )}
+
+      {destroyed && !solved && (
+        <div className="overlay overlay-timeout" role="alertdialog" aria-modal="true" aria-labelledby="timeout-title">
+          <div className="overlay-content dramatic">
+            <h2 id="timeout-title">ZEIT ABGELAUFEN</h2>
+            <p>Der Weihnachtscomputer fährt herunter …</p>
+            <div className="shutdown-bar" aria-hidden />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
