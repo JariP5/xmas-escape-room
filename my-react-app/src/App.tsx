@@ -89,21 +89,25 @@ function App() {
       </header>
 
       <section className="story">
-        <p>
-          Heiligabend. Die Welt wartet auf das Wunder von Weihnachten – doch dieses Jahr ist alles bedroht.
-        </p>
-        <p>
-          Der zentrale Computer des Weihnachts-Archivs – Hüter aller Wunschlisten, Flugrouten und Sicherheitscodes – wurde sabotiert. Ohne ihn drohen Chaos und Dunkelheit.
-        </p>
-        <p>
-          Vier Elfen, einst Wächter der Technik, haben aus Zorn und Eifersucht das System manipuliert. Jeder von ihnen verbirgt ein Fragment des Sicherheitscodes – so raffiniert, dass keiner ihn allein lösen kann.
-        </p>
-        <p className="warning">
-          Um den Reset zu aktivieren, muss der Rechner zunächst gesperrt und anschließend entsperrt werden. Dann startet ein 60‑Minuten‑Countdown.
-        </p>
-        <p>
-          Gib das endgültige Passwort ein, bevor die Zeit abläuft. Die Uhr tickt …
-        </p>
+        <p>Heiligabend.</p>
+        <p>Die Welt wartet auf das Wunder von Weihnachten.</p>
+        <p>Doch in diesem Jahr steht alles auf dem Spiel.  Wir sind die Vier.</p>
+        <p>Einst erschufen wir den Weihnachtscomputer – doch der Weihnachtsmann nahm den Ruhm für sich.</p>
+        <p>Twinkelbolt – Meister der Logik</p>
+        <p>Er baute die Denksysteme, die alles steuern. Seine Belohnung? Schweigen und Vergessen.</p>
+        <p>Flinka Frostfinger – Hüterin der Zahlen</p>
+        <p>Sie berechnete jede Route, jede Sekunde. Perfektion war Pflicht – Dank war optional.</p>
+        <p>Grummelbart – Herr der versteckten Zeichen</p>
+        <p>Er sicherte das System mit Rätseln, die niemand verstand. Man nannte ihn übertrieben. Jetzt nennt man ihn gefährlich.</p>
+        <p>Pixelina Glanzlicht – Wächterin der Muster</p>
+        <p>Sie sah Zusammenhänge, wo andere nur Chaos sahen. Man hörte nie auf sie – bis es zu spät war.</p>
+        <p className="final-code">Jeder von uns besitzt ein Fragment des Codes. Getrennt bedeutungslos. Gemeinsam eure einzige Hoffnung</p>
+        <p>⏳ Die Zeit läuft.</p>
+        <p>Wenn der Countdown endet, löschen wir alles.</p>
+        <p>Wunschlisten. Routen. Weihnachten.</p>
+        <p>Beweist euren Verstand.</p>
+        <p>Oder seht zu, wie das Licht erlischt.</p>
+        <p>— Die Elfen</p>
       </section>
 
       <section className="panel">

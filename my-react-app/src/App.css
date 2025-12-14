@@ -93,12 +93,91 @@
 }
 
 .story {
-  margin: 0;
-  padding: 1rem 2rem 0;
-  line-height: 1.6;
+  /* Full-bleed band across the entire viewport width */
+
+  width: 100vw;
+
+  /* Visual design */
+  padding: 2.5rem min(6vw, 3rem);
+  line-height: 1.7;
   color: #e9f7f5;
+  background:
+    radial-gradient(1200px 300px at 50% -10%, rgba(255,209,102,0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.35) inset, 0 10px 40px rgba(0,0,0,0.35) inset;
 }
-.story p { margin: .35rem 0; }
+
+/* Subtle decorative overlay */
+.story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 1px,
+    transparent 3px,
+    transparent 6px
+  );
+  opacity: .12;
+  pointer-events: none;
+}
+
+/* Typography */
+.story p { margin: .5rem 0; }
+.story p:first-child {
+  font-size: clamp(1.4rem, 3.2vw, 1.8rem);
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: #ffffff;
+}
+.story p:nth-of-type(2) {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  color: #eafaf7;
+}
+
+/* Highlight the four elf names */
+.story p:nth-of-type(5),
+.story p:nth-of-type(7),
+.story p:nth-of-type(9),
+.story p:nth-of-type(11) {
+  margin-top: 1rem;
+  font-variant: small-caps;
+  letter-spacing: .06em;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(255,209,102,.35);
+  font-weight: 800;
+}
+
+/* Body lines below each name */
+.story p:nth-of-type(6),
+.story p:nth-of-type(8),
+.story p:nth-of-type(10),
+.story p:nth-of-type(12) {
+  color: #d8efe9;
+}
+
+/* Final code line emphasis */
+.story p.final-code {
+  margin-top: 1.25rem;
+  padding-top: .75rem;
+  border-top: 1px dashed rgba(255,255,255,0.18);
+  color: var(--xmas-green);
+  text-shadow: 0 0 10px rgba(42,157,143,.35);
+  font-weight: 700;
+}
+
+/* Responsive multi-column layout on wide screens */
+@media (min-width: 900px) {
+  .story {
+    column-count: 2;
+    column-gap: clamp(2rem, 6vw, 4rem);
+  }
+  .story p { break-inside: avoid; }
+}
+
 .story .warning { color: var(--danger); font-weight: 600; }
 
 .panel {
