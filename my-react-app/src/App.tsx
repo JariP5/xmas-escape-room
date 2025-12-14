@@ -78,7 +78,7 @@ function App() {
     }
   }
 
-  const timerLabel = hasStarted && deadlineTs ? 'COUNTDOWN – RESTZEIT' : 'WARTET AUF ENTSPERRUNG DES RECHNERS …'
+  const timerLabel = hasStarted && deadlineTs ? 'COUNTDOWN' : 'WARTET AUF ENTSPERRUNG DES RECHNERS …'
 
   return (
     <div className={`app ${solved ? 'state-solved' : ''} ${destroyed ? 'state-destroyed' : ''}`}>
@@ -130,6 +130,7 @@ function App() {
             aria-autocomplete="none"
             data-1p-ignore
             data-lpignore="true"
+            data-bwignore="true"
             data-form-type="other"
           />
           <button type="submit" disabled={solved || destroyed || !deadlineTs}>Eingeben</button>
@@ -157,10 +158,6 @@ function App() {
           </div>
         )}
       </section>
-
-      <footer className="footer">
-        <span className="hint">Hinweis: Passwort ist nicht leer. Schreibweise egal, Sonderzeichen werden ignoriert. Passwortmanager werden ignoriert.</span>
-      </footer>
     </div>
   )
 }
