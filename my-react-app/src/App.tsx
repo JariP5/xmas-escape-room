@@ -85,29 +85,40 @@ function App() {
       <div className="scanlines" aria-hidden />
       <header className="header">
         <h1 className="glitch" data-text="WEIHNACHTS-ARCHIV">WEIHNACHTS-ARCHIV</h1>
-        <p className="subtitle">KRITISCHER NOTFALL – ZENTRALRECHNER KOMPROMITTIERT</p>
       </header>
 
       <section className="story">
-        <p>Heiligabend.</p>
-        <p>Die Welt wartet auf das Wunder von Weihnachten.</p>
-        <p>Doch in diesem Jahr steht alles auf dem Spiel.  Wir sind die Vier.</p>
-        <p>Einst erschufen wir den Weihnachtscomputer – doch der Weihnachtsmann nahm den Ruhm für sich.</p>
-        <p>Twinkelbolt – Meister der Logik</p>
-        <p>Er baute die Denksysteme, die alles steuern. Seine Belohnung? Schweigen und Vergessen.</p>
-        <p>Flinka Frostfinger – Hüterin der Zahlen</p>
-        <p>Sie berechnete jede Route, jede Sekunde. Perfektion war Pflicht – Dank war optional.</p>
-        <p>Grummelbart – Herr der versteckten Zeichen</p>
-        <p>Er sicherte das System mit Rätseln, die niemand verstand. Man nannte ihn übertrieben. Jetzt nennt man ihn gefährlich.</p>
-        <p>Pixelina Glanzlicht – Wächterin der Muster</p>
-        <p>Sie sah Zusammenhänge, wo andere nur Chaos sahen. Man hörte nie auf sie – bis es zu spät war.</p>
-        <p className="final-code">Jeder von uns besitzt ein Fragment des Codes. Getrennt bedeutungslos. Gemeinsam eure einzige Hoffnung</p>
-        <p>⏳ Die Zeit läuft.</p>
-        <p>Wenn der Countdown endet, löschen wir alles.</p>
-        <p>Wunschlisten. Routen. Weihnachten.</p>
-        <p>Beweist euren Verstand.</p>
-        <p>Oder seht zu, wie das Licht erlischt.</p>
-        <p>— Die Elfen</p>
+        <div className="columns">
+          <div className="left">
+            <p>Heiligabend.</p>
+            <p>Die Welt wartet auf das Wunder von Weihnachten.</p>
+            <p>Doch in diesem Jahr steht alles auf dem Spiel. Einst erschufen wir den Weihnachtscomputer – doch der Weihnachtsmann nahm den Ruhm für sich.</p>
+            <p className="final-code">Jeder von uns besitzt ein Fragment des Codes. Getrennt bedeutungslos. Gemeinsam eure einzige Hoffnung</p>
+            <p>⏳ Die Zeit läuft.</p>
+            <p>Wenn der Countdown endet, löschen wir alles.</p>
+            <p>Wunschlisten. Routen. Weihnachten.</p>
+            <p>Beweist euren Verstand.</p>
+            <p>Oder seht zu, wie das Licht erlischt.</p>
+          </div>
+          <div className="right">
+            <div className="elf">
+              <p className="elf-name">Twinkelbolt – Meister der Logik</p>
+              <p className="elf-desc">Er baute die Denksysteme, die alles steuern. Seine Belohnung? Schweigen und Vergessen.</p>
+            </div>
+            <div className="elf">
+              <p className="elf-name">Flinka Frostfinger – Hüterin der Zahlen</p>
+              <p className="elf-desc">Sie berechnete jede Route, jede Sekunde. Perfektion war Pflicht – Dank war optional.</p>
+            </div>
+            <div className="elf">
+              <p className="elf-name">Grummelbart – Herr der versteckten Zeichen</p>
+              <p className="elf-desc">Er sicherte das System mit Rätseln, die niemand verstand. Man nannte ihn übertrieben. Jetzt nennt man ihn gefährlich.</p>
+            </div>
+            <div className="elf">
+              <p className="elf-name">Pixelina Glanzlicht – Wächterin der Muster</p>
+              <p className="elf-desc">Sie sah Zusammenhänge, wo andere nur Chaos sahen. Man hörte nie auf sie – bis es zu spät war.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="panel">

@@ -16,7 +16,7 @@
 .app {
   position: relative;
   min-height: 100vh;
-  padding: 2rem 1.25rem 3rem;
+  padding: 1rem 1.25rem 3rem;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   gap: 1.5rem;
@@ -44,13 +44,6 @@
 }
 
 .header { text-align: center; }
-.subtitle {
-  margin-top: .25rem;
-  letter-spacing: .12em;
-  font-size: .9rem;
-  color: var(--gold);
-  text-shadow: 0 0 8px rgba(255,209,102,.35), 0 0 2px rgba(255,255,255,.2);
-}
 
 .glitch {
   position: relative;
@@ -93,12 +86,11 @@
 }
 
 .story {
-  /* Full-bleed band across the entire viewport width */
-
-  width: 100vw;
+  width: 92vw;
 
   /* Visual design */
-  padding: 2.5rem min(6vw, 3rem);
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   line-height: 1.7;
   color: #e9f7f5;
   background:
@@ -127,37 +119,28 @@
 
 /* Typography */
 .story p { margin: .5rem 0; }
-.story p:first-child {
+.left p:first-child {
   font-size: clamp(1.4rem, 3.2vw, 1.8rem);
   font-weight: 800;
   letter-spacing: .04em;
   color: #ffffff;
 }
-.story p:nth-of-type(2) {
+.left p:nth-of-type(2) {
   font-size: clamp(1.05rem, 2.2vw, 1.2rem);
   color: #eafaf7;
 }
 
-/* Highlight the four elf names */
-.story p:nth-of-type(5),
-.story p:nth-of-type(7),
-.story p:nth-of-type(9),
-.story p:nth-of-type(11) {
-  margin-top: 1rem;
+/* Elf block styles */
+.right .elf { margin: 1rem 0; }
+.elf-name {
+  margin-top: .5rem;
   font-variant: small-caps;
   letter-spacing: .06em;
   color: var(--gold);
   text-shadow: 0 0 10px rgba(255,209,102,.35);
   font-weight: 800;
 }
-
-/* Body lines below each name */
-.story p:nth-of-type(6),
-.story p:nth-of-type(8),
-.story p:nth-of-type(10),
-.story p:nth-of-type(12) {
-  color: #d8efe9;
-}
+.elf-desc { color: #d8efe9; }
 
 /* Final code line emphasis */
 .story p.final-code {
@@ -169,13 +152,10 @@
   font-weight: 700;
 }
 
-/* Responsive multi-column layout on wide screens */
+/* Two-column responsive layout for story content */
+.story .columns { display: grid; gap: clamp(1.5rem, 4vw, 3rem); }
 @media (min-width: 900px) {
-  .story {
-    column-count: 2;
-    column-gap: clamp(2rem, 6vw, 4rem);
-  }
-  .story p { break-inside: avoid; }
+  .story .columns { grid-template-columns: 1fr 1fr; align-items: start; }
 }
 
 .story .warning { color: var(--danger); font-weight: 600; }
