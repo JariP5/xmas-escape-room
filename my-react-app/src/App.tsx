@@ -93,7 +93,7 @@ function App() {
             <p>Heiligabend.</p>
             <p>Die Welt wartet auf das Wunder von Weihnachten.</p>
             <p>Doch in diesem Jahr steht alles auf dem Spiel. Einst erschufen wir den Weihnachtscomputer – doch der Weihnachtsmann nahm den Ruhm für sich.</p>
-            <p className="final-code">Jeder von uns besitzt ein Fragment des Codes. Getrennt bedeutungslos. Gemeinsam eure einzige Hoffnung</p>
+            <p className="final-code">Jeder von uns besitzt ein Fragment des Codes. Getrennt bedeutungslos. Gemeinsam eure einzige Hoffnung.</p>
             <p>⏳ Die Zeit läuft.</p>
             <p>Wenn der Countdown endet, löschen wir alles.</p>
             <p>Wunschlisten. Routen. Weihnachten.</p>
@@ -107,7 +107,7 @@ function App() {
             </div>
             <div className="elf">
               <p className="elf-name">Flinka Frostfinger – Meisterin des Codes</p>
-              <p className="elf-desc">Farben, Zahlen, verschlüsselte Zeichen – sie brachte Ordnung ins Chaos. Perfektion war Pflicht. Dank blieb aus..</p>
+              <p className="elf-desc">Farben, Zahlen, verschlüsselte Zeichen – sie brachte Ordnung ins Chaos. Perfektion war Pflicht. Dank blieb aus.</p>
             </div>
             <div className="elf">
               <p className="elf-name">Pixelina Glanzlicht – Schattenmeisterin der Zeichen</p>
