@@ -102,20 +102,20 @@ function App() {
           </div>
           <div className="right">
             <div className="elf">
-              <p className="elf-name">Twinkelbolt – Meister der Logik</p>
-              <p className="elf-desc">Er baute die Denksysteme, die alles steuern. Seine Belohnung? Schweigen und Vergessen.</p>
+              <p className="elf-name">Grummelbart – Navigator der Weltkarten</p>
+              <p className="elf-desc">Er verband Länder und Kontinente mit unsichtbaren Linien. Als alles funktionierte, erinnerte sich niemand an ihn.</p>
             </div>
             <div className="elf">
-              <p className="elf-name">Flinka Frostfinger – Hüterin der Zahlen</p>
-              <p className="elf-desc">Sie berechnete jede Route, jede Sekunde. Perfektion war Pflicht – Dank war optional.</p>
+              <p className="elf-name">Flinka Frostfinger – Meisterin des Codes</p>
+              <p className="elf-desc">Farben, Zahlen, verschlüsselte Zeichen – sie brachte Ordnung ins Chaos. Perfektion war Pflicht. Dank blieb aus..</p>
             </div>
             <div className="elf">
-              <p className="elf-name">Grummelbart – Herr der versteckten Zeichen</p>
-              <p className="elf-desc">Er sicherte das System mit Rätseln, die niemand verstand. Man nannte ihn übertrieben. Jetzt nennt man ihn gefährlich.</p>
+              <p className="elf-name">Pixelina Glanzlicht – Schattenmeisterin der Zeichen</p>
+              <p className="elf-desc">Sie hinterließ Spuren, die nur im schwachen Licht sichtbar wurden. Man lachte über ihre Methoden. Jetzt fürchtet man sie.</p>
             </div>
             <div className="elf">
-              <p className="elf-name">Pixelina Glanzlicht – Wächterin der Muster</p>
-              <p className="elf-desc">Sie sah Zusammenhänge, wo andere nur Chaos sahen. Man hörte nie auf sie – bis es zu spät war.</p>
+              <p className="elf-name">Twinkelbolt – Chronist der Geheimschriften</p>
+              <p className="elf-desc">Er bewahrte Erinnerungen, Tage und Gedanken in unsichtbaren Mustern. Niemand wollte seine Ordnung – bis sie verschwand.</p>
             </div>
           </div>
         </div>
