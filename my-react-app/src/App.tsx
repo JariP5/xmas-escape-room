@@ -12,13 +12,14 @@ function formatTime(ms: number) {
 }
 
 function normalize(s: string) {
-  return s
-    .toLocaleUpperCase('de-DE')
-    .replace(/[^A-Z0-9]/g, '')
+    return s
+        .toLocaleUpperCase('de-DE')
+        .replace(/1/g, 'EINS')
+        .replace(/[^A-Z]/g, '')
 }
 
 const ONE_HOUR = 60 * 60 * 1000
-const DEFAULT_PASSWORD = 'WEIHNACHTEN'
+const DEFAULT_PASSWORD = 'Gemeinsam sind wir eins'
 
 function App() {
   const [now, setNow] = useState(Date.now())
@@ -102,20 +103,20 @@ function App() {
           </div>
           <div className="right">
             <div className="elf">
-              <p className="elf-name">Grummelbart – Navigator der Weltkarten</p>
-              <p className="elf-desc">Er verband Länder und Kontinente mit unsichtbaren Linien. Als alles funktionierte, erinnerte sich niemand an ihn.</p>
+              <p className="elf-name">Pixelina Glanzlicht – Schattenmeisterin der Zeichen</p>
+              <p className="elf-desc">Sie hinterließ Spuren, die nur im schwachen Licht sichtbar wurden. Man lachte über ihre Methoden. Jetzt fürchtet man sie.</p>
             </div>
             <div className="elf">
               <p className="elf-name">Flinka Frostfinger – Meisterin des Codes</p>
               <p className="elf-desc">Farben, Zahlen, verschlüsselte Zeichen – sie brachte Ordnung ins Chaos. Perfektion war Pflicht. Dank blieb aus.</p>
             </div>
             <div className="elf">
-              <p className="elf-name">Pixelina Glanzlicht – Schattenmeisterin der Zeichen</p>
-              <p className="elf-desc">Sie hinterließ Spuren, die nur im schwachen Licht sichtbar wurden. Man lachte über ihre Methoden. Jetzt fürchtet man sie.</p>
-            </div>
-            <div className="elf">
               <p className="elf-name">Twinkelbolt – Chronist der Geheimschriften</p>
               <p className="elf-desc">Er bewahrte Erinnerungen, Tage und Gedanken in unsichtbaren Mustern. Niemand wollte seine Ordnung – bis sie verschwand.</p>
+            </div>
+            <div className="elf">
+              <p className="elf-name">Grummelbart – Navigator der Weltkarten</p>
+              <p className="elf-desc">Er verband Länder und Kontinente mit unsichtbaren Linien. Als alles funktionierte, erinnerte sich niemand an ihn.</p>
             </div>
           </div>
         </div>
