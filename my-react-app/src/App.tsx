@@ -107,12 +107,12 @@ function App() {
               <p className="elf-desc">Sie hinterließ Spuren, die nur im schwachen Licht sichtbar wurden. Man lachte über ihre Methoden. Jetzt fürchtet man sie.</p>
             </div>
             <div className="elf">
-              <p className="elf-name">Flinka Frostfinger – Meisterin des Codes</p>
-              <p className="elf-desc">Farben, Zahlen, verschlüsselte Zeichen – sie brachte Ordnung ins Chaos. Perfektion war Pflicht. Dank blieb aus.</p>
-            </div>
-            <div className="elf">
               <p className="elf-name">Twinkelbolt – Chronist der Geheimschriften</p>
               <p className="elf-desc">Er bewahrte Erinnerungen, Tage und Gedanken in unsichtbaren Mustern. Niemand wollte seine Ordnung – bis sie verschwand.</p>
+            </div>
+            <div className="elf">
+              <p className="elf-name">Flinka Frostfinger – Meisterin des Codes</p>
+              <p className="elf-desc">Farben, Zahlen, verschlüsselte Zeichen – sie brachte Ordnung ins Chaos. Perfektion war Pflicht. Dank blieb aus.</p>
             </div>
             <div className="elf">
               <p className="elf-name">Grummelbart – Navigator der Weltkarten</p>
