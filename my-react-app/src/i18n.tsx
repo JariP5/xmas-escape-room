@@ -49,20 +49,86 @@ export function useI18n() {
 
 export function LanguageSelector({ className }: { className?: string }) {
   const { lang, setLang } = useI18n()
+  const [open, setOpen] = React.useState(false)
+  const wrapRef = React.useRef<HTMLDivElement | null>(null)
+
+  const flagFor = (code: Lang) => {
+    switch (code) {
+      case 'en':
+        return '🇬🇧'
+      case 'de':
+        return '🇩🇪'
+      case 'nl':
+        return '🇳🇱'
+      case 'fr':
+        return '🇫🇷'
+      default:
+        return '🏳️'
+    }
+  }
+
+  // Close on outside click or escape
+  React.useEffect(() => {
+    function onDocClick(e: MouseEvent) {
+      if (!open) return
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('mousedown', onDocClick)
+    document.addEventListener('keyup', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDocClick)
+      document.removeEventListener('keyup', onKey)
+    }
+  }, [open])
+
+  const active = supportedLangs.find(l => l.code === lang)!
+  const others = supportedLangs.filter(l => l.code !== lang)
+
   return (
-    <select
-      aria-label="Language"
-      className={className}
-      value={lang}
-      onChange={(e) => setLang(e.target.value as Lang)}
+    <div
+      ref={wrapRef}
+      className={`lang-switch ${className ?? ''}`.trim()}
+      aria-label="Language selector"
       style={{ position: 'absolute', top: 16, right: 16 }}
     >
-      {supportedLangs.map((l) => (
-        <option key={l.code} value={l.code}>
-          {l.label}
-        </option>
-      ))}
-    </select>
+      <button
+        type="button"
+        className={`lang-toggle ${open ? 'open' : ''}`}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-label={active.label}
+        title={active.label}
+        onClick={() => setOpen(o => !o)}
+      >
+        <span className="flag" aria-hidden>{flagFor(active.code)}</span>
+        <span className="sr-only">{active.label}</span>
+      </button>
+
+      <div className={`lang-menu ${open ? 'show' : ''}`} role="menu" aria-hidden={!open}>
+        {others.map((l) => (
+          <button
+            key={l.code}
+            type="button"
+            role="menuitemradio"
+            aria-checked={false}
+            className="lang-option"
+            title={l.label}
+            onClick={() => {
+              setLang(l.code)
+              setOpen(false)
+            }}
+          >
+            <span className="flag" aria-hidden>{flagFor(l.code)}</span>
+            <span className="sr-only">{l.label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
   )
 }
 
