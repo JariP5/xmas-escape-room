@@ -11,15 +11,15 @@ Repository Summary
 - Access control: One-time access code per room, validated/consumed via Supabase REST/RPC
 
 Key Paths
-- my-react-app/src/main.tsx — App bootstrap (BrowserRouter + TranslationProvider)
-- my-react-app/src/App.tsx — Routes, home page, guard layout
-- my-react-app/src/rooms/ChristmasRoom.tsx — Current room implementation (christmas-room)
-- my-react-app/src/routes/UnlockRoom.tsx — Access code entry + unlock flow
-- my-react-app/src/i18n.tsx — i18n provider + LanguageSelector component
-- my-react-app/src/translations.ts — Translation dictionaries (nested by routes/sections) and types
-- my-react-app/src/supabase.ts — Lightweight Supabase REST/RPC helper and local unlock state
+- src/main.tsx — App bootstrap (BrowserRouter + TranslationProvider)
+- src/App.tsx — Routes, home page, guard layout
+- src/rooms/ChristmasRoom.tsx — Current room implementation (christmas-room)
+- src/routes/UnlockRoom.tsx — Access code entry + unlock flow
+- src/i18n.tsx — i18n provider + LanguageSelector component
+- src/translations.ts — Translation dictionaries (nested by routes/sections) and types
+- src/supabase.ts — Lightweight Supabase REST/RPC helper and local unlock state
 - firebase.json — SPA rewrites config for clean URLs
-- my-react-app/.env.example — Vite env placeholders for Supabase
+- .env.example — Vite env placeholders for Supabase
 
 Environment Variables (Vite)
 - VITE_SUPABASE_URL: Supabase project URL
@@ -61,23 +61,22 @@ i18n Notes
 - The LanguageSelector shows only the active flag by default and animates a menu on click.
 
 Visual/Styles
-- Styling is plain CSS residing in my-react-app/src/App.css
+- Styling is plain CSS residing in src/App.css
 - Language selector and general aesthetic live here; avoid adding heavy UI frameworks.
 
 Build and Dev Commands
-- cd my-react-app
 - npm run dev — start Vite dev server
 - npm run build — type-check, then build
 - npm run preview — preview built bundle
 
 Deployment (Firebase Hosting)
-- Public directory: my-react-app/dist
+- Public directory: dist
 - SPA rewrite: all routes -> /index.html (see firebase.json)
 - Clean URLs like /christmas-room should work on refresh
 
 Common Task Recipes
 1) Add a new room "room2"
-   - Create my-react-app/src/rooms/Room2.tsx
+   - Create src/rooms/Room2.tsx
    - Add a Link on Home to /unlock/room2
    - Add routes in App.tsx:
      <Route path="/unlock/room2" element={<UnlockRoom />} />

@@ -20,21 +20,21 @@ A small, stylized escape-room web app. It supports multiple rooms, international
 ## Project Structure
 ```
 / (repo root)
-├─ firebase.json              # SPA rewrites for Firebase Hosting
-├─ my-react-app/
-│  ├─ public/                 # Static assets
-│  ├─ src/
-│  │  ├─ App.tsx              # Routes and guarded layouts
-│  │  ├─ main.tsx             # App bootstrap (BrowserRouter + i18n provider)
-│  │  ├─ App.css              # Styles (incl. language selector)
-│  │  ├─ i18n.tsx             # Translations provider + LanguageSelector
-│  │  ├─ translations.ts      # Language dictionaries
-│  │  ├─ rooms/
-│  │  │  └─ ChristmasRoom.tsx # Current room (christmas-room)
-│  │  └─ routes/
-│  │     └─ UnlockRoom.tsx    # Enter/validate one-time access code
-│  ├─ package.json
-│  └─ .env.example            # Vite env variables (copy to .env for local dev)
+├─ firebase.json       # SPA rewrites for Firebase Hosting
+├─ public/             # Static assets
+├─ src/
+│  ├─ App.tsx          # Routes and guarded layouts
+│  ├─ main.tsx         # App bootstrap (BrowserRouter + i18n provider)
+│  ├─ App.css          # Styles (incl. language selector)
+│  ├─ i18n.tsx         # Translations provider + LanguageSelector
+│  ├─ translations.ts  # Language dictionaries
+│  ├─ rooms/
+│  │  └─ ChristmasRoom.tsx
+│  └─ routes/
+│     └─ UnlockRoom.tsx
+├─ index.html
+├─ package.json
+└─ .env.example        # Vite env variables (copy to .env for local dev)
 ```
 
 ## Getting Started
@@ -45,14 +45,13 @@ A small, stylized escape-room web app. It supports multiple rooms, international
 
 ### Install
 ```bash
-cd my-react-app
 npm install
 ```
 
 ### Configure Environment
 Copy the example env file and fill your Supabase credentials:
 ```bash
-cp my-react-app/.env.example my-react-app/.env
+cp .env.example .env
 ```
 Set:
 - VITE_SUPABASE_URL = https://YOUR-PROJECT-ref.supabase.co
@@ -131,7 +130,7 @@ This repo includes `firebase.json` configured for SPA rewrites. Steps:
 3) Login: `firebase login`
 4) Initialize hosting (once): `firebase init hosting`
    - Select your project
-   - Public directory: `my-react-app/dist`
+   - Public directory: `dist`
    - Configure as a SPA (rewrite all to /index.html): Yes
 5) Deploy: `firebase deploy`
 
