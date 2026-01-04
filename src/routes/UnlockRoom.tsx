@@ -77,7 +77,7 @@ export default function UnlockRoom() {
           </button>
           <p style={{ textAlign: 'center', color: 'var(--muted)', marginTop: 8 }}>
             {t('routes.unlock.hintWhereToBuy')}{' '}
-            <a href="#" onClick={(e) => e.preventDefault()}>{t('routes.unlock.checkoutLink')}</a>
+            <Link to="/shop">{t('routes.unlock.checkoutLink')}</Link>
           </p>
         </form>
 

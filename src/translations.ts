@@ -22,6 +22,15 @@ export const dicts: Record<Lang, Dict> = {
             startRoom: 'Start Christmas Archive',
         },
         routes: {
+            about: {
+                boardGameAlt: 'Required board game',
+                haveGame: "I already have this — Let's play",
+                needToBuy: 'I need to buy it',
+            },
+            shop: {
+                title: 'Buy board games',
+                comingSoon: 'In-app shop is coming soon. Please check back later.'
+            },
             unlock: {
                 title: 'Enter access code',
                 desc: 'To start this room, enter the one-time access code you purchased.',
@@ -98,6 +107,15 @@ export const dicts: Record<Lang, Dict> = {
             startRoom: 'Weihnachts-Archiv starten',
         },
         routes: {
+            about: {
+                boardGameAlt: 'Erforderliches Brettspiel',
+                haveGame: 'Ich habe es bereits — Los geht\'s',
+                needToBuy: 'Ich muss es kaufen',
+            },
+            shop: {
+                title: 'Brettspiele kaufen',
+                comingSoon: 'In-App-Shop kommt bald. Bitte später erneut vorbeischauen.'
+            },
             unlock: {
                 title: 'Zugangscode eingeben',
                 desc: 'Um diesen Raum zu starten, gib den einmaligen Zugangscode ein, den du gekauft hast.',
@@ -171,6 +189,15 @@ export const dicts: Record<Lang, Dict> = {
             startRoom: 'Kerstarchief starten',
         },
         routes: {
+            about: {
+                boardGameAlt: 'Vereist bordspel',
+                haveGame: 'Ik heb dit al — Laten we spelen',
+                needToBuy: 'Ik moet het kopen',
+            },
+            shop: {
+                title: 'Bordspellen kopen',
+                comingSoon: 'In-app winkel komt binnenkort. Kom later terug.'
+            },
             unlock: {
                 title: 'Voer toegangscode in',
                 desc: 'Om deze kamer te starten, voer de eenmalige toegangscode in die je hebt gekocht.',
@@ -244,6 +271,15 @@ export const dicts: Record<Lang, Dict> = {
             startRoom: 'Lancer l\'Archive de Noël',
         },
         routes: {
+            about: {
+                boardGameAlt: 'Jeu de société requis',
+                haveGame: "Je l'ai déjà — Jouons",
+                needToBuy: "Je dois l'acheter",
+            },
+            shop: {
+                title: 'Acheter des jeux de société',
+                comingSoon: "La boutique intégrée arrive bientôt. Revenez plus tard."
+            },
             unlock: {
                 title: 'Saisir le code d\'accès',
                 desc: 'Pour démarrer cette salle, saisissez le code d\'accès à usage unique que vous avez acheté.',

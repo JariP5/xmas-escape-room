@@ -1,0 +1,56 @@
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { LanguageSelector, useI18n } from '../i18n'
+import { getRoom } from '../rooms/registry'
+import '../App.css'
+
+export default function AboutRoom() {
+  const { t } = useI18n()
+  const { roomId } = useParams()
+  const nav = useNavigate()
+  const room = getRoom(roomId)
+
+  if (!room) {
+    // Fallback: go home if unknown room
+    nav('/', { replace: true })
+    return null
+  }
+
+  const title = t(`routes.${room.baseKey}.card.title`)
+  const desc = t(`routes.${room.baseKey}.card.desc`)
+
+  // Optional board game image path; default placeholder
+  // Public assets can be referenced by absolute path
+  const boardGameImg = room.boardGameImage || '/assets/boardgame-placeholder.svg'
+
+  return (
+    <div className="app">
+      <div className="scanlines" aria-hidden />
+      <LanguageSelector />
+      <header className="header">
+        <h1 className="glitch" data-text={t('app.title')}>{t('app.title')}</h1>
+      </header>
+
+      <section className="panel" style={{ maxWidth: 920, margin: '0 auto' }}>
+        <Link className="back" to="/" aria-label={t('common.back')} style={{ position: 'absolute', top: 16, left: 16 }}>
+          {t('common.back')}
+        </Link>
+
+        <h2 style={{ textAlign: 'center', marginTop: 8 }}>{title}</h2>
+        <p style={{ textAlign: 'center', color: 'var(--muted)' }}>{desc}</p>
+
+        <div style={{ display: 'grid', gap: 16, justifyItems: 'center', marginTop: 16 }}>
+          <img src={boardGameImg} alt={t('routes.about.boardGameAlt')}
+               style={{ maxWidth: '100%', width: 480, borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)' }} />
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Link to={`/unlock/${room.id}`} className="button" style={{ textDecoration: 'none' }}>
+              {t('routes.about.haveGame')}
+            </Link>
+            <Link to="/shop" className="button secondary" style={{ textDecoration: 'none' }}>
+              {t('routes.about.needToBuy')}
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

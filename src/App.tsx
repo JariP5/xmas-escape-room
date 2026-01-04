@@ -2,6 +2,8 @@ import './App.css'
 import { Routes, Route, Link, Navigate, Outlet } from 'react-router-dom'
 import { LanguageSelector, useI18n } from './i18n'
 import UnlockRoom from './routes/UnlockRoom'
+import AboutRoom from './routes/AboutRoom'
+import Shop from './routes/Shop'
 import { isUnlocked } from './supabase'
 import { rooms, lockForRoom } from './rooms/registry'
 import React from 'react'
@@ -25,8 +27,7 @@ function Home() {
         gap: 16
       }}>
         {rooms.map(r => {
-          const locked = lockForRoom(r.id)
-          const target = locked ? `/unlock/${r.id}` : `/${r.id}`
+          const target = `/about/${r.id}`
           return (
             <Link key={r.id} to={target} className="elf" style={{ textDecoration: 'none' }}>
               <p className="elf-name">{t(`routes.${r.baseKey}.card.title`)}</p>
@@ -62,7 +63,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/about/:roomId" element={<AboutRoom />} />
       <Route path="/unlock/:roomId" element={<UnlockRoom />} />
+      <Route path="/shop" element={<Shop />} />
 
       {rooms.map(r => {
         const element = <RoomPage Comp={r.Component} />

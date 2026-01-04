@@ -4,11 +4,12 @@ export type RoomDef = {
   id: string // url slug, e.g., "christmas-room"
   baseKey: string // i18n base key path under routes.*, e.g., 'christmasRoom'
   Component: React.ComponentType
+  boardGameImage?: string // public path to an image of the required board game (optional)
 }
 
 // Central registry of available rooms. Add new rooms here.
 export const rooms: RoomDef[] = [
-  { id: 'christmas-room', baseKey: 'christmasRoom', Component: ChristmasRoom },
+  { id: 'christmas-room', baseKey: 'christmasRoom', Component: ChristmasRoom, boardGameImage: '/assets/boardgame-placeholder.svg' },
 ]
 
 export function getRoom(id: string | undefined): RoomDef | undefined {
