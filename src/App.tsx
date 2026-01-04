@@ -5,8 +5,16 @@ import { LanguageSelector, useI18n } from './i18n'
 import UnlockRoom from './routes/UnlockRoom'
 import { isUnlocked } from './supabase'
 
+const lockChristmasRoom = (() => {
+  const raw = (import.meta as any).env?.VITE_LOCK_CHRISTMAS_ROOM as string | undefined
+  if (!raw) return true
+  const v = String(raw).trim().toLowerCase()
+  return v === '1' || v === 'true' || v === 'yes' || v === 'on'
+})()
+
 function Home() {
   const { t } = useI18n()
+  const target = lockChristmasRoom ? '/unlock/christmas-room' : '/christmas-room'
   return (
     <div className="app">
       <div className="scanlines" aria-hidden />
@@ -31,7 +39,7 @@ function Home() {
       </section>
 
       <section className="panel" style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
-        <Link to="/unlock/christmas-room" aria-label={t('home.startRoom')}>
+        <Link to={target} aria-label={t('home.startRoom')}>
           {t('home.startRoom')}
         </Link>
       </section>
@@ -64,9 +72,13 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/unlock/:roomId" element={<UnlockRoom />} />
 
-      <Route element={<RequireUnlock room="christmas-room" />}>
+      {lockChristmasRoom ? (
+        <Route element={<RequireUnlock room="christmas-room" />}>
+          <Route path="christmas-room" element={<ChristmasRoomPage />} />
+        </Route>
+      ) : (
         <Route path="christmas-room" element={<ChristmasRoomPage />} />
-      </Route>
+      )}
 
       <Route path="*" element={<Home />} />
     </Routes>

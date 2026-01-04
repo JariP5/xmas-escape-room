@@ -24,6 +24,7 @@ Key Paths
 Environment Variables (Vite)
 - VITE_SUPABASE_URL: Supabase project URL
 - VITE_SUPABASE_ANON_KEY: Supabase public anon key
+- VITE_LOCK_CHRISTMAS_ROOM: 'true' | 'false' | '1' | '0' | 'yes' | 'no' (default: true). When false, bypasses the unlock guard and links go directly to /christmas-room.
 Notes:
 - Only variables prefixed with VITE_ are exposed to the client.
 - Do not commit real secrets. Use .env locally and hosting provider config in production.

@@ -27,19 +27,19 @@ export default function UnlockRoom() {
     } else {
       switch (res.reason) {
         case 'invalid':
-          setError(t('unlock.error.invalid'))
+          setError(t('routes.unlock.error.invalid'))
           break
         case 'used':
-          setError(t('unlock.error.used'))
+          setError(t('routes.unlock.error.used'))
           break
         case 'config':
-          setError(t('unlock.error.config'))
+          setError(t('routes.unlock.error.config'))
           break
         case 'network':
-          setError(t('unlock.error.network'))
+          setError(t('routes.unlock.error.network'))
           break
         default:
-          setError(res.message || t('unlock.error.generic'))
+          setError(res.message || t('routes.unlock.error.generic'))
       }
     }
   }

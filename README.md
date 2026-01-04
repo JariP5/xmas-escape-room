@@ -56,6 +56,7 @@ cp .env.example .env
 Set:
 - VITE_SUPABASE_URL = https://YOUR-PROJECT-ref.supabase.co
 - VITE_SUPABASE_ANON_KEY = your project anon public key
+- VITE_LOCK_CHRISTMAS_ROOM = true|false (optional; default true). When false, the Christmas room is open without a code.
 
 Note: Vite exposes variables that start with VITE_. Do not check in real secrets.
 
