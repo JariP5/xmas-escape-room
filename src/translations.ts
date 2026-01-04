@@ -14,7 +14,7 @@ export type Dict = Record<string, any>
 
 export const dicts: Record<Lang, Dict> = {
     en: {
-        app: {title: 'ESCAPE ROOMS'},
+        app: {title: 'North Pole Escape'},
         common: {back: '← Back'},
         home: {
             welcome: 'Welcome! Choose an escape room to begin your adventure.',
@@ -90,7 +90,7 @@ export const dicts: Record<Lang, Dict> = {
         },
     },
     de: {
-        app: {title: 'ESCAPE ROOMS'},
+        app: {title: 'North Pole Escape'},
         common: {back: '← Zurück'},
         home: {
             welcome: 'Willkommen! Wähle einen Escape Room, um das Abenteuer zu starten.',
@@ -163,7 +163,7 @@ export const dicts: Record<Lang, Dict> = {
         },
     },
     nl: {
-        app: {title: 'ESCAPE ROOMS'},
+        app: {title: 'North Pole Escape'},
         common: {back: '← Terug'},
         home: {
             welcome: 'Welkom! Kies een escaperoom om je avontuur te beginnen.',
@@ -236,7 +236,7 @@ export const dicts: Record<Lang, Dict> = {
         },
     },
     fr: {
-        app: {title: 'ESCAPE ROOMS'},
+        app: {title: 'North Pole Escape'},
         common: {back: '← Retour'},
         home: {
             welcome: 'Bienvenue ! Choisissez une salle pour commencer l\'aventure.',

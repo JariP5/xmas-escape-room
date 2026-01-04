@@ -1,4 +1,4 @@
-# Xmas Escape Room (React + Vite)
+# North Pole Escape (React + Vite)
 
 A small, stylized escape-room web app. It supports multiple rooms, internationalization (English, Dutch, French, German), real routing with React Router, and a one-time access code flow backed by Supabase.
 
