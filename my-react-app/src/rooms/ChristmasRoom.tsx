@@ -32,7 +32,7 @@ function normalize(s: string, locale: string) {
 
 const ONE_HOUR = 60 * 60 * 1000
 
-function EscapeRoomOne() {
+function ChristmasRoom() {
   const { t, lang } = useI18n()
   const locale = langToLocale(lang)
   const [now, setNow] = useState(Date.now())
@@ -198,4 +198,4 @@ function EscapeRoomOne() {
   )
 }
 
-export default EscapeRoomOne
+export default ChristmasRoom

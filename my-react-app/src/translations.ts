@@ -46,6 +46,19 @@ export type TKey =
   | 'elf4.name'
   | 'elf4.desc'
   | 'password'
+  | 'unlock.title'
+  | 'unlock.desc'
+  | 'unlock.code.label'
+  | 'unlock.code.placeholder'
+  | 'unlock.submit'
+  | 'unlock.submitting'
+  | 'unlock.hintWhereToBuy'
+  | 'unlock.checkoutLink'
+  | 'unlock.error.invalid'
+  | 'unlock.error.used'
+  | 'unlock.error.config'
+  | 'unlock.error.network'
+  | 'unlock.error.generic'
 
 export type Dict = Record<TKey, string>
 
@@ -59,6 +72,19 @@ export const dicts: Record<Lang, Dict> = {
     'room1.card.desc': 'The Christmas computer is compromised. Start recovery before time runs out.',
     'home.startRoom': 'Start Christmas Archive',
     back: '← Back',
+    'unlock.title': 'Enter access code',
+    'unlock.desc': 'To start this room, enter the one-time access code you purchased.',
+    'unlock.code.label': 'ACCESS CODE',
+    'unlock.code.placeholder': 'ABC123-XYZ',
+    'unlock.submit': 'Unlock room',
+    'unlock.submitting': 'Checking…',
+    'unlock.hintWhereToBuy': "Don't have a code?",
+    'unlock.checkoutLink': 'Buy one here',
+    'unlock.error.invalid': 'Invalid code. Please check and try again.',
+    'unlock.error.used': 'This code was already used.',
+    'unlock.error.config': 'Server not configured. Contact support.',
+    'unlock.error.network': 'Network error. Please try again.',
+    'unlock.error.generic': 'Something went wrong. Please try again.',
     'countdown.waiting': 'WAITING FOR COMPUTER TO BE LOCKED/UNLOCKED …',
     'countdown.label': 'COUNTDOWN',
     'pass.label': 'PASSWORD',
@@ -98,6 +124,19 @@ export const dicts: Record<Lang, Dict> = {
     'room1.card.desc': 'Der Weihnachtscomputer wurde kompromittiert. Starte die Wiederherstellung, bevor die Zeit abläuft.',
     'home.startRoom': 'Weihnachts-Archiv starten',
     back: '← Zurück',
+    'unlock.title': 'Zugangscode eingeben',
+    'unlock.desc': 'Um diesen Raum zu starten, gib den einmaligen Zugangscode ein, den du gekauft hast.',
+    'unlock.code.label': 'ZUGANGSCODE',
+    'unlock.code.placeholder': 'ABC123-XYZ',
+    'unlock.submit': 'Raum freischalten',
+    'unlock.submitting': 'Prüfe…',
+    'unlock.hintWhereToBuy': 'Noch keinen Code?',
+    'unlock.checkoutLink': 'Hier kaufen',
+    'unlock.error.invalid': 'Ungültiger Code. Bitte prüfen und erneut versuchen.',
+    'unlock.error.used': 'Dieser Code wurde bereits verwendet.',
+    'unlock.error.config': 'Server nicht konfiguriert. Bitte Support kontaktieren.',
+    'unlock.error.network': 'Netzwerkfehler. Bitte erneut versuchen.',
+    'unlock.error.generic': 'Etwas ist schiefgelaufen. Bitte erneut versuchen.',
     'countdown.waiting': 'WARTET AUF ENTSPERRUNG DES RECHNERS …',
     'countdown.label': 'COUNTDOWN',
     'pass.label': 'PASSWORT',
@@ -137,6 +176,19 @@ export const dicts: Record<Lang, Dict> = {
     'room1.card.desc': 'De kerstcomputer is gecompromitteerd. Start het herstel voordat de tijd om is.',
     'home.startRoom': 'Kerstarchief starten',
     back: '← Terug',
+    'unlock.title': 'Voer toegangscode in',
+    'unlock.desc': 'Om deze kamer te starten, voer de eenmalige toegangscode in die je hebt gekocht.',
+    'unlock.code.label': 'TOEGANGSCODE',
+    'unlock.code.placeholder': 'ABC123-XYZ',
+    'unlock.submit': 'Kamer ontgrendelen',
+    'unlock.submitting': 'Bezig met controleren…',
+    'unlock.hintWhereToBuy': 'Nog geen code?',
+    'unlock.checkoutLink': 'Koop er hier een',
+    'unlock.error.invalid': 'Ongeldige code. Controleer en probeer opnieuw.',
+    'unlock.error.used': 'Deze code is al gebruikt.',
+    'unlock.error.config': 'Server niet geconfigureerd. Neem contact op met support.',
+    'unlock.error.network': 'Netwerkfout. Probeer het opnieuw.',
+    'unlock.error.generic': 'Er is iets misgegaan. Probeer het opnieuw.',
     'countdown.waiting': 'WACHT OP VERGRENDELEN/ONTGRENDELEN VAN DE COMPUTER …',
     'countdown.label': 'COUNTDOWN',
     'pass.label': 'WACHTWOORD',
@@ -176,6 +228,19 @@ export const dicts: Record<Lang, Dict> = {
     'room1.card.desc': 'L\'ordinateur de Noël est compromis. Lancez la restauration avant la fin du temps.',
     'home.startRoom': 'Lancer l\'Archive de Noël',
     back: '← Retour',
+    'unlock.title': 'Saisir le code d\'accès',
+    'unlock.desc': 'Pour démarrer cette salle, saisissez le code d\'accès à usage unique que vous avez acheté.',
+    'unlock.code.label': 'CODE D\'ACCÈS',
+    'unlock.code.placeholder': 'ABC123-XYZ',
+    'unlock.submit': 'Déverrouiller la salle',
+    'unlock.submitting': 'Vérification…',
+    'unlock.hintWhereToBuy': 'Pas de code ?',
+    'unlock.checkoutLink': 'Achetez-en un ici',
+    'unlock.error.invalid': 'Code invalide. Veuillez vérifier et réessayer.',
+    'unlock.error.used': 'Ce code a déjà été utilisé.',
+    'unlock.error.config': 'Serveur non configuré. Contactez le support.',
+    'unlock.error.network': 'Erreur réseau. Veuillez réessayer.',
+    'unlock.error.generic': 'Une erreur est survenue. Veuillez réessayer.',
     'countdown.waiting': 'EN ATTENTE DU VERROUILLAGE/DÉVERROUILLAGE DE L\'ORDINATEUR …',
     'countdown.label': 'COMPTE À REBOURS',
     'pass.label': 'MOT DE PASSE',

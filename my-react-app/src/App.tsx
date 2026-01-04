@@ -1,7 +1,9 @@
 import './App.css'
-import EscapeRoomOne from './rooms/EscapeRoomOne'
-import { Routes, Route, Link } from 'react-router-dom'
+import ChristmasRoom from './rooms/ChristmasRoom.tsx'
+import { Routes, Route, Link, Navigate, Outlet } from 'react-router-dom'
 import { LanguageSelector, useI18n } from './i18n'
+import UnlockRoom from './routes/UnlockRoom'
+import { isUnlocked } from './supabase'
 
 function Home() {
   const { t } = useI18n()
@@ -29,7 +31,7 @@ function Home() {
       </section>
 
       <section className="panel" style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
-        <Link to="/room1" aria-label={t('home.startRoom')}>
+        <Link to="/unlock/room1" aria-label={t('home.startRoom')}>
           {t('home.startRoom')}
         </Link>
       </section>
@@ -37,22 +39,35 @@ function Home() {
   )
 }
 
-function App() {
+function RequireUnlock({ room }: { room: string }) {
+  if (!isUnlocked(room)) {
+    return <Navigate to={`/unlock/${room}`} replace />
+  }
+  return <Outlet />
+}
+
+function Room1Page() {
   const { t } = useI18n()
+  return (
+    <>
+      <Link className="back" to="/" aria-label={t('back')} style={{ position: 'absolute', top: 16, left: 16 }}>
+        {t('back')}
+      </Link>
+      <ChristmasRoom />
+    </>
+  )
+}
+
+function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route
-        path="/room1"
-        element={
-          <>
-            <Link className="back" to="/" aria-label={t('back')} style={{ position: 'absolute', top: 16, left: 16 }}>
-              {t('back')}
-            </Link>
-            <EscapeRoomOne />
-          </>
-        }
-      />
+      <Route path="/unlock/:roomId" element={<UnlockRoom />} />
+
+      <Route element={<RequireUnlock room="room1" />}>
+        <Route path="room1" element={<Room1Page />} />
+      </Route>
+
       <Route path="*" element={<Home />} />
     </Routes>
   )
