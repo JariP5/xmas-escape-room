@@ -1,33 +1,36 @@
 import './App.css'
 import EscapeRoomOne from './rooms/EscapeRoomOne'
 import { Routes, Route, Link } from 'react-router-dom'
+import { LanguageSelector, useI18n } from './i18n'
 
 function Home() {
+  const { t } = useI18n()
   return (
     <div className="app">
       <div className="scanlines" aria-hidden />
+      <LanguageSelector />
       <header className="header">
-        <h1 className="glitch" data-text="ESCAPE ROOMS">ESCAPE ROOMS</h1>
+        <h1 className="glitch" data-text={t('app.title')}>{t('app.title')}</h1>
       </header>
 
       <section className="story">
         <div className="columns">
           <div className="left">
-            <p>Willkommen! Wähle einen Escape Room, um das Abenteuer zu starten.</p>
-            <p>Du kannst künftig aus mehreren Rätseln auswählen. Aktuell ist ein Raum verfügbar.</p>
+            <p>{t('home.welcome')}</p>
+            <p>{t('home.moreComing')}</p>
           </div>
           <div className="right">
             <div className="elf">
-              <p className="elf-name">Weihnachts-Archiv</p>
-              <p className="elf-desc">Der Weihnachtscomputer wurde kompromittiert. Starte die Wiederherstellung, bevor die Zeit abläuft.</p>
+              <p className="elf-name">{t('room1.card.title')}</p>
+              <p className="elf-desc">{t('room1.card.desc')}</p>
             </div>
           </div>
         </div>
       </section>
 
       <section className="panel" style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
-        <Link to="/room1" aria-label="Weihnachts-Archiv starten">
-          Weihnachts-Archiv starten
+        <Link to="/room1" aria-label={t('home.startRoom')}>
+          {t('home.startRoom')}
         </Link>
       </section>
     </div>
@@ -35,6 +38,7 @@ function Home() {
 }
 
 function App() {
+  const { t } = useI18n()
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -42,8 +46,8 @@ function App() {
         path="/room1"
         element={
           <>
-            <Link className="back" to="/" aria-label="Zurück zur Auswahl" style={{ position: 'absolute', top: 16, left: 16 }}>
-              ← Zurück
+            <Link className="back" to="/" aria-label={t('back')} style={{ position: 'absolute', top: 16, left: 16 }}>
+              {t('back')}
             </Link>
             <EscapeRoomOne />
           </>
