@@ -23,15 +23,15 @@ function Home() {
           </div>
           <div className="right">
             <div className="elf">
-              <p className="elf-name">{t('room1.card.title')}</p>
-              <p className="elf-desc">{t('room1.card.desc')}</p>
+              <p className="elf-name">{t('routes.christmasRoom.card.title')}</p>
+              <p className="elf-desc">{t('routes.christmasRoom.card.desc')}</p>
             </div>
           </div>
         </div>
       </section>
 
       <section className="panel" style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
-        <Link to="/unlock/room1" aria-label={t('home.startRoom')}>
+        <Link to="/unlock/christmas-room" aria-label={t('home.startRoom')}>
           {t('home.startRoom')}
         </Link>
       </section>
@@ -46,12 +46,12 @@ function RequireUnlock({ room }: { room: string }) {
   return <Outlet />
 }
 
-function Room1Page() {
+function ChristmasRoomPage() {
   const { t } = useI18n()
   return (
     <>
-      <Link className="back" to="/" aria-label={t('back')} style={{ position: 'absolute', top: 16, left: 16 }}>
-        {t('back')}
+      <Link className="back" to="/" aria-label={t('common.back')} style={{ position: 'absolute', top: 16, left: 16 }}>
+        {t('common.back')}
       </Link>
       <ChristmasRoom />
     </>
@@ -64,8 +64,8 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/unlock/:roomId" element={<UnlockRoom />} />
 
-      <Route element={<RequireUnlock room="room1" />}>
-        <Route path="room1" element={<Room1Page />} />
+      <Route element={<RequireUnlock room="christmas-room" />}>
+        <Route path="christmas-room" element={<ChristmasRoomPage />} />
       </Route>
 
       <Route path="*" element={<Home />} />

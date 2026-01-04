@@ -20,6 +20,16 @@ function detectLang(): Lang {
   return 'en'
 }
 
+function getNested(d: any, path: string): string | undefined {
+  const parts = path.split('.')
+  let cur: any = d
+  for (const p of parts) {
+    if (cur == null) return undefined
+    cur = cur[p]
+  }
+  return typeof cur === 'string' ? cur : undefined
+}
+
 export function TranslationProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectLang())
 
@@ -31,7 +41,7 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
 
   const t = useMemo(() => {
     const d = dicts[lang]
-    return (key: TKey) => d[key] ?? key
+    return (key: TKey) => getNested(d, key) ?? key
   }, [lang])
 
   const setLang = (l: Lang) => setLangState(l)

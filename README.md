@@ -30,7 +30,7 @@ A small, stylized escape-room web app. It supports multiple rooms, international
 │  │  ├─ i18n.tsx             # Translations provider + LanguageSelector
 │  │  ├─ translations.ts      # Language dictionaries
 │  │  ├─ rooms/
-│  │  │  └─ ChristmasRoom.tsx # Current room (room1)
+│  │  │  └─ ChristmasRoom.tsx # Current room (christmas-room)
 │  │  └─ routes/
 │  │     └─ UnlockRoom.tsx    # Enter/validate one-time access code
 │  ├─ package.json
@@ -79,13 +79,15 @@ npm run preview
 ## Routing
 - `/` — home/welcome + room cards
 - `/unlock/:roomId` — access code entry page
-- `/room1` — Christmas Archive (guarded by unlock state)
+- `/christmas-room` — Christmas Archive (guarded by unlock state)
 
-The route guard is implemented using nested routes in `App.tsx`. Users visiting `/room1` without an unlocked state are redirected to `/unlock/room1`.
+The route guard is implemented using nested routes in `App.tsx`. Users visiting `/christmas-room` without an unlocked state are redirected to `/unlock/christmas-room`.
 
 ## Internationalization (i18n)
 - Provider and hook live in `src/i18n.tsx` (TranslationProvider, useI18n)
 - Language dictionaries are in `src/translations.ts` (en, nl, fr, de)
+  - Structure is nested and grouped by routes/sections (e.g., `app`, `common`, `home`, `routes.unlock`, `routes.christmasRoom`)
+  - Use dot-path keys with `t('path.to.key')`
 - The flag-only circular LanguageSelector is shown in the top-right corner
 
 To add a new language:
@@ -133,7 +135,7 @@ This repo includes `firebase.json` configured for SPA rewrites. Steps:
    - Configure as a SPA (rewrite all to /index.html): Yes
 5) Deploy: `firebase deploy`
 
-Clean URLs (e.g. `/room1`) will work on refresh thanks to the rewrites.
+Clean URLs (e.g. `/christmas-room`) will work on refresh thanks to the rewrites.
 
 ## Adding a New Room (quick guide)
 1) Create a component under `src/rooms/YourRoom.tsx`

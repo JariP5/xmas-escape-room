@@ -83,53 +83,53 @@ function ChristmasRoom() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (solved || destroyed || !deadlineTs) return
-    const ok = normalize(input, locale) === normalize(t('password'), locale)
+    const ok = normalize(input, locale) === normalize(t('routes.christmasRoom.password'), locale)
     if (ok) {
       setSolved(true)
-      setFeedback(t('success.desc'))
+      setFeedback(t('routes.christmasRoom.success.desc'))
     } else {
-      setFeedback(t('error.badPass'))
+      setFeedback(t('routes.christmasRoom.error.badPass'))
     }
   }
 
-  const timerLabel = hasStarted && deadlineTs ? t('countdown.label') : t('countdown.waiting')
+  const timerLabel = hasStarted && deadlineTs ? t('routes.christmasRoom.countdown.label') : t('routes.christmasRoom.countdown.waiting')
 
   return (
     <div className={`app ${solved ? 'state-solved' : ''} ${destroyed ? 'state-destroyed' : ''}`}>
       <div className="scanlines" aria-hidden />
       <LanguageSelector />
       <header className="header">
-        <h1 className="glitch" data-text={t('room1.title')}>{t('room1.title')}</h1>
+        <h1 className="glitch" data-text={t('routes.christmasRoom.title')}>{t('routes.christmasRoom.title')}</h1>
       </header>
 
       <section className="story">
         <div className="columns">
           <div className="left">
-            <p>{t('story.1')}</p>
-            <p>{t('story.2')}</p>
-            <p>{t('story.3')}</p>
-            <p className="final-code">{t('story.4')}</p>
-            <p>{t('story.5')}</p>
-            <p>{t('story.6')}</p>
-            <p>{t('story.lists')}</p>
-            <p>{t('story.7')}</p>
+            <p>{t('routes.christmasRoom.story.1')}</p>
+            <p>{t('routes.christmasRoom.story.2')}</p>
+            <p>{t('routes.christmasRoom.story.3')}</p>
+            <p className="final-code">{t('routes.christmasRoom.story.4')}</p>
+            <p>{t('routes.christmasRoom.story.5')}</p>
+            <p>{t('routes.christmasRoom.story.6')}</p>
+            <p>{t('routes.christmasRoom.story.lists')}</p>
+            <p>{t('routes.christmasRoom.story.7')}</p>
           </div>
           <div className="right">
             <div className="elf">
-              <p className="elf-name">{t('elf1.name')}</p>
-              <p className="elf-desc">{t('elf1.desc')}</p>
+              <p className="elf-name">{t('routes.christmasRoom.elves.elf1.name')}</p>
+              <p className="elf-desc">{t('routes.christmasRoom.elves.elf1.desc')}</p>
             </div>
             <div className="elf">
-              <p className="elf-name">{t('elf2.name')}</p>
-              <p className="elf-desc">{t('elf2.desc')}</p>
+              <p className="elf-name">{t('routes.christmasRoom.elves.elf2.name')}</p>
+              <p className="elf-desc">{t('routes.christmasRoom.elves.elf2.desc')}</p>
             </div>
             <div className="elf">
-              <p className="elf-name">{t('elf3.name')}</p>
-              <p className="elf-desc">{t('elf3.desc')}</p>
+              <p className="elf-name">{t('routes.christmasRoom.elves.elf3.name')}</p>
+              <p className="elf-desc">{t('routes.christmasRoom.elves.elf3.desc')}</p>
             </div>
             <div className="elf">
-              <p className="elf-name">{t('elf4.name')}</p>
-              <p className="elf-desc">{t('elf4.desc')}</p>
+              <p className="elf-name">{t('routes.christmasRoom.elves.elf4.name')}</p>
+              <p className="elf-desc">{t('routes.christmasRoom.elves.elf4.desc')}</p>
             </div>
           </div>
         </div>
@@ -142,12 +142,12 @@ function ChristmasRoom() {
         </div>
 
         <form className="access" onSubmit={handleSubmit} autoComplete="off">
-          <label htmlFor="pw">{t('pass.label')}</label>
+          <label htmlFor="pw">{t('routes.christmasRoom.pass.label')}</label>
           <input
             id="pw"
             name="archive-key"
             type="password"
-            placeholder={t('pass.placeholder')}
+            placeholder={t('routes.christmasRoom.pass.placeholder')}
             value={input}
             onChange={(e) => { const v = e.target.value; setInput(v); if (feedback) setFeedback(null); }}
             disabled={solved || destroyed || !deadlineTs}
@@ -162,11 +162,11 @@ function ChristmasRoom() {
             data-bwignore="true"
             data-form-type="other"
           />
-          <button type="submit" disabled={solved || destroyed || !deadlineTs}>{t('pass.submit')}</button>
+          <button type="submit" disabled={solved || destroyed || !deadlineTs}>{t('routes.christmasRoom.pass.submit')}</button>
         </form>
 
         {(!deadlineTs && !destroyed && !solved) && (
-          <div className="feedback" role="status">{t('hint.lockToStart')}</div>
+          <div className="feedback" role="status">{t('routes.christmasRoom.hint.lockToStart')}</div>
         )}
 
         {feedback && !solved && !destroyed && deadlineTs && (
@@ -178,9 +178,9 @@ function ChristmasRoom() {
       {solved && (
         <div className="overlay overlay-success" role="dialog" aria-modal="true" aria-labelledby="success-title">
           <div className="overlay-content">
-            <h2 id="success-title">{t('success.title')}</h2>
-            <p>{t('success.desc')}</p>
-            <p className="sub">{t('success.sub')}</p>
+            <h2 id="success-title">{t('routes.christmasRoom.success.title')}</h2>
+            <p>{t('routes.christmasRoom.success.desc')}</p>
+            <p className="sub">{t('routes.christmasRoom.success.sub')}</p>
           </div>
         </div>
       )}
@@ -188,8 +188,8 @@ function ChristmasRoom() {
       {destroyed && !solved && (
         <div className="overlay overlay-timeout" role="alertdialog" aria-modal="true" aria-labelledby="timeout-title">
           <div className="overlay-content dramatic">
-            <h2 id="timeout-title">{t('timeout.title')}</h2>
-            <p>{t('timeout.desc')}</p>
+            <h2 id="timeout-title">{t('routes.christmasRoom.timeout.title')}</h2>
+            <p>{t('routes.christmasRoom.timeout.desc')}</p>
             <div className="shutdown-bar" aria-hidden />
           </div>
         </div>

@@ -13,10 +13,10 @@ Repository Summary
 Key Paths
 - my-react-app/src/main.tsx — App bootstrap (BrowserRouter + TranslationProvider)
 - my-react-app/src/App.tsx — Routes, home page, guard layout
-- my-react-app/src/rooms/ChristmasRoom.tsx — Current room implementation (room1)
+- my-react-app/src/rooms/ChristmasRoom.tsx — Current room implementation (christmas-room)
 - my-react-app/src/routes/UnlockRoom.tsx — Access code entry + unlock flow
 - my-react-app/src/i18n.tsx — i18n provider + LanguageSelector component
-- my-react-app/src/translations.ts — Translation dictionaries and types
+- my-react-app/src/translations.ts — Translation dictionaries (nested by routes/sections) and types
 - my-react-app/src/supabase.ts — Lightweight Supabase REST/RPC helper and local unlock state
 - firebase.json — SPA rewrites config for clean URLs
 - my-react-app/.env.example — Vite env placeholders for Supabase
@@ -44,12 +44,12 @@ Routing and Guards
 - App.tsx defines:
   - "/": Home
   - "/unlock/:roomId": Unlock page
-  - Guarded layout: <Route element={<RequireUnlock room="room1" />}>
-      <Route path="room1" element={<Room1Page />} />
+  - Guarded layout: <Route element={<RequireUnlock room="christmas-room" />}>
+      <Route path="christmas-room" element={<ChristmasRoomPage />} />
     </Route>
 Important:
 - The guarded child route must be relative (no leading slash) to be wrapped by the guard.
-- Visiting /room1 without being unlocked must redirect to /unlock/room1.
+- Visiting /christmas-room without being unlocked must redirect to /unlock/christmas-room.
 - Unlock state is checked via isUnlocked(room) which reads localStorage.
 
 i18n Notes
@@ -73,7 +73,7 @@ Build and Dev Commands
 Deployment (Firebase Hosting)
 - Public directory: my-react-app/dist
 - SPA rewrite: all routes -> /index.html (see firebase.json)
-- Clean URLs like /room1 should work on refresh
+- Clean URLs like /christmas-room should work on refresh
 
 Common Task Recipes
 1) Add a new room "room2"
@@ -114,7 +114,7 @@ Quality and Safety Checklist
 - Accessibility: maintain labels (aria-labels, roles) in UI components (e.g., LanguageSelector)
 
 Debugging Tips
-- If /room1 appears unlocked unexpectedly, clear localStorage (room.room1.unlocked) and retry
+- If /christmas-room appears unlocked unexpectedly, clear localStorage (room.christmas-room.unlocked) and retry
 - Add temporary console logs to RequireUnlock and UnlockRoom only when necessary; remove before commit
 - Network/CORS issues often manifest as 'network' result from claimAccessCode
 
