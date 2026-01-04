@@ -1,21 +1,8 @@
-import { useState } from 'react'
 import './App.css'
 import EscapeRoomOne from './rooms/EscapeRoomOne'
+import { Routes, Route, Link } from 'react-router-dom'
 
-function App() {
-  const [selectedRoom, setSelectedRoom] = useState<string | null>(null)
-
-  if (selectedRoom === 'room1') {
-    return (
-      <div className="app">
-        <button className="back" onClick={() => setSelectedRoom(null)} aria-label="Zurück zur Auswahl" style={{ position: 'absolute', top: 16, left: 16 }}>
-          ← Zurück
-        </button>
-        <EscapeRoomOne />
-      </div>
-    )
-  }
-
+function Home() {
   return (
     <div className="app">
       <div className="scanlines" aria-hidden />
@@ -39,11 +26,31 @@ function App() {
       </section>
 
       <section className="panel" style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
-        <button onClick={() => setSelectedRoom('room1')} aria-label="Weihnachts-Archiv starten">
+        <Link to="/room1" aria-label="Weihnachts-Archiv starten">
           Weihnachts-Archiv starten
-        </button>
+        </Link>
       </section>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route
+        path="/room1"
+        element={
+          <>
+            <Link className="back" to="/" aria-label="Zurück zur Auswahl" style={{ position: 'absolute', top: 16, left: 16 }}>
+              ← Zurück
+            </Link>
+            <EscapeRoomOne />
+          </>
+        }
+      />
+      <Route path="*" element={<Home />} />
+    </Routes>
   )
 }
 
