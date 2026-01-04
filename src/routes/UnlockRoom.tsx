@@ -52,7 +52,7 @@ export default function UnlockRoom() {
         <h1 className="glitch" data-text={t('app.title')}>{t('app.title')}</h1>
       </header>
 
-      <section className="story" style={{ maxWidth: 800, margin: '0 auto', paddingBottom: '2rem' }}>
+      <section className="story" style={{ paddingBottom: '2rem' }}>
         <h2 style={{ textAlign: 'center', margin: '1rem 0 0.5rem' }}>{t('routes.unlock.title')}</h2>
         <p style={{ textAlign: 'center', marginBottom: '1rem' }}>{t('routes.unlock.desc')}</p>
 
