@@ -14,6 +14,7 @@ Key Paths
 - src/main.tsx — App bootstrap (BrowserRouter + TranslationProvider)
 - src/App.tsx — Routes, home page, guard layout
 - src/rooms/ChristmasRoom.tsx — Current room implementation (christmas-room)
+- src/rooms/registry.ts — Central room registry (ids, components) + per-room locking resolution
 - src/routes/UnlockRoom.tsx — Access code entry + unlock flow
 - src/i18n.tsx — i18n provider + LanguageSelector component
 - src/translations.ts — Translation dictionaries (nested by routes/sections) and types

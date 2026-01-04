@@ -29,7 +29,8 @@ A small, stylized escape-room web app. It supports multiple rooms, international
 │  ├─ i18n.tsx         # Translations provider + LanguageSelector
 │  ├─ translations.ts  # Language dictionaries
 │  ├─ rooms/
-│  │  └─ ChristmasRoom.tsx
+│  │  ├─ ChristmasRoom.tsx
+│  │  └─ registry.ts      # Central list of rooms, per-room locking flags
 │  └─ routes/
 │     └─ UnlockRoom.tsx
 ├─ index.html
@@ -138,11 +139,18 @@ This repo includes `firebase.json` configured for SPA rewrites. Steps:
 Clean URLs (e.g. `/christmas-room`) will work on refresh thanks to the rewrites.
 
 ## Adding a New Room (quick guide)
-1) Create a component under `src/rooms/YourRoom.tsx`
-2) Add a card/link to Home in `App.tsx` pointing to `/unlock/yourRoom`
-3) Add an unlock route: `<Route path="/unlock/yourRoom" element={<UnlockRoom />}/>`
-4) Guard the room with `<Route element={<RequireUnlock room="yourRoom" />}><Route path="yourRoom" element={<YourRoom/>} /></Route>` (child path is relative — no leading slash)
-5) Add translations (title, card text, etc.) in `translations.ts`
+1) Create your component under `src/rooms/YourRoom.tsx` (default export the component)
+2) Register it in `src/rooms/registry.ts`:
+   - Add `{ id: 'your-room', baseKey: 'yourRoom', Component: YourRoom }` to the `rooms` array
+   - `id` is the URL slug; `baseKey` is the i18n section under `routes.*`
+3) Add translations for that room in `translations.ts` under `routes.yourRoom`:
+   - Provide `card.title`, `card.desc`, plus any other keys your page uses
+4) Locking behavior (optional): set an env flag
+   - Global default: `VITE_LOCK_DEFAULT=true|false`
+   - Per-room: `VITE_LOCK_YOUR_ROOM=true|false` (slug upper-snake). The legacy `VITE_LOCK_CHRISTMAS_ROOM` still works for the Christmas room.
+5) Routes and Home card are automatic
+   - Home will show a card for every entry in `rooms`
+   - Routes `/unlock/your-room` and `/your-room` are wired automatically; the room is guarded if locked
 
 ## Contributing
 - Keep the unlock guard intact; never auto-unlock rooms in production
