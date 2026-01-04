@@ -111,8 +111,8 @@ function ChristmasRoom() {
             <p className="final-code">{t('routes.christmasRoom.story.4')}</p>
             <p>{t('routes.christmasRoom.story.5')}</p>
             <p>{t('routes.christmasRoom.story.6')}</p>
-            <p>{t('routes.christmasRoom.story.lists')}</p>
             <p>{t('routes.christmasRoom.story.7')}</p>
+            <p>{t('routes.christmasRoom.story.8')}</p>
           </div>
           <div className="right">
             <div className="elf">
