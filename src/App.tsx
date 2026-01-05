@@ -1,12 +1,21 @@
 import './App.css'
-import { Routes, Route, Link, Navigate, Outlet } from 'react-router-dom'
+import { Routes, Route, Link, Navigate, Outlet, useLocation } from 'react-router-dom'
 import { LanguageSelector, useI18n } from './i18n'
 import UnlockRoom from './routes/UnlockRoom'
 import AboutRoom from './routes/AboutRoom'
 import Shop from './routes/Shop'
 import { isUnlocked } from './supabase'
 import { rooms, lockForRoom } from './rooms/registry'
-import React from 'react'
+import React, { useEffect } from 'react'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    // Always reset scroll to top on route change
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
 
 function Home() {
   const { t } = useI18n()
@@ -57,26 +66,29 @@ function RoomPage({ Comp }: { Comp: React.ComponentType }) {
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about/:roomId" element={<AboutRoom />} />
-      <Route path="/unlock/:roomId" element={<UnlockRoom />} />
-      <Route path="/shop" element={<Shop />} />
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about/:roomId" element={<AboutRoom />} />
+        <Route path="/unlock/:roomId" element={<UnlockRoom />} />
+        <Route path="/shop" element={<Shop />} />
 
-      {rooms.map(r => {
-        const element = <RoomPage Comp={r.Component} />
-        const locked = lockForRoom(r.id)
-        return locked ? (
-          <Route key={r.id} element={<RequireUnlock room={r.id} />}>
-            <Route path={r.id} element={element} />
-          </Route>
-        ) : (
-          <Route key={r.id} path={r.id} element={element} />
-        )
-      })}
+        {rooms.map(r => {
+          const element = <RoomPage Comp={r.Component} />
+          const locked = lockForRoom(r.id)
+          return locked ? (
+            <Route key={r.id} element={<RequireUnlock room={r.id} />}>
+              <Route path={r.id} element={element} />
+            </Route>
+          ) : (
+            <Route key={r.id} path={r.id} element={element} />
+          )
+        })}
 
-      <Route path="*" element={<Home />} />
-    </Routes>
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </>
   )
 }
 
