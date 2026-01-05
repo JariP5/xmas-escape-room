@@ -21,7 +21,7 @@ export const rooms: RoomDef[] = [
     Component: ChristmasRoom,
     boardGameImage: '/assets/boardgame-placeholder.svg',
     heroImage: '/assets/room-hero-placeholder.svg',
-    thumbnailImage: '/assets/room-hero-placeholder.svg',
+    thumbnailImage: '/assets/christmas-room/thumbnail.png',
     difficulty: '3/5',
     players: '2–6',
   },
