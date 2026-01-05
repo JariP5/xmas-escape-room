@@ -26,6 +26,10 @@ export const dicts: Record<Lang, Dict> = {
                 title: 'Buy board games',
                 comingSoon: 'In-app shop is coming soon. Please check back later.'
             },
+            homeList: {
+                difficulty: 'Difficulty',
+                players: 'Players'
+            },
             unlock: {
                 title: 'Enter access code',
                 desc: 'To start this room, enter the one-time access code you purchased.',
@@ -106,6 +110,10 @@ export const dicts: Record<Lang, Dict> = {
                 title: 'Brettspiele kaufen',
                 comingSoon: 'In-App-Shop kommt bald. Bitte später erneut vorbeischauen.'
             },
+            homeList: {
+                difficulty: 'Schwierigkeit',
+                players: 'Spieler'
+            },
             unlock: {
                 title: 'Zugangscode eingeben',
                 desc: 'Um diesen Raum zu starten, gib den einmaligen Zugangscode ein, den du gekauft hast.',
@@ -183,6 +191,10 @@ export const dicts: Record<Lang, Dict> = {
                 title: 'Bordspellen kopen',
                 comingSoon: 'In-app winkel komt binnenkort. Kom later terug.'
             },
+            homeList: {
+                difficulty: 'Moeilijkheid',
+                players: 'Spelers'
+            },
             unlock: {
                 title: 'Voer toegangscode in',
                 desc: 'Om deze kamer te starten, voer de eenmalige toegangscode in die je hebt gekocht.',
@@ -259,6 +271,10 @@ export const dicts: Record<Lang, Dict> = {
             shop: {
                 title: 'Acheter des jeux de société',
                 comingSoon: "La boutique intégrée arrive bientôt. Revenez plus tard."
+            },
+            homeList: {
+                difficulty: 'Difficulté',
+                players: 'Joueurs'
             },
             unlock: {
                 title: 'Saisir le code d\'accès',

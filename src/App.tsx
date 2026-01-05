@@ -37,10 +37,35 @@ function Home() {
       }}>
         {rooms.map(r => {
           const target = `/about/${r.id}`
+          const title = t(`routes.${r.baseKey}.card.title`)
+          const desc = t(`routes.${r.baseKey}.card.desc`)
+          const thumb = r.thumbnailImage || r.heroImage || '/assets/room-hero-placeholder.svg'
           return (
-            <Link key={r.id} to={target} className="elf" style={{ textDecoration: 'none' }}>
-              <p className="elf-name">{t(`routes.${r.baseKey}.card.title`)}</p>
-              <p className="elf-desc">{t(`routes.${r.baseKey}.card.desc`)}</p>
+            <Link
+              key={r.id}
+              to={target}
+              className="elf"
+              style={{
+                textDecoration: 'none',
+                display: 'grid',
+                gridTemplateColumns: '80px 1fr auto',
+                alignItems: 'center',
+                gap: 12,
+                padding: '12px',
+                borderRadius: 10,
+                border: '1px solid rgba(255,255,255,0.08)',
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))'
+              }}
+            >
+              <img src={thumb} alt={title} style={{ width: 72, height: 72, objectFit: 'cover', borderRadius: 8, border: '1px solid rgba(255,255,255,0.08)' }} />
+              <div>
+                <p className="elf-name" style={{ margin: 0 }}>{title}</p>
+                <p className="elf-desc" style={{ margin: '4px 0 0' }}>{desc}</p>
+              </div>
+              <div style={{ textAlign: 'right', whiteSpace: 'nowrap', color: 'var(--muted)', fontSize: '.95rem' }}>
+                <div><strong>{t('routes.homeList.difficulty')}:</strong> {r.difficulty || '—'}</div>
+                <div><strong>{t('routes.homeList.players')}:</strong> {r.players || '—'}</div>
+              </div>
             </Link>
           )
         })}

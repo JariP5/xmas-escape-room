@@ -7,11 +7,23 @@ export type RoomDef = {
   Component: ComponentType
   boardGameImage?: string // public path to an image of the required board game (optional)
   heroImage?: string // public path to a hero image representing the room theme (optional)
+  thumbnailImage?: string // small image for list view (optional)
+  difficulty?: string // e.g., "3/5" or localized string (optional)
+  players?: string // e.g., "2–6" (optional)
 }
 
 // Central registry of available rooms. Add new rooms here.
 export const rooms: RoomDef[] = [
-  { id: 'christmas-room', baseKey: 'christmasRoom', Component: ChristmasRoom, boardGameImage: '/assets/boardgame-placeholder.svg' },
+  {
+    id: 'christmas-room',
+    baseKey: 'christmasRoom',
+    Component: ChristmasRoom,
+    boardGameImage: '/assets/boardgame-placeholder.svg',
+    heroImage: '/assets/room-hero-placeholder.svg',
+    thumbnailImage: '/assets/room-hero-placeholder.svg',
+    difficulty: '3/5',
+    players: '2–6',
+  },
 ]
 
 export function getRoom(id: string | undefined): RoomDef | undefined {
