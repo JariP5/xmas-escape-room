@@ -7,6 +7,7 @@ import Shop from './routes/Shop'
 import { isUnlocked } from './supabase'
 import { rooms, areRoomsLocked } from './rooms/registry'
 import React, { useEffect } from 'react'
+import DifficultyMeter from './components/DifficultyMeter'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -48,7 +49,7 @@ function Home() {
               style={{
                 textDecoration: 'none',
                 display: 'grid',
-                gridTemplateColumns: '150px 1fr auto',
+                gridTemplateColumns: '150px 1fr',
                 alignItems: 'center',
                 gap: 12,
                 padding: '12px',
@@ -61,10 +62,14 @@ function Home() {
               <div>
                 <p className="elf-name" style={{ margin: 0 }}>{title}</p>
                 <p className="elf-desc" style={{ margin: '4px 0 0' }}>{desc}</p>
-              </div>
-              <div style={{ textAlign: 'right', whiteSpace: 'nowrap', color: 'var(--muted)', fontSize: '.95rem' }}>
-                <div><strong>{t('routes.homeList.difficulty')}:</strong> {r.difficulty || '—'}</div>
-                <div><strong>{t('routes.homeList.players')}:</strong> {r.minPlayers} - {r.maxPlayers}</div>
+                <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', color: 'var(--muted)', fontSize: '.95rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <strong>{t('routes.homeList.difficulty')}:</strong>
+                    <DifficultyMeter value={r.difficulty} title={t('routes.homeList.difficulty')} />
+                    <span aria-hidden style={{ fontVariantNumeric: 'tabular-nums' }}>{r.difficulty ?? '—'}/10</span>
+                  </div>
+                  <div><strong>{t('routes.homeList.players')}:</strong> {r.minPlayers} - {r.maxPlayers}</div>
+                </div>
               </div>
             </Link>
           )

@@ -22,7 +22,7 @@ export const rooms: RoomDef[] = [
     boardGameImage: '/assets/christmas-room/thumbnail.png',
     thumbnailImage: '/assets/christmas-room/thumbnail.png',
     difficulty: 6, // out of 10
-    minPlayers: 2,
+    minPlayers: 3,
     maxPlayers: 6,
   },
   {
@@ -31,8 +31,8 @@ export const rooms: RoomDef[] = [
     Component: DataLeakRoom,
     boardGameImage: '/assets/boardgame-placeholder.svg',
     thumbnailImage: '/assets/room-thumbnail-placeholder.svg',
-    difficulty: 8, // out of 10
-    minPlayers: 2,
+    difficulty: 9, // out of 10
+    minPlayers: 3,
     maxPlayers: 8,
   },
 ]
