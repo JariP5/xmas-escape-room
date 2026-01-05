@@ -48,12 +48,8 @@ function RequireUnlock({ room }: { room: string }) {
 }
 
 function RoomPage({ Comp }: { Comp: React.ComponentType }) {
-  const { t } = useI18n()
   return (
     <>
-      <Link className="back" to="/" aria-label={t('common.back')} style={{ position: 'absolute', top: 16, left: 16 }}>
-        {t('common.back')}
-      </Link>
       <Comp />
     </>
   )

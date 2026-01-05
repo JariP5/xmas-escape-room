@@ -81,9 +81,6 @@ export default function UnlockRoom() {
           </p>
         </form>
 
-        <div style={{ textAlign: 'center', marginTop: 16 }}>
-          <Link to="/">{t('common.back')}</Link>
-        </div>
       </section>
     </div>
   )

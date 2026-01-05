@@ -15,12 +15,6 @@ export type Dict = Record<string, any>
 export const dicts: Record<Lang, Dict> = {
     en: {
         app: {title: 'North Pole Escape'},
-        common: {back: '← Back'},
-        home: {
-            welcome: 'Welcome! Choose an escape room to begin your adventure.',
-            moreComing: 'More rooms will be available soon. One room is available now.',
-            startRoom: 'Start Christmas Archive',
-        },
         routes: {
             about: {
                 heroAlt: 'Room theme image',
@@ -101,12 +95,6 @@ export const dicts: Record<Lang, Dict> = {
     },
     de: {
         app: {title: 'North Pole Escape'},
-        common: {back: '← Zurück'},
-        home: {
-            welcome: 'Willkommen! Wähle einen Escape Room, um das Abenteuer zu starten.',
-            moreComing: 'Du kannst künftig aus mehreren Rätseln auswählen. Aktuell ist ein Raum verfügbar.',
-            startRoom: 'Weihnachts-Archiv starten',
-        },
         routes: {
             about: {
                 heroAlt: 'Themenbild des Raums',
@@ -184,12 +172,6 @@ export const dicts: Record<Lang, Dict> = {
     },
     nl: {
         app: {title: 'North Pole Escape'},
-        common: {back: '← Terug'},
-        home: {
-            welcome: 'Welkom! Kies een escaperoom om je avontuur te beginnen.',
-            moreComing: 'Binnenkort komen er meer kamers. Er is nu één kamer beschikbaar.',
-            startRoom: 'Kerstarchief starten',
-        },
         routes: {
             about: {
                 heroAlt: 'Afbeelding van het thema van de kamer',
@@ -267,12 +249,6 @@ export const dicts: Record<Lang, Dict> = {
     },
     fr: {
         app: {title: 'North Pole Escape'},
-        common: {back: '← Retour'},
-        home: {
-            welcome: 'Bienvenue ! Choisissez une salle pour commencer l\'aventure.',
-            moreComing: 'D\'autres salles arriveront bientôt. Une salle est disponible pour le moment.',
-            startRoom: 'Lancer l\'Archive de Noël',
-        },
         routes: {
             about: {
                 heroAlt: 'Image thématique de la salle',

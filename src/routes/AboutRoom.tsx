@@ -40,9 +40,6 @@ export default function AboutRoom() {
       </div>
 
       <section className="panel" style={{ maxWidth: 920, margin: '0 auto' }}>
-        <Link className="back" to="/" aria-label={t('common.back')} style={{ position: 'absolute', top: 16, left: 16 }}>
-          {t('common.back')}
-        </Link>
 
         {/* Title and description */}
         <h2 style={{ textAlign: 'center', marginTop: 12 }}>{title}</h2>
