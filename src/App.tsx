@@ -64,7 +64,7 @@ function Home() {
               </div>
               <div style={{ textAlign: 'right', whiteSpace: 'nowrap', color: 'var(--muted)', fontSize: '.95rem' }}>
                 <div><strong>{t('routes.homeList.difficulty')}:</strong> {r.difficulty || '—'}</div>
-                <div><strong>{t('routes.homeList.players')}:</strong> {r.players || '—'}</div>
+                <div><strong>{t('routes.homeList.players')}:</strong> {r.minPlayers} - {r.maxPlayers}</div>
               </div>
             </Link>
           )
