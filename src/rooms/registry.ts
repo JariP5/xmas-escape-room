@@ -1,4 +1,5 @@
 import ChristmasRoom from './ChristmasRoom'
+import DataLeakRoom from './DataLeakRoom'
 import type { ComponentType } from 'react'
 
 export type RoomDef = {
@@ -23,6 +24,16 @@ export const rooms: RoomDef[] = [
     thumbnailImage: '/assets/room-hero-placeholder.svg',
     difficulty: '3/5',
     players: '2–6',
+  },
+  {
+    id: 'data-leak',
+    baseKey: 'dataLeakRoom',
+    Component: DataLeakRoom,
+    boardGameImage: '/assets/boardgame-placeholder.svg',
+    heroImage: '/assets/room-hero-placeholder.svg',
+    thumbnailImage: '/assets/room-hero-placeholder.svg',
+    difficulty: '4/5',
+    players: '2–8',
   },
 ]
 

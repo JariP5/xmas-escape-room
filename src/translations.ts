@@ -95,6 +95,14 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 password: 'Together we are one',
             },
+            dataLeakRoom: {
+                title: 'DATA LEAK RESPONSE',
+                card: {
+                    title: 'Data Leak',
+                    desc: 'Sensitive data is leaking from headquarters. Trace the breach and seal it in time.'
+                },
+                intro: 'Find the traces of a breach and seal the leak before the clock runs out.'
+            },
         },
     },
     de: {
@@ -175,6 +183,14 @@ export const dicts: Record<Lang, Dict> = {
                     },
                 },
                 password: 'Gemeinsam sind wir eins',
+            },
+            dataLeakRoom: {
+                title: 'DATENLECK-EINSATZ',
+                card: {
+                    title: 'Datenleck',
+                    desc: 'Sensible Daten treten aus der Zentrale aus. Verfolge den Angriff und dichte die Lücke rechtzeitig.'
+                },
+                intro: 'Finde die Spuren des Angriffs und schließe das Leck, bevor die Zeit abläuft.'
             },
         },
     },
@@ -257,6 +273,14 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 password: 'Samen zijn we één',
             },
+            dataLeakRoom: {
+                title: 'DATALEK-RESPONS',
+                card: {
+                    title: 'Datalek',
+                    desc: 'Er lekt gevoelige data uit het hoofdkwartier. Volg het spoor en dicht het lek op tijd.'
+                },
+                intro: 'Vind de sporen van een inbraak en dicht het lek voordat de tijd om is.'
+            },
         },
     },
     fr: {
@@ -338,6 +362,14 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 password: 'Ensemble, nous ne faisons qu\'un',
             },
+            dataLeakRoom: {
+                title: 'RÉPONSE AU FUITES DE DONNÉES',
+                card: {
+                    title: 'Fuite de données',
+                    desc: 'Des données sensibles fuient du siège. Remontez la piste et colmatez la brèche à temps.'
+                },
+                intro: 'Trouvez les traces d\'une intrusion et colmatez la fuite avant la fin du temps.'
+            }
         },
     },
 }
