@@ -19,7 +19,7 @@ export const rooms: RoomDef[] = [
     id: 'christmas-room',
     baseKey: 'christmasRoom',
     Component: ChristmasRoom,
-    boardGameImage: '/assets/boardgame-placeholder.svg',
+    boardGameImage: '/assets/christmas-room/thumbnail.png',
     thumbnailImage: '/assets/christmas-room/thumbnail.png',
     difficulty: 6, // out of 10
     minPlayers: 2,
