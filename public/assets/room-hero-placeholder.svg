@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#102b46"/>
+    </linearGradient>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.06"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <g opacity="0.25" filter="url(#noise)">
+    <rect width="100%" height="100%" fill="#fff"/>
+  </g>
+  <g fill="none" stroke="#7fd4ff" stroke-opacity="0.25">
+    <path d="M0,520 C300,480 500,560 800,520 C1100,480 1300,560 1600,520"/>
+    <path d="M0,560 C300,520 500,600 800,560 C1100,520 1300,600 1600,560"/>
+    <path d="M0,580 C300,540 500,620 800,580 C1100,540 1300,620 1600,580"/>
+  </g>
+  <g>
+    <text x="50%" y="48%" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial" font-size="56" fill="#e6f6ff" opacity="0.9">Room Theme</text>
+    <text x="50%" y="58%" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial" font-size="18" fill="#c7eaff" opacity="0.8">Add a custom hero image via room.heroImage</text>
+  </g>
+</svg>

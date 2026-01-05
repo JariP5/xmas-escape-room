@@ -18,8 +18,8 @@ export default function AboutRoom() {
   const title = t(`routes.${room.baseKey}.card.title`)
   const desc = t(`routes.${room.baseKey}.card.desc`)
 
-  // Optional board game image path; default placeholder
-  // Public assets can be referenced by absolute path
+  // Images with sensible defaults from public assets
+  const heroImg = room.heroImage || '/assets/room-hero-placeholder.svg'
   const boardGameImg = room.boardGameImage || '/assets/boardgame-placeholder.svg'
 
   return (
@@ -27,17 +27,28 @@ export default function AboutRoom() {
       <div className="scanlines" aria-hidden />
       <LanguageSelector />
       <header className="header">
-        <h1 className="glitch" data-text={t('app.title')}>{t('app.title')}</h1>
+        <h1 className="glitch" data-text={title}>{title}</h1>
       </header>
+
+      {/* Full-bleed hero image */}
+      <div style={{ width: '100%', margin: 0 }}>
+        <img
+          src={heroImg}
+          alt={t('routes.about.heroAlt')}
+          style={{ display: 'block', width: '100%', height: 'auto' }}
+        />
+      </div>
 
       <section className="panel" style={{ maxWidth: 920, margin: '0 auto' }}>
         <Link className="back" to="/" aria-label={t('common.back')} style={{ position: 'absolute', top: 16, left: 16 }}>
           {t('common.back')}
         </Link>
 
-        <h2 style={{ textAlign: 'center', marginTop: 8 }}>{title}</h2>
+        {/* Title and description */}
+        <h2 style={{ textAlign: 'center', marginTop: 12 }}>{title}</h2>
         <p style={{ textAlign: 'center', color: 'var(--muted)' }}>{desc}</p>
 
+        {/* Board game illustration with actions */}
         <div style={{ display: 'grid', gap: 16, justifyItems: 'center', marginTop: 16 }}>
           <img src={boardGameImg} alt={t('routes.about.boardGameAlt')}
                style={{ maxWidth: '100%', width: 480, borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)' }} />

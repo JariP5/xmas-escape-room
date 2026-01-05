@@ -1,10 +1,12 @@
 import ChristmasRoom from './ChristmasRoom'
+import type { ComponentType } from 'react'
 
 export type RoomDef = {
   id: string // url slug, e.g., "christmas-room"
   baseKey: string // i18n base key path under routes.*, e.g., 'christmasRoom'
-  Component: React.ComponentType
+  Component: ComponentType
   boardGameImage?: string // public path to an image of the required board game (optional)
+  heroImage?: string // public path to a hero image representing the room theme (optional)
 }
 
 // Central registry of available rooms. Add new rooms here.
