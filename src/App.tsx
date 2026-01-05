@@ -39,7 +39,7 @@ function Home() {
           const target = `/about/${r.id}`
           const title = t(`routes.${r.baseKey}.card.title`)
           const desc = t(`routes.${r.baseKey}.card.desc`)
-          const thumb = r.thumbnailImage || r.heroImage || '/assets/room-hero-placeholder.svg'
+          const thumb = r.thumbnailImage || '/assets/room-thumbnail-placeholder.svg'
           return (
             <Link
               key={r.id}

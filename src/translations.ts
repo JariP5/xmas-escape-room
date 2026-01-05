@@ -17,7 +17,6 @@ export const dicts: Record<Lang, Dict> = {
         app: {title: 'North Pole Escape'},
         routes: {
             about: {
-                heroAlt: 'Room theme image',
                 boardGameAlt: 'Required board game',
                 haveGame: "I already have this — Let's play",
                 needToBuy: 'I need to buy it',
@@ -109,7 +108,6 @@ export const dicts: Record<Lang, Dict> = {
         app: {title: 'North Pole Escape'},
         routes: {
             about: {
-                heroAlt: 'Themenbild des Raums',
                 boardGameAlt: 'Erforderliches Brettspiel',
                 haveGame: 'Ich habe es bereits — Los geht\'s',
                 needToBuy: 'Ich muss es kaufen',
@@ -198,7 +196,6 @@ export const dicts: Record<Lang, Dict> = {
         app: {title: 'North Pole Escape'},
         routes: {
             about: {
-                heroAlt: 'Afbeelding van het thema van de kamer',
                 boardGameAlt: 'Vereist bordspel',
                 haveGame: 'Ik heb dit al — Laten we spelen',
                 needToBuy: 'Ik moet het kopen',
@@ -287,7 +284,6 @@ export const dicts: Record<Lang, Dict> = {
         app: {title: 'North Pole Escape'},
         routes: {
             about: {
-                heroAlt: 'Image thématique de la salle',
                 boardGameAlt: 'Jeu de société requis',
                 haveGame: "Je l'ai déjà — Jouons",
                 needToBuy: "Je dois l'acheter",

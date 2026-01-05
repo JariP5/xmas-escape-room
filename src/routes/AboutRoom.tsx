@@ -19,7 +19,6 @@ export default function AboutRoom() {
   const desc = t(`routes.${room.baseKey}.card.desc`)
 
   // Images with sensible defaults from public assets
-  const heroImg = room.heroImage || '/assets/room-hero-placeholder.svg'
   const boardGameImg = room.boardGameImage || '/assets/boardgame-placeholder.svg'
 
   return (
@@ -29,15 +28,6 @@ export default function AboutRoom() {
       <header className="header">
         <h1 className="glitch" data-text={title}>{title}</h1>
       </header>
-
-      {/* Full-bleed hero image */}
-      <div style={{ width: '100%', margin: 0 }}>
-        <img
-          src={heroImg}
-          alt={t('routes.about.heroAlt')}
-          style={{ display: 'block', width: '100%', height: 'auto' }}
-        />
-      </div>
 
       <section className="panel" style={{ maxWidth: 920, margin: '0 auto' }}>
 

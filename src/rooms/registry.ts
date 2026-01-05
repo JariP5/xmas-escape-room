@@ -7,10 +7,10 @@ export type RoomDef = {
   baseKey: string // i18n base key path under routes.*, e.g., 'christmasRoom'
   Component: ComponentType
   boardGameImage?: string // public path to an image of the required board game (optional)
-  heroImage?: string // public path to a hero image representing the room theme (optional)
   thumbnailImage?: string // small image for list view (optional)
-  difficulty?: string // e.g., "3/5" or localized string (optional)
-  players?: string // e.g., "2–6" (optional)
+  difficulty?: number // integer 0–10 (visualized as /10)
+  minPlayers?: number
+  maxPlayers?: number
 }
 
 // Central registry of available rooms. Add new rooms here.
@@ -20,20 +20,20 @@ export const rooms: RoomDef[] = [
     baseKey: 'christmasRoom',
     Component: ChristmasRoom,
     boardGameImage: '/assets/boardgame-placeholder.svg',
-    heroImage: '/assets/room-hero-placeholder.svg',
     thumbnailImage: '/assets/christmas-room/thumbnail.png',
-    difficulty: '3/5',
-    players: '2–6',
+    difficulty: 6, // out of 10
+    minPlayers: 2,
+    maxPlayers: 6,
   },
   {
     id: 'data-leak',
     baseKey: 'dataLeakRoom',
     Component: DataLeakRoom,
     boardGameImage: '/assets/boardgame-placeholder.svg',
-    heroImage: '/assets/room-hero-placeholder.svg',
-    thumbnailImage: '/assets/room-hero-placeholder.svg',
-    difficulty: '4/5',
-    players: '2–8',
+    thumbnailImage: '/assets/room-thumbnail-placeholder.svg',
+    difficulty: 8, // out of 10
+    minPlayers: 2,
+    maxPlayers: 8,
   },
 ]
 
