@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function DifficultyMeter({ value, max = 10, size = 'sm', title }: {
   value?: number
   max?: number

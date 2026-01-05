@@ -80,7 +80,7 @@ function Home() {
 }
 
 function RequireUnlock({ room }: { room: string }) {
-  if (!isUnlocked(room)) {
+  if (!isUnlocked(room) && areRoomsLocked()) {
     return <Navigate to={`/unlock/${room}`} replace />
   }
   return <Outlet />

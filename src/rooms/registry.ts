@@ -1,5 +1,5 @@
 import ChristmasRoom from './ChristmasRoom'
-import DataLeakRoom from './DataLeakRoom'
+import PatientDataLeakRoom from './PatientDataLeakRoom.tsx'
 import type { ComponentType } from 'react'
 
 export type RoomDef = {
@@ -26,11 +26,11 @@ export const rooms: RoomDef[] = [
     maxPlayers: 6,
   },
   {
-    id: 'data-leak',
-    baseKey: 'dataLeakRoom',
-    Component: DataLeakRoom,
-    boardGameImage: '/assets/boardgame-placeholder.svg',
-    thumbnailImage: '/assets/room-thumbnail-placeholder.svg',
+    id: 'patient-data-leak-room',
+    baseKey: 'patientDataLeakRoom',
+    Component: PatientDataLeakRoom,
+    boardGameImage: '/assets/patient-data-leak-room/thumbnail.png',
+    thumbnailImage: '/assets/patient-data-leak-room/thumbnail.png',
     difficulty: 9, // out of 10
     minPlayers: 3,
     maxPlayers: 8,

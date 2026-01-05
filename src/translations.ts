@@ -94,7 +94,7 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 password: 'Together we are one',
             },
-            dataLeakRoom: {
+            patientDataLeakRoom: {
                 title: 'DATA LEAK RESPONSE',
                 card: {
                     title: 'Data Leak',
@@ -182,7 +182,7 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 password: 'Gemeinsam sind wir eins',
             },
-            dataLeakRoom: {
+            patientDataLeakRoom: {
                 title: 'DATENLECK-EINSATZ',
                 card: {
                     title: 'Datenleck',
@@ -270,7 +270,7 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 password: 'Samen zijn we één',
             },
-            dataLeakRoom: {
+            patientDataLeakRoom: {
                 title: 'DATALEK-RESPONS',
                 card: {
                     title: 'Datalek',
@@ -358,7 +358,7 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 password: 'Ensemble, nous ne faisons qu\'un',
             },
-            dataLeakRoom: {
+            patientDataLeakRoom: {
                 title: 'RÉPONSE AU FUITES DE DONNÉES',
                 card: {
                     title: 'Fuite de données',
