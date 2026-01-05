@@ -147,7 +147,6 @@ Clean URLs (e.g. `/christmas-room`) will work on refresh thanks to the rewrites.
    - Provide `card.title`, `card.desc`, plus any other keys your page uses
 4) Locking behavior (optional): set an env flag
    - Global default: `VITE_LOCK_DEFAULT=true|false`
-   - Per-room: `VITE_LOCK_YOUR_ROOM=true|false` (slug upper-snake). The legacy `VITE_LOCK_CHRISTMAS_ROOM` still works for the Christmas room.
 5) Routes and Home card are automatic
    - Home will show a card for every entry in `rooms`
    - Routes `/unlock/your-room` and `/your-room` are wired automatically; the room is guarded if locked

@@ -5,7 +5,7 @@ import UnlockRoom from './routes/UnlockRoom'
 import AboutRoom from './routes/AboutRoom'
 import Shop from './routes/Shop'
 import { isUnlocked } from './supabase'
-import { rooms, lockForRoom } from './rooms/registry'
+import { rooms, areRoomsLocked } from './rooms/registry'
 import React, { useEffect } from 'react'
 
 function ScrollToTop() {
@@ -101,7 +101,7 @@ function App() {
 
         {rooms.map(r => {
           const element = <RoomPage Comp={r.Component} />
-          const locked = lockForRoom(r.id)
+          const locked = areRoomsLocked()
           return locked ? (
             <Route key={r.id} element={<RequireUnlock room={r.id} />}>
               <Route path={r.id} element={element} />

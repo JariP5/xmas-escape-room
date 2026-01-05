@@ -48,25 +48,8 @@ function parseBool(v: string | undefined, defaultVal: boolean): boolean {
   return s === '1' || s === 'true' || s === 'yes' || s === 'on'
 }
 
-function toEnvNameFromId(id: string): string {
-  // "christmas-room" -> "CHRISTMAS_ROOM"
-  return id.replace(/[^a-z0-9]+/gi, '_').replace(/_+/g, '_').replace(/^_|_$/g, '').toUpperCase()
-}
-
-// Determine whether a room is locked (requires code) based on env flags.
-// Resolution order:
-// 1) VITE_LOCK_<ROOM_ID_AS_ENV> (e.g., VITE_LOCK_CHRISTMAS_ROOM)
-// 2) Legacy alias for christmas-room: VITE_LOCK_CHRISTMAS_ROOM
-// 3) VITE_LOCK_DEFAULT (applies to all rooms not explicitly set)
-// 4) Default: true (locked)
-export function lockForRoom(id: string): boolean {
+export function areRoomsLocked(): boolean {
   const env = (import.meta as any).env ?? {}
-  const specificKey = `VITE_LOCK_${toEnvNameFromId(id)}`
-  if (specificKey in env) return parseBool(env[specificKey], true)
-  // Legacy alias (kept for back-compat); same as specific for christmas-room
-  if (id === 'christmas-room' && 'VITE_LOCK_CHRISTMAS_ROOM' in env) {
-    return parseBool(env['VITE_LOCK_CHRISTMAS_ROOM'], true)
-  }
-  if ('VITE_LOCK_DEFAULT' in env) return parseBool(env['VITE_LOCK_DEFAULT'], true)
+  if ('VITE_LOCK_ROOMS' in env) return parseBool(env['VITE_LOCK_ROOMS'], true)
   return true
 }
