@@ -48,7 +48,7 @@ function Home() {
               style={{
                 textDecoration: 'none',
                 display: 'grid',
-                gridTemplateColumns: '80px 1fr auto',
+                gridTemplateColumns: '150px 1fr auto',
                 alignItems: 'center',
                 gap: 12,
                 padding: '12px',
@@ -57,7 +57,7 @@ function Home() {
                 background: 'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))'
               }}
             >
-              <img src={thumb} alt={title} style={{ width: 72, height: 72, objectFit: 'cover', borderRadius: 8, border: '1px solid rgba(255,255,255,0.08)' }} />
+              <img src={thumb} alt={title} style={{ width: 150, height: 150, objectFit: 'cover', borderRadius: 8, border: '1px solid rgba(255,255,255,0.08)' }} />
               <div>
                 <p className="elf-name" style={{ margin: 0 }}>{title}</p>
                 <p className="elf-desc" style={{ margin: '4px 0 0' }}>{desc}</p>
