@@ -21,11 +21,14 @@ function ScrollToTop() {
 function Home() {
   const { t } = useI18n()
   return (
-    <div className="app">
+    <div className="app home">
       <div className="scanlines" aria-hidden />
+      <div className="snowfall" aria-hidden />
+      <div className="confetti" aria-hidden />
       <LanguageSelector />
       <header className="header">
         <h1 className="glitch" data-text={t('app.title')}>{t('app.title')}</h1>
+        <p className="tagline">{t('app.tagline')}</p>
       </header>
 
       {/* Front page: show a list/grid of all escape rooms */}
@@ -45,7 +48,7 @@ function Home() {
             <Link
               key={r.id}
               to={target}
-              className="elf"
+              className="elf room-card"
               style={{
                 textDecoration: 'none',
                 display: 'grid',

@@ -14,7 +14,7 @@ export type Dict = Record<string, any>
 
 export const dicts: Record<Lang, Dict> = {
     en: {
-        app: {title: 'North Pole Escape'},
+        app: {title: 'North Pole Escape', tagline: 'Playful online escape rooms — festive, puzzly, and fun!'},
         routes: {
             about: {
                 boardGameAlt: 'Required board game',
@@ -105,7 +105,7 @@ export const dicts: Record<Lang, Dict> = {
         },
     },
     de: {
-        app: {title: 'North Pole Escape'},
+        app: {title: 'North Pole Escape', tagline: 'Verspielte Online-Escape-Rooms — festlich, knifflig, spaßig!'},
         routes: {
             about: {
                 boardGameAlt: 'Erforderliches Brettspiel',
@@ -193,7 +193,7 @@ export const dicts: Record<Lang, Dict> = {
         },
     },
     nl: {
-        app: {title: 'North Pole Escape'},
+        app: {title: 'North Pole Escape', tagline: 'Speelse online escape rooms — feestelijk, puzzelachtig en leuk!'},
         routes: {
             about: {
                 boardGameAlt: 'Vereist bordspel',
@@ -281,7 +281,7 @@ export const dicts: Record<Lang, Dict> = {
         },
     },
     fr: {
-        app: {title: 'North Pole Escape'},
+        app: {title: 'North Pole Escape', tagline: 'Escape rooms en ligne ludiques — festifs, malins et fun !'},
         routes: {
             about: {
                 boardGameAlt: 'Jeu de société requis',
