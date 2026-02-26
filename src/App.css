@@ -548,3 +548,11 @@
 .pdl-timer .value {
   font-size: clamp(2.4rem, 8vw, 4rem);
 }
+
+/* Failed overlay */
+.overlay-failed { background: rgba(30, 0, 0, 0.85); }
+.overlay-failed .overlay-content {
+  border-color: rgba(255,65,65,0.4);
+  box-shadow: 0 0 40px rgba(255,65,65,0.2), 0 0 0 1px rgba(255,65,65,0.35) inset, 0 10px 35px rgba(0,0,0,0.6);
+}
+.overlay-failed h2 { color: var(--danger); text-shadow: 0 0 16px rgba(255,65,65,.4); }

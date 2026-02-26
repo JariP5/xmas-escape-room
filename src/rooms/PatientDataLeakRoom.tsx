@@ -2,9 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import '../App.css'
 import { LanguageSelector, useI18n } from '../i18n'
 
-type Stage = 'idle' | 'video' | 'blackout' | 'hacked' | 'solved'
+type Stage = 'idle' | 'video' | 'blackout' | 'hacked' | 'solved' | 'failed'
+
+const MAX_TRIES = 4
 
 const ONE_HOUR = 60 * 60 * 1000
+
+const RECOVERY_CODE = "1111"
 
 function formatTime(ms: number) {
   if (ms < 0) ms = 0
@@ -20,6 +24,7 @@ export default function PatientDataLeakRoom() {
   const [stage, setStage] = useState<Stage>('idle')
   const [input, setInput] = useState('')
   const [feedback, setFeedback] = useState<string | null>(null)
+  const [tries, setTries] = useState(0)
   const [deadlineTs, setDeadlineTs] = useState<number | null>(null)
   const [now, setNow] = useState(Date.now())
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -55,12 +60,17 @@ export default function PatientDataLeakRoom() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (stage !== 'hacked') return
-    const answer = t('routes.patientDataLeakRoom.password')
-    if (input.trim().toLowerCase() === answer.trim().toLowerCase()) {
+    if (input.trim().toLowerCase() === RECOVERY_CODE.trim().toLowerCase()) {
       setStage('solved')
       setFeedback(null)
     } else {
-      setFeedback(t('routes.patientDataLeakRoom.error.badCode'))
+      const next = tries + 1
+      setTries(next)
+      if (next >= MAX_TRIES) {
+        setStage('failed')
+      } else {
+        setFeedback(t('routes.patientDataLeakRoom.error.badCode') + ` (${next}/${MAX_TRIES})`)
+      }
     }
   }
 
@@ -129,12 +139,12 @@ export default function PatientDataLeakRoom() {
               placeholder={t('routes.patientDataLeakRoom.hacked.code.placeholder')}
               value={input}
               onChange={(e) => { setInput(e.target.value); if (feedback) setFeedback(null) }}
-              disabled={stage === 'solved'}
+              disabled={stage !== 'hacked'}
               autoFocus
               autoComplete="off"
               spellCheck={false}
             />
-            <button type="submit" disabled={stage === 'solved'}>
+            <button type="submit" disabled={stage !== 'hacked'}>
               {t('routes.patientDataLeakRoom.hacked.code.submit')}
             </button>
           </form>
@@ -151,6 +161,16 @@ export default function PatientDataLeakRoom() {
             <h2 id="success-title">{t('routes.patientDataLeakRoom.success.title')}</h2>
             <p>{t('routes.patientDataLeakRoom.success.desc')}</p>
             <p className="sub">{t('routes.patientDataLeakRoom.success.sub')}</p>
+          </div>
+        </div>
+      )}
+
+      {stage === 'failed' && (
+        <div className="overlay overlay-failed" role="alertdialog" aria-modal="true" aria-labelledby="failed-title">
+          <div className="overlay-content">
+            <h2 id="failed-title">{t('routes.patientDataLeakRoom.failed.title')}</h2>
+            <p>{t('routes.patientDataLeakRoom.failed.desc')}</p>
+            <p className="sub">{t('routes.patientDataLeakRoom.failed.sub')}</p>
           </div>
         </div>
       )}

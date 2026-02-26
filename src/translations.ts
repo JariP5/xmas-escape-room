@@ -95,7 +95,6 @@ export const dicts: Record<Lang, Dict> = {
                 password: 'Together we are one',
             },
             patientDataLeakRoom: {
-                title: 'DATA LEAK RESPONSE',
                 card: {
                     title: 'Data Leak',
                     desc: 'Sensitive data is leaking from headquarters. Trace the breach and seal it in time.'
@@ -115,6 +114,11 @@ export const dicts: Record<Lang, Dict> = {
                     sub: 'Mission accomplished.',
                 },
                 error: { badCode: 'Invalid code. Access denied.' },
+                failed: {
+                    title: 'SYSTEM LOST',
+                    desc: 'Patient data has been cross-referenced and leaked. Trust in the company is irrevocably lost.',
+                    sub: 'Mission failed.',
+                },
                 password: 'PATIENT-ZERO',
             },
         },
@@ -198,7 +202,6 @@ export const dicts: Record<Lang, Dict> = {
                 password: 'Gemeinsam sind wir eins',
             },
             patientDataLeakRoom: {
-                title: 'DATENLECK-EINSATZ',
                 card: {
                     title: 'Datenleck',
                     desc: 'Sensible Daten treten aus der Zentrale aus. Verfolge den Angriff und dichte die Lücke rechtzeitig.'
@@ -218,6 +221,11 @@ export const dicts: Record<Lang, Dict> = {
                     sub: 'Mission abgeschlossen.',
                 },
                 error: { badCode: 'Ungültiger Code. Zugriff verweigert.' },
+                failed: {
+                    title: 'SYSTEM VERLOREN',
+                    desc: 'Patientendaten wurden abgeglichen und sind durchgesickert. Das Vertrauen in das Unternehmen ist unwiderruflich verloren.',
+                    sub: 'Mission fehlgeschlagen.',
+                },
                 password: 'PATIENT-ZERO',
             },
         },
@@ -301,7 +309,6 @@ export const dicts: Record<Lang, Dict> = {
                 password: 'Samen zijn we één',
             },
             patientDataLeakRoom: {
-                title: 'DATALEK-RESPONS',
                 card: {
                     title: 'Datalek',
                     desc: 'Er lekt gevoelige data uit het hoofdkwartier. Volg het spoor en dicht het lek op tijd.'
@@ -321,6 +328,11 @@ export const dicts: Record<Lang, Dict> = {
                     sub: 'Missie volbracht.',
                 },
                 error: { badCode: 'Ongeldige code. Toegang geweigerd.' },
+                failed: {
+                    title: 'SYSTEEM VERLOREN',
+                    desc: 'Patiëntgegevens zijn gekruist en gelekt. Het vertrouwen in het bedrijf is onherroepelijk verloren.',
+                    sub: 'Missie mislukt.',
+                },
                 password: 'PATIENT-ZERO',
             },
         },
@@ -404,7 +416,6 @@ export const dicts: Record<Lang, Dict> = {
                 password: 'Ensemble, nous ne faisons qu\'un',
             },
             patientDataLeakRoom: {
-                title: 'RÉPONSE AU FUITES DE DONNÉES',
                 card: {
                     title: 'Fuite de données',
                     desc: 'Des données sensibles fuient du siège. Remontez la piste et colmatez la brèche à temps.'
@@ -424,6 +435,11 @@ export const dicts: Record<Lang, Dict> = {
                     sub: 'Mission accomplie.',
                 },
                 error: { badCode: 'Code invalide. Accès refusé.' },
+                failed: {
+                    title: 'SYSTÈME PERDU',
+                    desc: 'Les données patients ont été croisées et divulguées. La confiance envers l\'entreprise est irrémédiablement perdue.',
+                    sub: 'Mission échouée.',
+                },
                 password: 'PATIENT-ZERO',
             }
         },
