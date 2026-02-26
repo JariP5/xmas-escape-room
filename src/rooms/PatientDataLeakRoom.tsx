@@ -4,24 +4,53 @@ import { LanguageSelector, useI18n } from '../i18n'
 
 type Stage = 'idle' | 'video' | 'blackout' | 'hacked' | 'solved'
 
+const ONE_HOUR = 60 * 60 * 1000
+
+function formatTime(ms: number) {
+  if (ms < 0) ms = 0
+  const totalSeconds = Math.floor(ms / 1000)
+  const minutes = Math.floor(totalSeconds / 60)
+  const seconds = totalSeconds % 60
+  const pad = (n: number) => String(n).padStart(2, '0')
+  return `${pad(minutes)}:${pad(seconds)}`
+}
+
 export default function PatientDataLeakRoom() {
   const { t } = useI18n()
   const [stage, setStage] = useState<Stage>('idle')
   const [input, setInput] = useState('')
   const [feedback, setFeedback] = useState<string | null>(null)
+  const [deadlineTs, setDeadlineTs] = useState<number | null>(null)
+  const [now, setNow] = useState(Date.now())
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  // Auto-play video when entering video stage
+  const timeLeft = deadlineTs ? Math.max(0, deadlineTs - now) : null
+
+  // Auto-play video when entering video stage + allow 's' to skip
   useEffect(() => {
-    if (stage === 'video') videoRef.current?.play()
+    if (stage !== 'video') return
+    videoRef.current?.play()
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 's' || e.key === 'S') setStage('blackout')
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [stage])
 
-  // Blackout timer → hacked
+  // Blackout timer → hacked, also start the countdown
   useEffect(() => {
     if (stage !== 'blackout') return
+    setDeadlineTs(Date.now() + ONE_HOUR + 1500) // account for blackout duration
     const id = setTimeout(() => setStage('hacked'), 1500)
     return () => clearTimeout(id)
   }, [stage])
+
+  // Tick the countdown every second while active
+  useEffect(() => {
+    if (stage !== 'hacked' || !deadlineTs) return
+    const id = setInterval(() => setNow(Date.now()), 1000)
+    return () => clearInterval(id)
+  }, [stage, deadlineTs])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -79,9 +108,16 @@ export default function PatientDataLeakRoom() {
         </h1>
       </header>
 
-      <section className="story" style={{ paddingBottom: '2rem' }}>
+      <section>
         <div className="panel" style={{ maxWidth: 900, margin: '0 auto' }}>
-          <p style={{ textAlign: 'center', color: 'var(--muted)' }}>
+          <div className="timer pdl-timer">
+            <span className="value" aria-live="polite">{timeLeft != null ? formatTime(timeLeft) : '—:—'}</span>
+          </div>
+
+          <p style={{ textAlign: 'center', color: 'var(--danger)', marginTop: '.75rem', fontWeight: 600 }}>
+            {t('routes.patientDataLeakRoom.hacked.urgent')}
+          </p>
+          <p style={{ textAlign: 'center', color: 'var(--muted)', marginTop: '.5rem' }}>
             {t('routes.patientDataLeakRoom.hacked.desc')}
           </p>
 

@@ -541,3 +541,10 @@
   height: 100%;
   object-fit: contain;
 }
+
+.pdl-timer {
+  justify-content: center;
+}
+.pdl-timer .value {
+  font-size: clamp(2.4rem, 8vw, 4rem);
+}

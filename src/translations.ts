@@ -102,8 +102,10 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 intro: 'Find the traces of a breach and seal the leak before the clock runs out.',
                 start: 'Start',
+                countdown: { label: 'COUNTDOWN' },
                 hacked: {
                     title: 'SYSTEM COMPROMISED',
+                    urgent: 'Act before it\'s too late.',
                     desc: 'A breach has been detected. Enter the recovery code to seal the leak.',
                     code: { label: 'RECOVERY CODE', placeholder: 'Enter code…', submit: 'Submit' },
                 },
@@ -203,8 +205,10 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 intro: 'Finde die Spuren des Angriffs und schließe das Leck, bevor die Zeit abläuft.',
                 start: 'Starten',
+                countdown: { label: 'COUNTDOWN' },
                 hacked: {
                     title: 'SYSTEM KOMPROMITTIERT',
+                    urgent: 'Schließe die Lücke, bevor es zu spät ist.',
                     desc: 'Ein Einbruch wurde erkannt. Gib den Wiederherstellungscode ein, um das Leck zu schließen.',
                     code: { label: 'WIEDERHERSTELLUNGSCODE', placeholder: 'Code eingeben…', submit: 'Absenden' },
                 },
@@ -304,8 +308,10 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 intro: 'Vind de sporen van een inbraak en dicht het lek voordat de tijd om is.',
                 start: 'Starten',
+                countdown: { label: 'COUNTDOWN' },
                 hacked: {
                     title: 'SYSTEEM GECOMPROMITTEERD',
+                    urgent: 'Dicht het lek voordat het te laat is.',
                     desc: 'Er is een inbreuk gedetecteerd. Voer de herstelcode in om het lek te dichten.',
                     code: { label: 'HERSTELCODE', placeholder: 'Voer code in…', submit: 'Verzenden' },
                 },
@@ -405,8 +411,10 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 intro: 'Trouvez les traces d\'une intrusion et colmatez la fuite avant la fin du temps.',
                 start: 'Démarrer',
+                countdown: { label: 'COMPTE À REBOURS' },
                 hacked: {
                     title: 'SYSTÈME COMPROMIS',
+                    urgent: 'Colmatez la brèche avant qu\'il ne soit trop tard.',
                     desc: 'Une brèche a été détectée. Entrez le code de récupération pour colmater la fuite.',
                     code: { label: 'CODE DE RÉCUPÉRATION', placeholder: 'Entrez le code…', submit: 'Valider' },
                 },
