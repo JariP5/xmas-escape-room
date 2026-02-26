@@ -100,7 +100,20 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'Data Leak',
                     desc: 'Sensitive data is leaking from headquarters. Trace the breach and seal it in time.'
                 },
-                intro: 'Find the traces of a breach and seal the leak before the clock runs out.'
+                intro: 'Find the traces of a breach and seal the leak before the clock runs out.',
+                start: 'Start',
+                hacked: {
+                    title: 'SYSTEM COMPROMISED',
+                    desc: 'A breach has been detected. Enter the recovery code to seal the leak.',
+                    code: { label: 'RECOVERY CODE', placeholder: 'Enter code…', submit: 'Submit' },
+                },
+                success: {
+                    title: 'Leak sealed!',
+                    desc: 'The breach has been contained. All systems are back online.',
+                    sub: 'Mission accomplished.',
+                },
+                error: { badCode: 'Invalid code. Access denied.' },
+                password: 'PATIENT-ZERO',
             },
         },
     },
@@ -188,7 +201,20 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'Datenleck',
                     desc: 'Sensible Daten treten aus der Zentrale aus. Verfolge den Angriff und dichte die Lücke rechtzeitig.'
                 },
-                intro: 'Finde die Spuren des Angriffs und schließe das Leck, bevor die Zeit abläuft.'
+                intro: 'Finde die Spuren des Angriffs und schließe das Leck, bevor die Zeit abläuft.',
+                start: 'Starten',
+                hacked: {
+                    title: 'SYSTEM KOMPROMITTIERT',
+                    desc: 'Ein Einbruch wurde erkannt. Gib den Wiederherstellungscode ein, um das Leck zu schließen.',
+                    code: { label: 'WIEDERHERSTELLUNGSCODE', placeholder: 'Code eingeben…', submit: 'Absenden' },
+                },
+                success: {
+                    title: 'Leck geschlossen!',
+                    desc: 'Der Einbruch wurde eingedämmt. Alle Systeme sind wieder online.',
+                    sub: 'Mission abgeschlossen.',
+                },
+                error: { badCode: 'Ungültiger Code. Zugriff verweigert.' },
+                password: 'PATIENT-ZERO',
             },
         },
     },
@@ -276,7 +302,20 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'Datalek',
                     desc: 'Er lekt gevoelige data uit het hoofdkwartier. Volg het spoor en dicht het lek op tijd.'
                 },
-                intro: 'Vind de sporen van een inbraak en dicht het lek voordat de tijd om is.'
+                intro: 'Vind de sporen van een inbraak en dicht het lek voordat de tijd om is.',
+                start: 'Starten',
+                hacked: {
+                    title: 'SYSTEEM GECOMPROMITTEERD',
+                    desc: 'Er is een inbreuk gedetecteerd. Voer de herstelcode in om het lek te dichten.',
+                    code: { label: 'HERSTELCODE', placeholder: 'Voer code in…', submit: 'Verzenden' },
+                },
+                success: {
+                    title: 'Lek gedicht!',
+                    desc: 'De inbreuk is ingeperkt. Alle systemen zijn weer online.',
+                    sub: 'Missie volbracht.',
+                },
+                error: { badCode: 'Ongeldige code. Toegang geweigerd.' },
+                password: 'PATIENT-ZERO',
             },
         },
     },
@@ -364,7 +403,20 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'Fuite de données',
                     desc: 'Des données sensibles fuient du siège. Remontez la piste et colmatez la brèche à temps.'
                 },
-                intro: 'Trouvez les traces d\'une intrusion et colmatez la fuite avant la fin du temps.'
+                intro: 'Trouvez les traces d\'une intrusion et colmatez la fuite avant la fin du temps.',
+                start: 'Démarrer',
+                hacked: {
+                    title: 'SYSTÈME COMPROMIS',
+                    desc: 'Une brèche a été détectée. Entrez le code de récupération pour colmater la fuite.',
+                    code: { label: 'CODE DE RÉCUPÉRATION', placeholder: 'Entrez le code…', submit: 'Valider' },
+                },
+                success: {
+                    title: 'Fuite colmatée !',
+                    desc: 'La brèche a été contenue. Tous les systèmes sont de nouveau en ligne.',
+                    sub: 'Mission accomplie.',
+                },
+                error: { badCode: 'Code invalide. Accès refusé.' },
+                password: 'PATIENT-ZERO',
             }
         },
     },
