@@ -83,7 +83,7 @@ export default function PatientDataLeakRoom() {
     return (
       <div className="pdl-black">
         <LanguageSelector />
-        <button className="pdl-start glitch" data-text={t('routes.patientDataLeakRoom.start')} onClick={() => setStage('video')}>
+        <button className="pdl-start" onClick={() => setStage('video')}>
           {t('routes.patientDataLeakRoom.start')}
         </button>
       </div>

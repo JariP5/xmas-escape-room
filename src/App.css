@@ -521,14 +521,18 @@
 }
 
 .pdl-start {
-  padding: 1.2rem 3rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 12px;
+  padding: 2rem 5rem;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
   background: transparent;
   color: #fff;
   cursor: pointer;
-  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-size: clamp(2.8rem, 8vw, 6rem);
   letter-spacing: .08em;
+  text-shadow:
+    0 0 12px rgba(255,255,255,.35),
+    0 0 40px rgba(230,57,70,.3);
+  animation: glitch 2.5s infinite linear alternate-reverse;
   transition: border-color .2s, box-shadow .2s;
 }
 .pdl-start:hover {
