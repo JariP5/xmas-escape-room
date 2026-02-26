@@ -69,7 +69,11 @@ export default function PatientDataLeakRoom() {
       if (next >= MAX_TRIES) {
         setStage('failed')
       } else {
-        setFeedback(t('routes.patientDataLeakRoom.error.badCode') + ` (${next}/${MAX_TRIES})`)
+        const remaining = MAX_TRIES - next
+        const triesLeft = remaining === 1
+          ? t('routes.patientDataLeakRoom.error.triesLeftOne')
+          : t('routes.patientDataLeakRoom.error.triesLeft').replace('{n}', String(remaining))
+        setFeedback(t('routes.patientDataLeakRoom.error.badCode') + ' ' + triesLeft)
       }
     }
   }

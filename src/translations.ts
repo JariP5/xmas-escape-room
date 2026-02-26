@@ -113,7 +113,7 @@ export const dicts: Record<Lang, Dict> = {
                     desc: 'The breach has been contained. All systems are back online.',
                     sub: 'Mission accomplished.',
                 },
-                error: { badCode: 'Invalid code. Access denied.' },
+                error: { badCode: 'Invalid code. Access denied.', triesLeft: '{n} attempts remaining.', triesLeftOne: '1 attempt remaining.' },
                 failed: {
                     title: 'SYSTEM LOST',
                     desc: 'Patient data has been cross-referenced and leaked. Trust in the company is irrevocably lost.',
@@ -220,7 +220,7 @@ export const dicts: Record<Lang, Dict> = {
                     desc: 'Der Einbruch wurde eingedämmt. Alle Systeme sind wieder online.',
                     sub: 'Mission abgeschlossen.',
                 },
-                error: { badCode: 'Ungültiger Code. Zugriff verweigert.' },
+                error: { badCode: 'Ungültiger Code. Zugriff verweigert.', triesLeft: '{n} Versuche übrig.', triesLeftOne: '1 Versuch übrig.' },
                 failed: {
                     title: 'SYSTEM VERLOREN',
                     desc: 'Patientendaten wurden abgeglichen und sind durchgesickert. Das Vertrauen in das Unternehmen ist unwiderruflich verloren.',
@@ -327,7 +327,7 @@ export const dicts: Record<Lang, Dict> = {
                     desc: 'De inbreuk is ingeperkt. Alle systemen zijn weer online.',
                     sub: 'Missie volbracht.',
                 },
-                error: { badCode: 'Ongeldige code. Toegang geweigerd.' },
+                error: { badCode: 'Ongeldige code. Toegang geweigerd.', triesLeft: '{n} pogingen over.', triesLeftOne: '1 poging over.' },
                 failed: {
                     title: 'SYSTEEM VERLOREN',
                     desc: 'Patiëntgegevens zijn gekruist en gelekt. Het vertrouwen in het bedrijf is onherroepelijk verloren.',
@@ -434,7 +434,7 @@ export const dicts: Record<Lang, Dict> = {
                     desc: 'La brèche a été contenue. Tous les systèmes sont de nouveau en ligne.',
                     sub: 'Mission accomplie.',
                 },
-                error: { badCode: 'Code invalide. Accès refusé.' },
+                error: { badCode: 'Code invalide. Accès refusé.', triesLeft: '{n} tentatives restantes.', triesLeftOne: '1 tentative restante.' },
                 failed: {
                     title: 'SYSTÈME PERDU',
                     desc: 'Les données patients ont été croisées et divulguées. La confiance envers l\'entreprise est irrémédiablement perdue.',
