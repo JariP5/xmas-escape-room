@@ -29,7 +29,7 @@ export default function AboutRoom() {
         <h1 className="glitch" data-text={title}>{title}</h1>
       </header>
 
-      <section className="panel" style={{ maxWidth: 920, margin: '0 auto' }}>
+      <section className="panel">
 
         {/* Title and description */}
         <h2 style={{ textAlign: 'center', marginTop: 12 }}>{title}</h2>

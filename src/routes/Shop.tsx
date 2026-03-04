@@ -11,7 +11,7 @@ export default function Shop() {
         <h1 className="glitch" data-text={t('app.title')}>{t('app.title')}</h1>
       </header>
 
-      <section className="panel" style={{ maxWidth: 720, margin: '0 auto' }}>
+      <section className="panel">
         <h2 style={{ textAlign: 'center', marginTop: 8 }}>{t('routes.shop.title')}</h2>
         <p style={{ textAlign: 'center', color: 'var(--muted)' }}>{t('routes.shop.comingSoon')}</p>
       </section>

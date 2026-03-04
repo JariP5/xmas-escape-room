@@ -123,7 +123,7 @@ export default function PatientDataLeakRoom() {
       </header>
 
       <section>
-        <div className="panel" style={{ maxWidth: 900, margin: '0 auto' }}>
+        <div className="panel">
           <div className="timer pdl-timer">
             <span className="value" aria-live="polite">{timeLeft != null ? formatTime(timeLeft) : '—:—'}</span>
           </div>

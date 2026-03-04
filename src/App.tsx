@@ -33,8 +33,6 @@ function Home() {
 
       {/* Front page: show a list/grid of all escape rooms */}
       <section className="panel" style={{
-        width: '92vw',
-        margin: '0 auto',
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
         gap: 16
