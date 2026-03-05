@@ -8,6 +8,7 @@ import { isUnlocked } from './supabase'
 import { rooms, areRoomsLocked } from './rooms/registry'
 import PatientDataLeakRoom from './rooms/PatientDataLeakRoom'
 import PatientDataLeakScreen1 from './rooms/PatientDataLeakScreen1'
+import PatientDataLeakScreen2 from './rooms/PatientDataLeakScreen2'
 import React, { useEffect } from 'react'
 import DifficultyMeter from './components/DifficultyMeter'
 
@@ -124,11 +125,13 @@ function App() {
           <Route element={<RequireUnlock room="patient-data-leak-room" />}>
             <Route path="patient-data-leak-room/main" element={<RoomPage Comp={PatientDataLeakRoom} />} />
             <Route path="patient-data-leak-room/screen1" element={<RoomPage Comp={PatientDataLeakScreen1} />} />
+            <Route path="patient-data-leak-room/screen2" element={<RoomPage Comp={PatientDataLeakScreen2} />} />
           </Route>
         ) : (
           <>
             <Route path="patient-data-leak-room/main" element={<RoomPage Comp={PatientDataLeakRoom} />} />
             <Route path="patient-data-leak-room/screen1" element={<RoomPage Comp={PatientDataLeakScreen1} />} />
+            <Route path="patient-data-leak-room/screen2" element={<RoomPage Comp={PatientDataLeakScreen2} />} />
           </>
         )}
 

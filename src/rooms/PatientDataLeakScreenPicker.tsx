@@ -19,6 +19,12 @@ export default function PatientDataLeakScreenPicker() {
       label: t('routes.patientDataLeakRoom.screenPicker.screen1.label'),
       desc: t('routes.patientDataLeakRoom.screenPicker.screen1.desc'),
     },
+    {
+      to: '/patient-data-leak-room/screen2',
+      icon: '/assets/patient-data-leak-room/thumbnail.png',
+      label: t('routes.patientDataLeakRoom.screenPicker.screen2.label'),
+      desc: t('routes.patientDataLeakRoom.screenPicker.screen2.desc'),
+    },
   ]
 
   return (

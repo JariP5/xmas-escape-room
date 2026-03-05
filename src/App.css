@@ -561,3 +561,25 @@
   box-shadow: 0 0 40px rgba(255,65,65,0.2), 0 0 0 1px rgba(255,65,65,0.35) inset, 0 10px 35px rgba(0,0,0,0.6);
 }
 .overlay-failed h2 { color: var(--danger); text-shadow: 0 0 16px rgba(255,65,65,.4); }
+
+/* Screen 2 — animated code letter reveal */
+.pdl-code-letter {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: #fff;
+  opacity: 0;
+  animation: pdl-flicker-in 1s ease forwards;
+  text-shadow: 0 0 20px rgba(255,255,255,.4), 0 0 60px rgba(230,57,70,.3);
+}
+
+@keyframes pdl-flicker-in {
+  0%   { opacity: 0; }
+  15%  { opacity: .7; }
+  25%  { opacity: .1; }
+  40%  { opacity: .8; }
+  55%  { opacity: .15; }
+  70%  { opacity: .9; }
+  85%  { opacity: .3; }
+  100% { opacity: 1; }
+}
