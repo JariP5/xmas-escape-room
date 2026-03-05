@@ -8,7 +8,7 @@ const MAX_TRIES = 4
 
 const ONE_HOUR = 60 * 60 * 1000
 
-const RECOVERY_CODE = "1111"
+const RECOVERY_CODE = "158"
 
 function formatTime(ms: number) {
   if (ms < 0) ms = 0
@@ -97,7 +97,7 @@ export default function PatientDataLeakRoom() {
         <video
           ref={videoRef}
           className="pdl-video"
-          src={`${import.meta.env.BASE_URL}assets/patient-data-leak-room/intro.mp4`}
+          src={`https://tnjpwocsrvldegnrxqes.supabase.co/storage/v1/object/public/patient-data-leak-room/intro.mp4`}
           onEnded={() => setStage('blackout')}
           playsInline
           muted={false}
