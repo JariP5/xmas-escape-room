@@ -350,19 +350,19 @@
 .lang-toggle {
   width: 44px;
   height: 44px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255,255,255,0.18);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.18);
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
-  box-shadow: 0 3px 14px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: var(--text);
+  background: #111;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.35);
   cursor: pointer;
-  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.lang-toggle:hover { transform: translateY(-1px); }
+.lang-toggle:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.35); }
 .lang-toggle:active { transform: translateY(0); }
 .lang-toggle:focus-visible {
   outline: none;
@@ -425,7 +425,7 @@
 
 @media (max-width: 480px) {
   .lang-toggle { width: 40px; height: 40px; }
-  .lang-toggle .flag { font-size: 18px; }
+  .lang-toggle .flag { font-size: 28px; }
   .lang-option { width: 34px; height: 34px; }
   .lang-option .flag { font-size: 16px; }
 }
