@@ -1,0 +1,1 @@
+export const PATIENT_DATA_LEAK_CONNECTION_CODE = 'go8a1pf2';

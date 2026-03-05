@@ -2,8 +2,9 @@ import { useState, useEffect, useCallback } from 'react'
 import '../../App.css'
 import { LanguageSelector, useI18n } from '../../i18n.tsx'
 import { getChannel } from '../../supabaseClient.ts'
+import {PATIENT_DATA_LEAK_CONNECTION_CODE} from "./constants.ts";
 
-const CODE_LETTERS = 'go8a1pf2'.split('')
+const CODE_LETTERS = PATIENT_DATA_LEAK_CONNECTION_CODE.split('')
 
 // Duration of one letter's flicker-in + hold + fade-out (matches CSS animation)
 const LETTER_ANIM_MS = 2500
@@ -96,6 +97,66 @@ function useLoopingReveal() {
   return { activePos, cycle }
 }
 
+const LETTERS = MORSE_REFERENCE.filter(({ char }) => /[A-Z]/.test(char))
+const DIGITS = MORSE_REFERENCE.filter(({ char }) => /[0-9]/.test(char))
+
+function MorseSymbols({ morse }: { morse: string }) {
+  return (
+    <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
+      {morse.split('').map((s, i) =>
+        s === '.' ? (
+          <span key={i} style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#6ee7b7',
+            flexShrink: 0,
+          }} />
+        ) : (
+          <span key={i} style={{
+            width: '24px',
+            height: '8px',
+            borderRadius: '4px',
+            background: '#6ee7b7',
+            flexShrink: 0,
+          }} />
+        )
+      )}
+    </span>
+  )
+}
+
+function MorseGrid({ items }: { items: typeof MORSE_REFERENCE }) {
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(8rem, 1fr))',
+      gap: '2px',
+      width: '100%',
+    }}>
+      {items.map(({ char, morse }) => (
+        <div key={char} style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.75rem',
+          padding: '0.5rem 0.75rem',
+          background: 'rgba(255,255,255,0.03)',
+        }}>
+          <span style={{
+            fontWeight: 700,
+            fontSize: '1.1rem',
+            color: '#fff',
+            width: '1.2em',
+            textAlign: 'center',
+            fontFamily: 'monospace',
+          }}>{char}</span>
+          <MorseSymbols morse={morse} />
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function MorseReferenceChart() {
   const { t } = useI18n()
 
@@ -104,50 +165,34 @@ function MorseReferenceChart() {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '2rem 1rem',
+      padding: '1.5rem 1rem',
       maxHeight: '100dvh',
       overflow: 'auto',
+      gap: '1.5rem',
     }}>
       <h2 style={{
         color: 'var(--muted)',
-        fontSize: 'clamp(1rem, 3vw, 1.4rem)',
+        fontSize: 'clamp(0.9rem, 2.5vw, 1.2rem)',
         letterSpacing: '.15em',
         textTransform: 'uppercase',
-        marginBottom: '1.5rem',
+        margin: 0,
       }}>
         {t('routes.patientDataLeakRoom.connectionCode.morseReference')}
       </h2>
+
+      <div style={{ width: '100%', maxWidth: '42rem' }}>
+        <MorseGrid items={LETTERS} />
+      </div>
+
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(7rem, 1fr))',
-        gap: '0.5rem',
-        width: '100%',
-        maxWidth: '40rem',
-      }}>
-        {MORSE_REFERENCE.map(({ char, morse }) => (
-          <div key={char} style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.6rem',
-            padding: '0.4rem 0.7rem',
-            borderRadius: '4px',
-            background: 'rgba(255,255,255,0.04)',
-          }}>
-            <span style={{
-              fontWeight: 700,
-              fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-              color: '#fff',
-              width: '1.5em',
-              textAlign: 'center',
-            }}>{char}</span>
-            <span style={{
-              fontFamily: 'monospace',
-              fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
-              color: 'var(--muted)',
-              letterSpacing: '.15em',
-            }}>{morse}</span>
-          </div>
-        ))}
+        width: '60%',
+        maxWidth: '25rem',
+        height: '1px',
+        background: 'rgba(255,255,255,0.08)',
+      }} />
+
+      <div style={{ width: '100%', maxWidth: '42rem' }}>
+        <MorseGrid items={DIGITS} />
       </div>
     </div>
   )

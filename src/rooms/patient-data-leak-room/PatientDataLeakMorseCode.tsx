@@ -2,8 +2,8 @@ import { useState, useCallback, useRef, useEffect } from 'react'
 import '../../App.css'
 import { LanguageSelector, useI18n } from '../../i18n.tsx'
 import { getChannel } from '../../supabaseClient.ts'
+import {PATIENT_DATA_LEAK_CONNECTION_CODE} from "./constants.ts";
 
-const CONNECTION_CODE = 'GO8A1PF'
 const MORSE_TEXT = '2015'
 
 type Stage = 'code' | 'ready' | 'playing'
@@ -107,7 +107,7 @@ export default function PatientDataLeakMorseCode() {
 
   const handleCodeSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault()
-    if (codeInput.trim().toUpperCase() === CONNECTION_CODE) {
+    if (codeInput.trim().toUpperCase() === PATIENT_DATA_LEAK_CONNECTION_CODE) {
       setCodeError(false)
       setStage('ready')
       getChannel('pdl-sync').send({ type: 'broadcast', event: 'code-accepted', payload: {} })
