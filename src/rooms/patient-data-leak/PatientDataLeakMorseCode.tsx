@@ -2,30 +2,38 @@ import { useState, useCallback, useRef } from 'react'
 import '../../App.css'
 import { LanguageSelector, useI18n } from '../../i18n.tsx'
 
-const CONNECTION_CODE = 'GO8A1PF2'
+const CONNECTION_CODE = 'GO8A1PF'
 
 type Stage = 'code' | 'ready' | 'playing' | 'done'
 
-// Morse sequence: O R S V
-// O = ---   R = .-.   S = ...   V = ...-
-const MORSE_SEQUENCE: ('dot' | 'dash' | 'gap' | 'pause')[] = [
-  // O: ---
-  'dash', 'gap', 'dash', 'gap', 'dash',
-  'pause',
-  // R: .-.
-  'dot', 'gap', 'dash', 'gap', 'dot',
-  'pause',
-  // S: ...
-  'dot', 'gap', 'dot', 'gap', 'dot',
-  'pause',
-  // V: ...-
-  'dot', 'gap', 'dot', 'gap', 'dot', 'gap', 'dash',
-]
+// ITU International Morse Code: 2015
+const MORSE_MAP: Record<string, string> = {
+  '2': '..---', '0': '-----', '1': '.----', '5': '.....',
+}
 
-const DOT_MS = 100
-const DASH_MS = 300
-const GAP_MS = 100
-const PAUSE_MS = 300
+type Symbol = 'dot' | 'dash' | 'gap' | 'charBreak'
+
+function buildSequence(text: string): Symbol[] {
+  const seq: Symbol[] = []
+  for (let i = 0; i < text.length; i++) {
+    const pattern = MORSE_MAP[text[i]]
+    if (!pattern) continue
+    if (seq.length > 0) seq.push('charBreak')
+    for (let j = 0; j < pattern.length; j++) {
+      if (j > 0) seq.push('gap')
+      seq.push(pattern[j] === '.' ? 'dot' : 'dash')
+    }
+  }
+  return seq
+}
+
+const MORSE_SEQUENCE = buildSequence('go8a1pf2')
+
+// Timing: ~200ms unit, slower with clear inter-character breaks
+const DOT_MS = 200
+const DASH_MS = 600
+const GAP_MS = 200       // intra-character
+const CHAR_BREAK_MS = 700 // inter-character
 
 function playMorse(onDone: () => void) {
   const ctx = new AudioContext()
@@ -33,7 +41,7 @@ function playMorse(onDone: () => void) {
 
   for (const sym of MORSE_SEQUENCE) {
     if (sym === 'dot' || sym === 'dash') {
-      const dur = sym === 'dot' ? DOT_MS / 1000 : DASH_MS / 1000
+      const dur = (sym === 'dot' ? DOT_MS : DASH_MS) / 1000
       const osc = ctx.createOscillator()
       const gain = ctx.createGain()
       osc.frequency.value = 600
@@ -47,12 +55,11 @@ function playMorse(onDone: () => void) {
       time += dur
     } else if (sym === 'gap') {
       time += GAP_MS / 1000
-    } else if (sym === 'pause') {
-      time += PAUSE_MS / 1000
+    } else if (sym === 'charBreak') {
+      time += CHAR_BREAK_MS / 1000
     }
   }
 
-  // Schedule callback after sequence ends
   const totalMs = (time - ctx.currentTime) * 1000 + 100
   setTimeout(() => {
     ctx.close()
@@ -77,7 +84,7 @@ export default function PatientDataLeakMorseCode() {
     }
   }, [codeInput])
 
-  const handlePlay = useCallback(() => {
+  const startPlaying = useCallback(() => {
     if (playingRef.current) return
     playingRef.current = true
     setStage('playing')
@@ -86,29 +93,16 @@ export default function PatientDataLeakMorseCode() {
       setStage('done')
     })
   }, [])
-
-  const handleReplay = useCallback(() => {
-    if (playingRef.current) return
-    playingRef.current = true
-    setStage('playing')
-    playMorse(() => {
-      playingRef.current = false
-      setStage('done')
-    })
-  }, [])
-
-  const title = t('routes.patientDataLeakRoom.morseCode.title')
 
   return (
-    <div className="app">
-      <div className="scanlines" aria-hidden />
-      <LanguageSelector />
-
+    <>
       {stage === 'code' && (
         <div className="overlay">
+          <LanguageSelector />
           <div className="overlay-content">
             <h2>{t('routes.patientDataLeakRoom.morseCode.codeOverlay.title')}</h2>
-            <form className="access" onSubmit={handleCodeSubmit}><input
+            <form className="access" onSubmit={handleCodeSubmit}>
+              <input
                 type="text"
                 placeholder={t('routes.patientDataLeakRoom.morseCode.codeOverlay.placeholder')}
                 value={codeInput}
@@ -125,29 +119,25 @@ export default function PatientDataLeakMorseCode() {
       )}
 
       {stage !== 'code' && (
-        <>
-          <header className="header">
-            <h1 className="glitch" data-text={title}>{title}</h1>
-          </header>
-          <section className="panel" style={{ textAlign: 'center', display: 'grid', placeItems: 'center', minHeight: '40vh' }}>
-            {stage === 'ready' && (
-              <button className="pdl-start" onClick={handlePlay}>
-                {t('routes.patientDataLeakRoom.morseCode.play')}
-              </button>
-            )}
-            {stage === 'playing' && (
-              <button className="pdl-start" disabled style={{ opacity: 0.4, cursor: 'not-allowed' }}>
-                {t('routes.patientDataLeakRoom.morseCode.play')}
-              </button>
-            )}
-            {stage === 'done' && (
-              <button className="pdl-start" onClick={handleReplay}>
-                {t('routes.patientDataLeakRoom.morseCode.replay')}
-              </button>
-            )}
-          </section>
-        </>
+        <div className="pdl-black">
+          <LanguageSelector />
+          {stage === 'ready' && (
+            <button className="pdl-start" onClick={startPlaying}>
+              {t('routes.patientDataLeakRoom.morseCode.play')}
+            </button>
+          )}
+          {stage === 'playing' && (
+            <button className="pdl-start" disabled style={{ opacity: 0.4, cursor: 'not-allowed' }}>
+              {t('routes.patientDataLeakRoom.morseCode.play')}
+            </button>
+          )}
+          {stage === 'done' && (
+            <button className="pdl-start" onClick={startPlaying}>
+              {t('routes.patientDataLeakRoom.morseCode.replay')}
+            </button>
+          )}
+        </div>
       )}
-    </div>
+    </>
   )
 }
