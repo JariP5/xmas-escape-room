@@ -84,7 +84,7 @@ function playMorse(onCharChange: (charIdx: number) => void, onDone: () => void) 
   }, totalMs)
 }
 
-export default function PatientDataLeakMorseCode() {
+export default function PatientDataLeakAudioMorseCode() {
   const { t } = useI18n()
   const [stage, setStage] = useState<Stage>('code')
   const [codeInput, setCodeInput] = useState('')
@@ -137,19 +137,19 @@ export default function PatientDataLeakMorseCode() {
         <div className="overlay">
           <LanguageSelector />
           <div className="overlay-content">
-            <h2>{t('routes.patientDataLeakRoom.morseCode.codeOverlay.title')}</h2>
+            <h2>{t('routes.patientDataLeakRoom.audioMorseCode.codeOverlay.title')}</h2>
             <form className="access" onSubmit={handleCodeSubmit}>
               <input
                 type="text"
-                placeholder={t('routes.patientDataLeakRoom.morseCode.codeOverlay.placeholder')}
+                placeholder={t('routes.patientDataLeakRoom.audioMorseCode.codeOverlay.placeholder')}
                 value={codeInput}
                 onChange={e => { setCodeInput(e.target.value); setCodeError(false) }}
                 autoFocus
               />
-              <button type="submit">{t('routes.patientDataLeakRoom.morseCode.codeOverlay.submit')}</button>
+              <button type="submit">{t('routes.patientDataLeakRoom.audioMorseCode.codeOverlay.submit')}</button>
             </form>
             {codeError && (
-              <p className="feedback danger">{t('routes.patientDataLeakRoom.morseCode.codeOverlay.error')}</p>
+              <p className="feedback danger">{t('routes.patientDataLeakRoom.audioMorseCode.codeOverlay.error')}</p>
             )}
           </div>
         </div>
@@ -160,13 +160,13 @@ export default function PatientDataLeakMorseCode() {
           <LanguageSelector />
           {stage === 'ready' && (
             <button className="pdl-start" onClick={startPlaying}>
-              {t('routes.patientDataLeakRoom.morseCode.play')}
+              {t('routes.patientDataLeakRoom.audioMorseCode.play')}
             </button>
           )}
           {stage === 'playing' && (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
               <button className="pdl-start" disabled style={{ opacity: 0.4, cursor: 'not-allowed' }}>
-                {t('routes.patientDataLeakRoom.morseCode.play')}
+                {t('routes.patientDataLeakRoom.audioMorseCode.play')}
               </button>
               {debug && activeCharIdx >= 0 && activeCharIdx < MORSE_CHARS.length && (
                 <div style={{ textAlign: 'center', color: 'var(--muted)', fontFamily: 'monospace' }}>

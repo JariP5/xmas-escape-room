@@ -150,7 +150,7 @@ function MorseReferenceChart() {
         textTransform: 'uppercase',
         margin: '0 0 0.8rem',
       }}>
-        {t('routes.patientDataLeakRoom.connectionCode.morseReference')}
+        {t('routes.patientDataLeakRoom.visualMorseCode.morseReference')}
       </h2>
 
       <div style={{
@@ -223,7 +223,7 @@ function MorseReferenceChart() {
   )
 }
 
-export default function PatientDataLeakConnectionCode() {
+export default function PatientDataLeakVisualMorseCode() {
   const { t } = useI18n()
   const { activePos, cycle } = useLoopingReveal()
   const [stage, setStage] = useState<Stage>('code')
@@ -252,7 +252,7 @@ export default function PatientDataLeakConnectionCode() {
             textTransform: 'uppercase',
             marginBottom: '2rem',
           }}>
-            {t('routes.patientDataLeakRoom.connectionCode.title')}
+            {t('routes.patientDataLeakRoom.visualMorseCode.title')}
           </h2>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(0.8rem, 3vw, 2rem)' }}>
             {CODE_LETTERS.map((letter, i) => (

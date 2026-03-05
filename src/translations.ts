@@ -122,16 +122,16 @@ export const dicts: Record<Lang, Dict> = {
                 screenPicker: {
                     title: 'Choose your screen',
                     main: { label: 'Main Screen', desc: 'Intro video and stop the breach' },
-                    morseCode: { label: 'Morse Code', desc: 'Enter code and solve morse code' },
-                    connectionCode: { label: 'Connection Code', desc: 'Display connection code' },
+                    audioMorseCode: { label: 'Audio Morse Code', desc: 'Enter code and solve morse code' },
+                    visualMorseCode: { label: 'Visual Morse Code', desc: 'Display morse code reference' },
                 },
-                morseCode: {
+                audioMorseCode: {
                     title: 'MORSE CODE',
                     codeOverlay: { title: 'Connection Code', placeholder: 'Enter code…', submit: 'Submit', error: 'Invalid code. Try again.' },
                     play: 'Play',
                 },
-                connectionCode: {
-                    title: 'Connection Code',
+                visualMorseCode: {
+                    title: 'Visual Morse Code',
                     morseReference: 'Morse Code Reference',
                 },
                 password: 'PATIENT-ZERO',
@@ -244,16 +244,16 @@ export const dicts: Record<Lang, Dict> = {
                 screenPicker: {
                     title: 'Bildschirm wählen',
                     main: { label: 'Hauptbildschirm', desc: 'Intro-Video und Leck schließen' },
-                    morseCode: { label: 'Morsecode', desc: 'Code eingeben und Morsecode lösen' },
-                    connectionCode: { label: 'Verbindungscode', desc: 'Verbindungscode anzeigen' },
+                    audioMorseCode: { label: 'Audio-Morsecode', desc: 'Code eingeben und Morsecode lösen' },
+                    visualMorseCode: { label: 'Visueller Morsecode', desc: 'Morsecode-Referenz anzeigen' },
                 },
-                morseCode: {
+                audioMorseCode: {
                     title: 'MORSECODE',
                     codeOverlay: { title: 'Verbindungscode', placeholder: 'Code eingeben…', submit: 'Absenden', error: 'Ungültiger Code. Erneut versuchen.' },
                     play: 'Abspielen',
                 },
-                connectionCode: {
-                    title: 'Verbindungscode',
+                visualMorseCode: {
+                    title: 'Visueller Morsecode',
                     morseReference: 'Morsecode-Referenz',
                 },
                 password: 'PATIENT-ZERO',
@@ -366,16 +366,16 @@ export const dicts: Record<Lang, Dict> = {
                 screenPicker: {
                     title: 'Kies je scherm',
                     main: { label: 'Hoofdscherm', desc: 'Introvideo en lek dichten' },
-                    morseCode: { label: 'Morsecode', desc: 'Code invoeren en morsecode oplossen' },
-                    connectionCode: { label: 'Koppelcode', desc: 'Koppelcode weergeven' },
+                    audioMorseCode: { label: 'Audio-morsecode', desc: 'Code invoeren en morsecode oplossen' },
+                    visualMorseCode: { label: 'Visuele morsecode', desc: 'Morsecode-referentie weergeven' },
                 },
-                morseCode: {
+                audioMorseCode: {
                     title: 'MORSECODE',
                     codeOverlay: { title: 'Koppelcode', placeholder: 'Voer code in…', submit: 'Verzenden', error: 'Ongeldige code. Probeer opnieuw.' },
                     play: 'Afspelen',
                 },
-                connectionCode: {
-                    title: 'Koppelcode',
+                visualMorseCode: {
+                    title: 'Visuele morsecode',
                     morseReference: 'Morsecode-referentie',
                 },
                 password: 'PATIENT-ZERO',
@@ -488,16 +488,16 @@ export const dicts: Record<Lang, Dict> = {
                 screenPicker: {
                     title: 'Choisissez votre écran',
                     main: { label: 'Écran principal', desc: 'Vidéo d\'intro et colmater la brèche' },
-                    morseCode: { label: 'Code Morse', desc: 'Entrer le code et résoudre le morse' },
-                    connectionCode: { label: 'Code de connexion', desc: 'Afficher le code de connexion' },
+                    audioMorseCode: { label: 'Code Morse audio', desc: 'Entrer le code et résoudre le morse' },
+                    visualMorseCode: { label: 'Code Morse visuel', desc: 'Afficher la référence du code Morse' },
                 },
-                morseCode: {
+                audioMorseCode: {
                     title: 'CODE MORSE',
                     codeOverlay: { title: 'Code de connexion', placeholder: 'Entrez le code…', submit: 'Valider', error: 'Code invalide. Réessayez.' },
                     play: 'Lecture',
                 },
-                connectionCode: {
-                    title: 'Code de connexion',
+                visualMorseCode: {
+                    title: 'Code Morse visuel',
                     morseReference: 'Référence du code Morse',
                 },
                 password: 'PATIENT-ZERO',

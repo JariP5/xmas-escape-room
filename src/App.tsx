@@ -6,8 +6,8 @@ import AboutRoom from './routes/AboutRoom'
 import Shop from './routes/Shop'
 import { rooms, areRoomsLocked } from './rooms/registry'
 import PatientDataLeakRoom from './rooms/patient-data-leak-room/PatientDataLeakRoom.tsx'
-import PatientDataLeakMorseCode from './rooms/patient-data-leak-room/PatientDataLeakMorseCode.tsx'
-import PatientDataLeakConnectionCode from './rooms/patient-data-leak-room/PatientDataLeakConnectionCode.tsx'
+import PatientDataLeakAudioMorseCode from './rooms/patient-data-leak-room/PatientDataLeakAudioMorseCode.tsx'
+import PatientDataLeakVisualMorseCode from './rooms/patient-data-leak-room/PatientDataLeakVisualMorseCode.tsx'
 import React, { useEffect } from 'react'
 import DifficultyMeter from './components/DifficultyMeter'
 import { supabase } from "./supabaseClient"
@@ -129,14 +129,14 @@ function App() {
         {areRoomsLocked() ? (
           <Route element={<RequireUnlock room="patient-data-leak-room" />}>
             <Route path="patient-data-leak-room/main" element={<RoomPage Comp={PatientDataLeakRoom} />} />
-            <Route path="patient-data-leak-room/morse-code" element={<RoomPage Comp={PatientDataLeakMorseCode} />} />
-            <Route path="patient-data-leak-room/connection-code" element={<RoomPage Comp={PatientDataLeakConnectionCode} />} />
+            <Route path="patient-data-leak-room/audio-morse-code" element={<RoomPage Comp={PatientDataLeakAudioMorseCode} />} />
+            <Route path="patient-data-leak-room/visual-morse-code" element={<RoomPage Comp={PatientDataLeakVisualMorseCode} />} />
           </Route>
         ) : (
           <>
             <Route path="patient-data-leak-room/main" element={<RoomPage Comp={PatientDataLeakRoom} />} />
-            <Route path="patient-data-leak-room/morse-code" element={<RoomPage Comp={PatientDataLeakMorseCode} />} />
-            <Route path="patient-data-leak-room/connection-code" element={<RoomPage Comp={PatientDataLeakConnectionCode} />} />
+            <Route path="patient-data-leak-room/audio-morse-code" element={<RoomPage Comp={PatientDataLeakAudioMorseCode} />} />
+            <Route path="patient-data-leak-room/visual-morse-code" element={<RoomPage Comp={PatientDataLeakVisualMorseCode} />} />
           </>
         )}
 
