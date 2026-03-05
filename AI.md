@@ -18,7 +18,7 @@ Key Paths
 - src/routes/UnlockRoom.tsx — Access code entry + unlock flow
 - src/i18n.tsx — i18n provider + LanguageSelector component
 - src/translations.ts — Translation dictionaries (nested by routes/sections) and types
-- src/supabase.ts — Lightweight Supabase REST/RPC helper and local unlock state
+- src/supabaseClient.ts — Lightweight Supabase REST/RPC helper and local unlock state
 - firebase.json — SPA rewrites config for clean URLs
 - .env.example — Vite env placeholders for Supabase
 
@@ -29,17 +29,6 @@ Environment Variables (Vite)
 Notes:
 - Only variables prefixed with VITE_ are exposed to the client.
 - Do not commit real secrets. Use .env locally and hosting provider config in production.
-
-Supabase Access Codes
-- Table: access_codes(code text PK/unique, room text, used_at timestamptz null)
-- RLS policies must allow:
-  - SELECT by anon (optionally constrained)
-  - UPDATE used_at when used_at IS NULL and code/room match
-- RPC (recommended): claim_code(code, room) to atomically set used_at = now()
-- Client flow (src/supabase.ts):
-  1) Try RPC POST /rest/v1/rpc/claim_code
-  2) Fallback: PATCH /rest/v1/access_codes where used_at is null
-  3) On success, mark local unlock in localStorage: room.<roomId>.unlocked = '1'
 
 Routing and Guards
 - BrowserRouter is configured in main.tsx

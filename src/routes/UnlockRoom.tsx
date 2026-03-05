@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate, Link, useParams } from 'react-router-dom'
 import { LanguageSelector, useI18n } from '../i18n'
-import { claimAccessCode, markUnlocked } from '../supabase'
 import '../App.css'
 
 export default function UnlockRoom() {
@@ -14,6 +13,17 @@ export default function UnlockRoom() {
   const [loading, setLoading] = React.useState(false)
   const [error, setError] = React.useState<string | null>(null)
 
+  // TODO: Implement on Supabase
+  // @ts-ignore
+  async function claimAccessCode(room: string, code: string): Promise<Response> {
+    console.log('claiming access code', room, code)
+  }
+
+  // TODO: Implement on Supabase
+  async function markUnlocked(room: string) {
+    console.log("mark unlocked", room)
+  }
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!code.trim()) return
@@ -25,22 +35,22 @@ export default function UnlockRoom() {
       markUnlocked(room)
       nav(`/${room}`, { replace: true })
     } else {
-      switch (res.reason) {
-        case 'invalid':
-          setError(t('routes.unlock.error.invalid'))
-          break
-        case 'used':
-          setError(t('routes.unlock.error.used'))
-          break
-        case 'config':
-          setError(t('routes.unlock.error.config'))
-          break
-        case 'network':
-          setError(t('routes.unlock.error.network'))
-          break
-        default:
-          setError(res.message || t('routes.unlock.error.generic'))
-      }
+      // switch (res.reason) {
+      //   case 'invalid':
+      //     setError(t('routes.unlock.error.invalid'))
+      //     break
+      //   case 'used':
+      //     setError(t('routes.unlock.error.used'))
+      //     break
+      //   case 'config':
+      //     setError(t('routes.unlock.error.config'))
+      //     break
+      //   case 'network':
+      //     setError(t('routes.unlock.error.network'))
+      //     break
+      //   default:
+      //     setError(res.message || t('routes.unlock.error.generic'))
+      // }
     }
   }
 

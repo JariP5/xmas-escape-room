@@ -132,6 +132,7 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 connectionCode: {
                     title: 'Connection Code',
+                    morseReference: 'Morse Code Reference',
                 },
                 password: 'PATIENT-ZERO',
             },
@@ -253,6 +254,7 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 connectionCode: {
                     title: 'Verbindungscode',
+                    morseReference: 'Morsecode-Referenz',
                 },
                 password: 'PATIENT-ZERO',
             },
@@ -374,6 +376,7 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 connectionCode: {
                     title: 'Koppelcode',
+                    morseReference: 'Morsecode-referentie',
                 },
                 password: 'PATIENT-ZERO',
             },
@@ -495,6 +498,7 @@ export const dicts: Record<Lang, Dict> = {
                 },
                 connectionCode: {
                     title: 'Code de connexion',
+                    morseReference: 'Référence du code Morse',
                 },
                 password: 'PATIENT-ZERO',
             }

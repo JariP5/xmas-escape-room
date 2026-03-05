@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import '../../App.css'
 import { LanguageSelector, useI18n } from '../../i18n.tsx'
+import { getChannel } from '../../supabaseClient.ts'
 
 const CONNECTION_CODE = 'GO8A1PF'
 const MORSE_TEXT = '2015'
@@ -109,6 +110,7 @@ export default function PatientDataLeakMorseCode() {
     if (codeInput.trim().toUpperCase() === CONNECTION_CODE) {
       setCodeError(false)
       setStage('ready')
+      getChannel('pdl-sync').send({ type: 'broadcast', event: 'code-accepted', payload: {} })
     } else {
       setCodeError(true)
     }

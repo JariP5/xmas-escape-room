@@ -4,13 +4,13 @@ import { LanguageSelector, useI18n } from './i18n'
 import UnlockRoom from './routes/UnlockRoom'
 import AboutRoom from './routes/AboutRoom'
 import Shop from './routes/Shop'
-import { isUnlocked } from './supabase'
 import { rooms, areRoomsLocked } from './rooms/registry'
 import PatientDataLeakRoom from './rooms/patient-data-leak-room/PatientDataLeakRoom.tsx'
 import PatientDataLeakMorseCode from './rooms/patient-data-leak-room/PatientDataLeakMorseCode.tsx'
 import PatientDataLeakConnectionCode from './rooms/patient-data-leak-room/PatientDataLeakConnectionCode.tsx'
 import React, { useEffect } from 'react'
 import DifficultyMeter from './components/DifficultyMeter'
+import { supabase } from "./supabaseClient"
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -23,6 +23,11 @@ function ScrollToTop() {
 
 function Home() {
   const { t } = useI18n()
+
+  useEffect(() => {
+    console.log("Supabase client:", supabase)
+  }, [])
+
   return (
     <div className="app home">
       <div className="scanlines" aria-hidden />
@@ -84,7 +89,7 @@ function Home() {
 }
 
 function RequireUnlock({ room }: { room: string }) {
-  if (!isUnlocked(room) && areRoomsLocked()) {
+  if (areRoomsLocked()) {
     return <Navigate to={`/unlock/${room}`} replace />
   }
   return <Outlet />

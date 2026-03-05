@@ -96,48 +96,6 @@ To add a new language:
 2) Extend the `Lang` union type
 3) Provide translations for all keys in `dicts`
 
-## One-time Access Codes with Supabase
-The helper `src/supabase.ts` provides:
-- `claimAccessCode(room, code)` — attempts to atomically mark a code as used via an RPC `claim_code(code, room)`. Falls back to a guarded PATCH if RPC doesn’t exist.
-- `markUnlocked(room)` / `isUnlocked(room)` — store unlock state in localStorage
-
-Recommended Supabase setup:
-1) Table `access_codes`
-   - `code` text primary key (or unique)
-   - `room` text not null
-   - `used_at` timestamptz null (null = unused)
-2) Enable RLS and add policies allowing the anonymous role to:
-   - SELECT codes (optionally filtered by room)
-   - UPDATE `used_at` where `used_at is null` and code/room match
-3) Optional RPC for true atomic claim (recommended):
-```sql
-create or replace function claim_code(code text, room text)
-returns access_codes as $$
-declare r access_codes;
-begin
-  update access_codes set used_at = now()
-  where access_codes.code = claim_code.code
-    and access_codes.room = claim_code.room
-    and used_at is null
-  returning * into r;
-  return r; -- null if invalid/used
-end; $$ language plpgsql security definer;
-```
-Add a policy that permits executing this function for the anon role.
-
-## Deployment (Firebase Hosting)
-This repo includes `firebase.json` configured for SPA rewrites. Steps:
-1) Build the app: `npm run build`
-2) Install Firebase CLI if needed: `npm i -g firebase-tools`
-3) Login: `firebase login`
-4) Initialize hosting (once): `firebase init hosting`
-   - Select your project
-   - Public directory: `dist`
-   - Configure as a SPA (rewrite all to /index.html): Yes
-5) Deploy: `firebase deploy`
-
-Clean URLs (e.g. `/christmas-room`) will work on refresh thanks to the rewrites.
-
 ## Adding a New Room (quick guide)
 1) Create your component under `src/rooms/YourRoom.tsx` (default export the component)
 2) Register it in `src/rooms/registry.ts`:
