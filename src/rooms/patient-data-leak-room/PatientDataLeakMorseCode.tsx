@@ -107,7 +107,7 @@ export default function PatientDataLeakMorseCode() {
 
   const handleCodeSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault()
-    if (codeInput.trim().toUpperCase() === PATIENT_DATA_LEAK_CONNECTION_CODE) {
+    if (codeInput.trim().toUpperCase() === PATIENT_DATA_LEAK_CONNECTION_CODE.toUpperCase()) {
       setCodeError(false)
       setStage('ready')
       getChannel('pdl-sync').send({ type: 'broadcast', event: 'code-accepted', payload: {} })

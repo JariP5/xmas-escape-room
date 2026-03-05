@@ -126,73 +126,98 @@ function MorseSymbols({ morse }: { morse: string }) {
   )
 }
 
-function MorseGrid({ items }: { items: typeof MORSE_REFERENCE }) {
-  return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(8rem, 1fr))',
-      gap: '2px',
-      width: '100%',
-    }}>
-      {items.map(({ char, morse }) => (
-        <div key={char} style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-          padding: '0.5rem 0.75rem',
-          background: 'rgba(255,255,255,0.03)',
-        }}>
-          <span style={{
-            fontWeight: 700,
-            fontSize: '1.1rem',
-            color: '#fff',
-            width: '1.2em',
-            textAlign: 'center',
-            fontFamily: 'monospace',
-          }}>{char}</span>
-          <MorseSymbols morse={morse} />
-        </div>
-      ))}
-    </div>
-  )
-}
-
 function MorseReferenceChart() {
   const { t } = useI18n()
+
+  // Split letters into 2 columns (13 + 13), digits as a row below
+  const col1 = LETTERS.slice(0, 13) // A-M
+  const col2 = LETTERS.slice(13)     // N-Z
 
   return (
     <div style={{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '1.5rem 1rem',
-      maxHeight: '100dvh',
-      overflow: 'auto',
-      gap: '1.5rem',
+      justifyContent: 'center',
+      padding: '1rem 1rem',
+      height: '100dvh',
+      boxSizing: 'border-box',
     }}>
       <h2 style={{
         color: 'var(--muted)',
-        fontSize: 'clamp(0.9rem, 2.5vw, 1.2rem)',
+        fontSize: 'clamp(0.8rem, 2vw, 1.1rem)',
         letterSpacing: '.15em',
         textTransform: 'uppercase',
-        margin: 0,
+        margin: '0 0 0.8rem',
       }}>
         {t('routes.patientDataLeakRoom.connectionCode.morseReference')}
       </h2>
 
-      <div style={{ width: '100%', maxWidth: '42rem' }}>
-        <MorseGrid items={LETTERS} />
+      <div style={{
+        display: 'flex',
+        gap: '2px',
+        width: '100%',
+        maxWidth: '28rem',
+        justifyContent: 'center',
+      }}>
+        {[col1, col2].map((col, ci) => (
+          <div key={ci} style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
+            {col.map(({ char, morse }) => (
+              <div key={char} style={{
+                display: 'grid',
+                gridTemplateColumns: '1.4em 1fr',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.3rem 0.6rem',
+                background: 'rgba(255,255,255,0.03)',
+              }}>
+                <span style={{
+                  fontWeight: 700,
+                  fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+                  color: '#fff',
+                  textAlign: 'center',
+                  fontFamily: 'monospace',
+                }}>{char}</span>
+                <MorseSymbols morse={morse} />
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
 
       <div style={{
-        width: '60%',
-        maxWidth: '25rem',
+        width: '50%',
+        maxWidth: '14rem',
         height: '1px',
         background: 'rgba(255,255,255,0.08)',
+        margin: '0.6rem 0',
       }} />
 
-      <div style={{ width: '100%', maxWidth: '42rem' }}>
-        <MorseGrid items={DIGITS} />
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(5, auto)',
+        gap: '2px',
+        justifyContent: 'center',
+      }}>
+        {DIGITS.map(({ char, morse }) => (
+          <div key={char} style={{
+            display: 'grid',
+            gridTemplateColumns: '1.4em 1fr',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.3rem 0.6rem',
+            background: 'rgba(255,255,255,0.03)',
+          }}>
+            <span style={{
+              fontWeight: 700,
+              fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+              color: '#fff',
+              textAlign: 'center',
+              fontFamily: 'monospace',
+            }}>{char}</span>
+            <MorseSymbols morse={morse} />
+          </div>
+        ))}
       </div>
     </div>
   )
