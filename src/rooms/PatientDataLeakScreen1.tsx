@@ -2,7 +2,7 @@ import { useState, useCallback, useRef } from 'react'
 import '../App.css'
 import { LanguageSelector, useI18n } from '../i18n'
 
-const CONNECTION_CODE = 'BREACH'
+const CONNECTION_CODE = 'GO8A1PF2'
 
 type Stage = 'code' | 'ready' | 'playing' | 'done'
 

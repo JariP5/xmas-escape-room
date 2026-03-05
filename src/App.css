@@ -569,17 +569,24 @@
   letter-spacing: .1em;
   color: #fff;
   opacity: 0;
-  animation: pdl-flicker-in 1s ease forwards;
   text-shadow: 0 0 20px rgba(255,255,255,.4), 0 0 60px rgba(230,57,70,.3);
+}
+.pdl-code-letter--active {
+  animation: pdl-flicker-in 2.5s ease;
 }
 
 @keyframes pdl-flicker-in {
+  /* flicker in */
   0%   { opacity: 0; }
-  15%  { opacity: .7; }
-  25%  { opacity: .1; }
-  40%  { opacity: .8; }
-  55%  { opacity: .15; }
-  70%  { opacity: .9; }
-  85%  { opacity: .3; }
-  100% { opacity: 1; }
+  8%   { opacity: .7; }
+  14%  { opacity: .1; }
+  22%  { opacity: .8; }
+  30%  { opacity: .15; }
+  38%  { opacity: .9; }
+  44%  { opacity: .3; }
+  /* settle and hold */
+  52%  { opacity: 1; }
+  76%  { opacity: 1; }
+  /* fade out */
+  100% { opacity: 0; }
 }
