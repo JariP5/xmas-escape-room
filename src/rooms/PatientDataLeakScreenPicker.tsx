@@ -4,53 +4,66 @@ import { LanguageSelector, useI18n } from '../i18n'
 
 export default function PatientDataLeakScreenPicker() {
   const { t } = useI18n()
+  const title = t('routes.patientDataLeakRoom.card.title')
+
+  const screens = [
+    {
+      to: '/patient-data-leak-room/main',
+      icon: '/assets/patient-data-leak-room/thumbnail.png',
+      label: t('routes.patientDataLeakRoom.screenPicker.main.label'),
+      desc: t('routes.patientDataLeakRoom.screenPicker.main.desc'),
+    },
+    {
+      to: '/patient-data-leak-room/screen1',
+      icon: '/assets/patient-data-leak-room/thumbnail.png',
+      label: t('routes.patientDataLeakRoom.screenPicker.screen1.label'),
+      desc: t('routes.patientDataLeakRoom.screenPicker.screen1.desc'),
+    },
+  ]
 
   return (
-    <div className="pdl-black" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 24 }}>
+    <div className="app">
+      <div className="scanlines" aria-hidden />
       <LanguageSelector />
-      <h2 style={{ color: 'var(--text)', textAlign: 'center', margin: 0 }}>
-        {t('routes.patientDataLeakRoom.screenPicker.title')}
-      </h2>
+      <header className="header">
+        <h1 className="glitch" data-text={title}>{title}</h1>
+        <p className="tagline">{t('routes.patientDataLeakRoom.screenPicker.title')}</p>
+      </header>
 
-      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', maxWidth: 600 }}>
-        <Link
-          to="/patient-data-leak-room/main"
-          className="button"
-          style={{
-            textDecoration: 'none',
-            flex: '1 1 240px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 6,
-            padding: '20px 24px',
-            textAlign: 'center',
-          }}
-        >
-          <strong>{t('routes.patientDataLeakRoom.screenPicker.main.label')}</strong>
-          <span style={{ fontSize: '.85rem', opacity: 0.8 }}>
-            {t('routes.patientDataLeakRoom.screenPicker.main.desc')}
-          </span>
-        </Link>
-
-        <Link
-          to="/patient-data-leak-room/screen1"
-          className="button"
-          style={{
-            textDecoration: 'none',
-            flex: '1 1 240px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 6,
-            padding: '20px 24px',
-            textAlign: 'center',
-          }}
-        >
-          <strong>{t('routes.patientDataLeakRoom.screenPicker.screen1.label')}</strong>
-          <span style={{ fontSize: '.85rem', opacity: 0.8 }}>
-            {t('routes.patientDataLeakRoom.screenPicker.screen1.desc')}
-          </span>
-        </Link>
-      </div>
+      <section className="panel" style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+        gap: 16,
+      }}>
+        {screens.map(s => (
+          <Link
+            key={s.to}
+            to={s.to}
+            className="elf room-card"
+            style={{
+              textDecoration: 'none',
+              display: 'grid',
+              gridTemplateColumns: '150px 1fr',
+              alignItems: 'center',
+              gap: 12,
+              padding: '12px',
+              borderRadius: 10,
+              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
+            }}
+          >
+            <img
+              src={s.icon}
+              alt={s.label}
+              style={{ width: 150, height: 150, objectFit: 'cover', borderRadius: 8, border: '1px solid rgba(255,255,255,0.08)' }}
+            />
+            <div>
+              <p className="elf-name" style={{ margin: 0 }}>{s.label}</p>
+              <p className="elf-desc" style={{ margin: '4px 0 0' }}>{s.desc}</p>
+            </div>
+          </Link>
+        ))}
+      </section>
     </div>
   )
 }
