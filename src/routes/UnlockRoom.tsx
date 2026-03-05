@@ -17,6 +17,7 @@ export default function UnlockRoom() {
   // @ts-ignore
   async function claimAccessCode(room: string, code: string): Promise<Response> {
     console.log('claiming access code', room, code)
+    return new Response('OK', { status: 200 })
   }
 
   // TODO: Implement on Supabase
