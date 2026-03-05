@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import '../App.css'
-import { LanguageSelector, useI18n } from '../i18n'
+import '../../App.css'
+import { LanguageSelector, useI18n } from '../../i18n.tsx'
 
 type Stage = 'idle' | 'video' | 'blackout' | 'hacked' | 'solved' | 'failed'
 

@@ -6,9 +6,9 @@ import AboutRoom from './routes/AboutRoom'
 import Shop from './routes/Shop'
 import { isUnlocked } from './supabase'
 import { rooms, areRoomsLocked } from './rooms/registry'
-import PatientDataLeakRoom from './rooms/PatientDataLeakRoom'
-import PatientDataLeakScreen1 from './rooms/PatientDataLeakScreen1'
-import PatientDataLeakScreen2 from './rooms/PatientDataLeakScreen2'
+import PatientDataLeakRoom from './rooms/patient-data-leak/PatientDataLeakRoom.tsx'
+import PatientDataLeakMorseCode from './rooms/patient-data-leak/PatientDataLeakMorseCode.tsx'
+import PatientDataLeakConnectionCode from './rooms/patient-data-leak/PatientDataLeakConnectionCode.tsx'
 import React, { useEffect } from 'react'
 import DifficultyMeter from './components/DifficultyMeter'
 
@@ -124,14 +124,14 @@ function App() {
         {areRoomsLocked() ? (
           <Route element={<RequireUnlock room="patient-data-leak-room" />}>
             <Route path="patient-data-leak-room/main" element={<RoomPage Comp={PatientDataLeakRoom} />} />
-            <Route path="patient-data-leak-room/screen1" element={<RoomPage Comp={PatientDataLeakScreen1} />} />
-            <Route path="patient-data-leak-room/screen2" element={<RoomPage Comp={PatientDataLeakScreen2} />} />
+            <Route path="patient-data-leak-room/morse-code" element={<RoomPage Comp={PatientDataLeakMorseCode} />} />
+            <Route path="patient-data-leak-room/connection-code" element={<RoomPage Comp={PatientDataLeakConnectionCode} />} />
           </Route>
         ) : (
           <>
             <Route path="patient-data-leak-room/main" element={<RoomPage Comp={PatientDataLeakRoom} />} />
-            <Route path="patient-data-leak-room/screen1" element={<RoomPage Comp={PatientDataLeakScreen1} />} />
-            <Route path="patient-data-leak-room/screen2" element={<RoomPage Comp={PatientDataLeakScreen2} />} />
+            <Route path="patient-data-leak-room/morse-code" element={<RoomPage Comp={PatientDataLeakMorseCode} />} />
+            <Route path="patient-data-leak-room/connection-code" element={<RoomPage Comp={PatientDataLeakConnectionCode} />} />
           </>
         )}
 

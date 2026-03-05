@@ -122,16 +122,16 @@ export const dicts: Record<Lang, Dict> = {
                 screenPicker: {
                     title: 'Choose your screen',
                     main: { label: 'Main Screen', desc: 'Intro video and stop the breach' },
-                    screen1: { label: 'Screen 1', desc: 'Enter code and solve morse code' },
-                    screen2: { label: 'Screen 2', desc: 'Display connection code' },
+                    morseCode: { label: 'Morse Code', desc: 'Enter code and solve morse code' },
+                    connectionCode: { label: 'Connection Code', desc: 'Display connection code' },
                 },
-                screen1: {
-                    title: 'SCREEN 1',
+                morseCode: {
+                    title: 'MORSE CODE',
                     codeOverlay: { title: 'Connection Code', placeholder: 'Enter code…', submit: 'Submit', error: 'Invalid code. Try again.' },
                     play: 'Play',
                     replay: 'Replay',
                 },
-                screen2: {
+                connectionCode: {
                     title: 'Connection Code',
                 },
                 password: 'PATIENT-ZERO',
@@ -244,16 +244,16 @@ export const dicts: Record<Lang, Dict> = {
                 screenPicker: {
                     title: 'Bildschirm wählen',
                     main: { label: 'Hauptbildschirm', desc: 'Intro-Video und Leck schließen' },
-                    screen1: { label: 'Bildschirm 1', desc: 'Code eingeben und Morsecode lösen' },
-                    screen2: { label: 'Bildschirm 2', desc: 'Verbindungscode anzeigen' },
+                    morseCode: { label: 'Morsecode', desc: 'Code eingeben und Morsecode lösen' },
+                    connectionCode: { label: 'Verbindungscode', desc: 'Verbindungscode anzeigen' },
                 },
-                screen1: {
-                    title: 'BILDSCHIRM 1',
+                morseCode: {
+                    title: 'MORSECODE',
                     codeOverlay: { title: 'Verbindungscode', placeholder: 'Code eingeben…', submit: 'Absenden', error: 'Ungültiger Code. Erneut versuchen.' },
                     play: 'Abspielen',
                     replay: 'Nochmal',
                 },
-                screen2: {
+                connectionCode: {
                     title: 'Verbindungscode',
                 },
                 password: 'PATIENT-ZERO',
@@ -366,16 +366,16 @@ export const dicts: Record<Lang, Dict> = {
                 screenPicker: {
                     title: 'Kies je scherm',
                     main: { label: 'Hoofdscherm', desc: 'Introvideo en lek dichten' },
-                    screen1: { label: 'Scherm 1', desc: 'Code invoeren en morsecode oplossen' },
-                    screen2: { label: 'Scherm 2', desc: 'Koppelcode weergeven' },
+                    morseCode: { label: 'Morsecode', desc: 'Code invoeren en morsecode oplossen' },
+                    connectionCode: { label: 'Koppelcode', desc: 'Koppelcode weergeven' },
                 },
-                screen1: {
-                    title: 'SCHERM 1',
+                morseCode: {
+                    title: 'MORSECODE',
                     codeOverlay: { title: 'Koppelcode', placeholder: 'Voer code in…', submit: 'Verzenden', error: 'Ongeldige code. Probeer opnieuw.' },
                     play: 'Afspelen',
                     replay: 'Opnieuw',
                 },
-                screen2: {
+                connectionCode: {
                     title: 'Koppelcode',
                 },
                 password: 'PATIENT-ZERO',
@@ -488,16 +488,16 @@ export const dicts: Record<Lang, Dict> = {
                 screenPicker: {
                     title: 'Choisissez votre écran',
                     main: { label: 'Écran principal', desc: 'Vidéo d\'intro et colmater la brèche' },
-                    screen1: { label: 'Écran 1', desc: 'Entrer le code et résoudre le morse' },
-                    screen2: { label: 'Écran 2', desc: 'Afficher le code de connexion' },
+                    morseCode: { label: 'Code Morse', desc: 'Entrer le code et résoudre le morse' },
+                    connectionCode: { label: 'Code de connexion', desc: 'Afficher le code de connexion' },
                 },
-                screen1: {
-                    title: 'ÉCRAN 1',
+                morseCode: {
+                    title: 'CODE MORSE',
                     codeOverlay: { title: 'Code de connexion', placeholder: 'Entrez le code…', submit: 'Valider', error: 'Code invalide. Réessayez.' },
                     play: 'Lecture',
                     replay: 'Rejouer',
                 },
-                screen2: {
+                connectionCode: {
                     title: 'Code de connexion',
                 },
                 password: 'PATIENT-ZERO',

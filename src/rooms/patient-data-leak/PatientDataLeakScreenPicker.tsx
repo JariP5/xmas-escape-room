@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import '../App.css'
-import { LanguageSelector, useI18n } from '../i18n'
+import '../../App.css'
+import { LanguageSelector, useI18n } from '../../i18n.tsx'
 
 export default function PatientDataLeakScreenPicker() {
   const { t } = useI18n()
@@ -14,16 +14,16 @@ export default function PatientDataLeakScreenPicker() {
       desc: t('routes.patientDataLeakRoom.screenPicker.main.desc'),
     },
     {
-      to: '/patient-data-leak-room/screen1',
+      to: '/patient-data-leak-room/morse-code',
       icon: '/assets/patient-data-leak-room/thumbnail.png',
-      label: t('routes.patientDataLeakRoom.screenPicker.screen1.label'),
-      desc: t('routes.patientDataLeakRoom.screenPicker.screen1.desc'),
+      label: t('routes.patientDataLeakRoom.screenPicker.morseCode.label'),
+      desc: t('routes.patientDataLeakRoom.screenPicker.morseCode.desc'),
     },
     {
-      to: '/patient-data-leak-room/screen2',
+      to: '/patient-data-leak-room/connection-code',
       icon: '/assets/patient-data-leak-room/thumbnail.png',
-      label: t('routes.patientDataLeakRoom.screenPicker.screen2.label'),
-      desc: t('routes.patientDataLeakRoom.screenPicker.screen2.desc'),
+      label: t('routes.patientDataLeakRoom.screenPicker.connectionCode.label'),
+      desc: t('routes.patientDataLeakRoom.screenPicker.connectionCode.desc'),
     },
   ]
 

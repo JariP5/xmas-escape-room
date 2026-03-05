@@ -1,5 +1,5 @@
 import ChristmasRoom from './ChristmasRoom'
-import PatientDataLeakScreenPicker from './PatientDataLeakScreenPicker'
+import PatientDataLeakScreenPicker from './patient-data-leak/PatientDataLeakScreenPicker.tsx'
 import type { ComponentType } from 'react'
 
 export type RoomDef = {
