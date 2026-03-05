@@ -1,5 +1,5 @@
 import ChristmasRoom from './ChristmasRoom'
-import PatientDataLeakRoom from './PatientDataLeakRoom.tsx'
+import PatientDataLeakScreenPicker from './PatientDataLeakScreenPicker'
 import type { ComponentType } from 'react'
 
 export type RoomDef = {
@@ -28,7 +28,7 @@ export const rooms: RoomDef[] = [
   {
     id: 'patient-data-leak-room',
     baseKey: 'patientDataLeakRoom',
-    Component: PatientDataLeakRoom,
+    Component: PatientDataLeakScreenPicker,
     boardGameImage: '/assets/patient-data-leak-room/thumbnail.png',
     thumbnailImage: '/assets/patient-data-leak-room/thumbnail.png',
     difficulty: 9, // out of 10

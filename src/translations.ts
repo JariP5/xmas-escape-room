@@ -119,6 +119,15 @@ export const dicts: Record<Lang, Dict> = {
                     desc: 'Patient data has been cross-referenced and leaked. Trust in the company is irrevocably lost.',
                     sub: 'Mission failed.',
                 },
+                screenPicker: {
+                    title: 'Choose your screen',
+                    main: { label: 'Main Screen', desc: 'Intro video and stop the breach' },
+                    screen1: { label: 'Screen 1', desc: 'Enter code and solve morse code' },
+                },
+                screen1: {
+                    title: 'SCREEN 1',
+                    placeholder: 'This screen is under construction.',
+                },
                 password: 'PATIENT-ZERO',
             },
         },
@@ -225,6 +234,15 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'SYSTEM VERLOREN',
                     desc: 'Patientendaten wurden abgeglichen und sind durchgesickert. Das Vertrauen in das Unternehmen ist unwiderruflich verloren.',
                     sub: 'Mission fehlgeschlagen.',
+                },
+                screenPicker: {
+                    title: 'Bildschirm wählen',
+                    main: { label: 'Hauptbildschirm', desc: 'Intro-Video und Leck schließen' },
+                    screen1: { label: 'Bildschirm 1', desc: 'Code eingeben und Morsecode lösen' },
+                },
+                screen1: {
+                    title: 'BILDSCHIRM 1',
+                    placeholder: 'Dieser Bildschirm ist in Arbeit.',
                 },
                 password: 'PATIENT-ZERO',
             },
@@ -333,6 +351,15 @@ export const dicts: Record<Lang, Dict> = {
                     desc: 'Patiëntgegevens zijn gekruist en gelekt. Het vertrouwen in het bedrijf is onherroepelijk verloren.',
                     sub: 'Missie mislukt.',
                 },
+                screenPicker: {
+                    title: 'Kies je scherm',
+                    main: { label: 'Hoofdscherm', desc: 'Introvideo en lek dichten' },
+                    screen1: { label: 'Scherm 1', desc: 'Code invoeren en morsecode oplossen' },
+                },
+                screen1: {
+                    title: 'SCHERM 1',
+                    placeholder: 'Dit scherm is in aanbouw.',
+                },
                 password: 'PATIENT-ZERO',
             },
         },
@@ -439,6 +466,15 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'SYSTÈME PERDU',
                     desc: 'Les données patients ont été croisées et divulguées. La confiance envers l\'entreprise est irrémédiablement perdue.',
                     sub: 'Mission échouée.',
+                },
+                screenPicker: {
+                    title: 'Choisissez votre écran',
+                    main: { label: 'Écran principal', desc: 'Vidéo d\'intro et colmater la brèche' },
+                    screen1: { label: 'Écran 1', desc: 'Entrer le code et résoudre le morse' },
+                },
+                screen1: {
+                    title: 'ÉCRAN 1',
+                    placeholder: 'Cet écran est en construction.',
                 },
                 password: 'PATIENT-ZERO',
             }

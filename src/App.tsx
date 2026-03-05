@@ -6,6 +6,8 @@ import AboutRoom from './routes/AboutRoom'
 import Shop from './routes/Shop'
 import { isUnlocked } from './supabase'
 import { rooms, areRoomsLocked } from './rooms/registry'
+import PatientDataLeakRoom from './rooms/PatientDataLeakRoom'
+import PatientDataLeakScreen1 from './rooms/PatientDataLeakScreen1'
 import React, { useEffect } from 'react'
 import DifficultyMeter from './components/DifficultyMeter'
 
@@ -116,6 +118,19 @@ function App() {
             <Route key={r.id} path={r.id} element={element} />
           )
         })}
+
+        {/* Patient Data Leak sub-screens (behind same lock) */}
+        {areRoomsLocked() ? (
+          <Route element={<RequireUnlock room="patient-data-leak-room" />}>
+            <Route path="patient-data-leak-room/main" element={<RoomPage Comp={PatientDataLeakRoom} />} />
+            <Route path="patient-data-leak-room/screen1" element={<RoomPage Comp={PatientDataLeakScreen1} />} />
+          </Route>
+        ) : (
+          <>
+            <Route path="patient-data-leak-room/main" element={<RoomPage Comp={PatientDataLeakRoom} />} />
+            <Route path="patient-data-leak-room/screen1" element={<RoomPage Comp={PatientDataLeakScreen1} />} />
+          </>
+        )}
 
         <Route path="*" element={<Home />} />
       </Routes>
