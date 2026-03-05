@@ -5,7 +5,7 @@ import { LanguageSelector, useI18n } from '../../i18n.tsx'
 const CONNECTION_CODE = 'GO8A1PF'
 const MORSE_TEXT = '2015'
 
-type Stage = 'code' | 'ready' | 'playing' | 'done'
+type Stage = 'code' | 'ready' | 'playing'
 
 // ITU International Morse Code: 2015
 const MORSE_MAP: Record<string, string> = {
@@ -124,7 +124,7 @@ export default function PatientDataLeakMorseCode() {
       () => {
         playingRef.current = false
         setActiveCharIdx(-1)
-        setStage('done')
+        setStage('ready')
       },
     )
   }, [])
@@ -174,22 +174,6 @@ export default function PatientDataLeakMorseCode() {
                   <p style={{ fontSize: 'clamp(1rem, 3vw, 1.6rem)', margin: '.5rem 0 0', letterSpacing: '.3em' }}>
                     {MORSE_MAP[MORSE_CHARS[activeCharIdx]]}
                   </p>
-                </div>
-              )}
-            </div>
-          )}
-          {stage === 'done' && (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
-              <button className="pdl-start" onClick={startPlaying}>
-                {t('routes.patientDataLeakRoom.morseCode.replay')}
-              </button>
-              {debug && (
-                <div style={{ textAlign: 'center', color: 'var(--muted)', fontFamily: 'monospace', fontSize: 'clamp(.9rem, 2vw, 1.2rem)' }}>
-                  {MORSE_CHARS.map((c, i) => (
-                    <span key={i} style={{ marginRight: '1.5em' }}>
-                      {c} <span style={{ letterSpacing: '.2em' }}>{MORSE_MAP[c]}</span>
-                    </span>
-                  ))}
                 </div>
               )}
             </div>

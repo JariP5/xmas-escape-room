@@ -129,7 +129,6 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'MORSE CODE',
                     codeOverlay: { title: 'Connection Code', placeholder: 'Enter code…', submit: 'Submit', error: 'Invalid code. Try again.' },
                     play: 'Play',
-                    replay: 'Replay',
                 },
                 connectionCode: {
                     title: 'Connection Code',
@@ -251,7 +250,6 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'MORSECODE',
                     codeOverlay: { title: 'Verbindungscode', placeholder: 'Code eingeben…', submit: 'Absenden', error: 'Ungültiger Code. Erneut versuchen.' },
                     play: 'Abspielen',
-                    replay: 'Nochmal',
                 },
                 connectionCode: {
                     title: 'Verbindungscode',
@@ -373,7 +371,6 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'MORSECODE',
                     codeOverlay: { title: 'Koppelcode', placeholder: 'Voer code in…', submit: 'Verzenden', error: 'Ongeldige code. Probeer opnieuw.' },
                     play: 'Afspelen',
-                    replay: 'Opnieuw',
                 },
                 connectionCode: {
                     title: 'Koppelcode',
@@ -495,7 +492,6 @@ export const dicts: Record<Lang, Dict> = {
                     title: 'CODE MORSE',
                     codeOverlay: { title: 'Code de connexion', placeholder: 'Entrez le code…', submit: 'Valider', error: 'Code invalide. Réessayez.' },
                     play: 'Lecture',
-                    replay: 'Rejouer',
                 },
                 connectionCode: {
                     title: 'Code de connexion',
