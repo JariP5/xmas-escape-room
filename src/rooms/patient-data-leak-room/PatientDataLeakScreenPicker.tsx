@@ -9,19 +9,19 @@ export default function PatientDataLeakScreenPicker() {
   const screens = [
     {
       to: '/patient-data-leak-room/main',
-      icon: '/assets/patient-data-leak-room/thumbnail.png',
+      icon: `${import.meta.env.BASE_URL}assets/patient-data-leak-room/thumbnail.png`,
       label: t('routes.patientDataLeakRoom.screenPicker.main.label'),
       desc: t('routes.patientDataLeakRoom.screenPicker.main.desc'),
     },
     {
       to: '/patient-data-leak-room/audio-morse-code',
-      icon: '/assets/patient-data-leak-room/thumbnail.png',
+      icon: `${import.meta.env.BASE_URL}assets/patient-data-leak-room/thumbnail.png`,
       label: t('routes.patientDataLeakRoom.screenPicker.audioMorseCode.label'),
       desc: t('routes.patientDataLeakRoom.screenPicker.audioMorseCode.desc'),
     },
     {
       to: '/patient-data-leak-room/visual-morse-code',
-      icon: '/assets/patient-data-leak-room/thumbnail.png',
+      icon: `${import.meta.env.BASE_URL}assets/patient-data-leak-room/thumbnail.png`,
       label: t('routes.patientDataLeakRoom.screenPicker.visualMorseCode.label'),
       desc: t('routes.patientDataLeakRoom.screenPicker.visualMorseCode.desc'),
     },

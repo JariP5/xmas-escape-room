@@ -97,7 +97,7 @@ export default function PatientDataLeakRoom() {
         <video
           ref={videoRef}
           className="pdl-video"
-          src="/assets/patient-data-leak-room/intro.mp4"
+          src={`${import.meta.env.BASE_URL}assets/patient-data-leak-room/intro.mp4`}
           onEnded={() => setStage('blackout')}
           playsInline
           muted={false}

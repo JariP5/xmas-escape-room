@@ -19,7 +19,7 @@ export default function AboutRoom() {
   const desc = t(`routes.${room.baseKey}.card.desc`)
 
   // Images with sensible defaults from public assets
-  const boardGameImg = room.boardGameImage || '/assets/boardgame-placeholder.svg'
+  const boardGameImg = room.boardGameImage || `${import.meta.env.BASE_URL}assets/boardgame-placeholder.svg`
 
   return (
     <div className="app">

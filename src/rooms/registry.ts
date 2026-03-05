@@ -19,8 +19,8 @@ export const rooms: RoomDef[] = [
     id: 'christmas-room',
     baseKey: 'christmasRoom',
     Component: ChristmasRoom,
-    boardGameImage: '/assets/christmas-room/thumbnail.png',
-    thumbnailImage: '/assets/christmas-room/thumbnail.png',
+    boardGameImage: `${import.meta.env.BASE_URL}assets/christmas-room/thumbnail.png`,
+    thumbnailImage: `${import.meta.env.BASE_URL}assets/christmas-room/thumbnail.png`,
     difficulty: 6, // out of 10
     minPlayers: 3,
     maxPlayers: 6,
@@ -29,8 +29,8 @@ export const rooms: RoomDef[] = [
     id: 'patient-data-leak-room',
     baseKey: 'patientDataLeakRoom',
     Component: PatientDataLeakScreenPicker,
-    boardGameImage: '/assets/patient-data-leak-room/thumbnail.png',
-    thumbnailImage: '/assets/patient-data-leak-room/thumbnail.png',
+    boardGameImage: `${import.meta.env.BASE_URL}assets/patient-data-leak-room/thumbnail.png`,
+    thumbnailImage: `${import.meta.env.BASE_URL}assets/patient-data-leak-room/thumbnail.png`,
     difficulty: 9, // out of 10
     minPlayers: 3,
     maxPlayers: 8,
