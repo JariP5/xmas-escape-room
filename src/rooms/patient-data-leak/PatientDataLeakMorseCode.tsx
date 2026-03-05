@@ -108,9 +108,7 @@ export default function PatientDataLeakMorseCode() {
         <div className="overlay">
           <div className="overlay-content">
             <h2>{t('routes.patientDataLeakRoom.morseCode.codeOverlay.title')}</h2>
-            <form className="access" onSubmit={handleCodeSubmit}>
-              <label>{t('routes.patientDataLeakRoom.morseCode.codeOverlay.title')}</label>
-              <input
+            <form className="access" onSubmit={handleCodeSubmit}><input
                 type="text"
                 placeholder={t('routes.patientDataLeakRoom.morseCode.codeOverlay.placeholder')}
                 value={codeInput}
