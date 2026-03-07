@@ -38,10 +38,10 @@ const MORSE_SEQUENCE = buildAnnotatedSequence(MORSE_TEXT)
 const MORSE_CHARS = MORSE_TEXT.split('').filter(c => MORSE_MAP[c])
 
 // Timing: ~200ms unit, slower with clear inter-character breaks
-const DOT_MS = 200
-const DASH_MS = 600
-const GAP_MS = 200       // intra-character
-const CHAR_BREAK_MS = 700 // inter-character
+const DOT_MS = 300
+const DASH_MS = 700
+const GAP_MS = 300       // intra-character
+const CHAR_BREAK_MS = 900 // inter-character
 
 function playMorse(onCharChange: (charIdx: number) => void, onDone: () => void) {
   const ctx = new AudioContext()

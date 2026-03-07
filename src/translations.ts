@@ -131,7 +131,7 @@ export const dicts: Record<Lang, Dict> = {
                     play: 'Play',
                 },
                 visualMorseCode: {
-                    title: 'Visual Morse Code',
+                    codeOverlay: { title: 'Connection Code'},
                     morseReference: 'Morse Code Reference',
                 },
                 password: 'PATIENT-ZERO',
@@ -253,7 +253,7 @@ export const dicts: Record<Lang, Dict> = {
                     play: 'Abspielen',
                 },
                 visualMorseCode: {
-                    title: 'Visueller Morsecode',
+                    codeOverlay: { title: 'Verbindungscode' },
                     morseReference: 'Morsecode-Referenz',
                 },
                 password: 'PATIENT-ZERO',
@@ -375,7 +375,7 @@ export const dicts: Record<Lang, Dict> = {
                     play: 'Afspelen',
                 },
                 visualMorseCode: {
-                    title: 'Visuele morsecode',
+                    codeOverlay: { title: 'Koppelcode' },
                     morseReference: 'Morsecode-referentie',
                 },
                 password: 'PATIENT-ZERO',
@@ -497,7 +497,7 @@ export const dicts: Record<Lang, Dict> = {
                     play: 'Lecture',
                 },
                 visualMorseCode: {
-                    title: 'Code Morse visuel',
+                    codeOverlay: { title: 'Code de connexion' },
                     morseReference: 'Référence du code Morse',
                 },
                 password: 'PATIENT-ZERO',
