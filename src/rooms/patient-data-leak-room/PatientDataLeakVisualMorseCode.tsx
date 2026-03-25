@@ -13,7 +13,7 @@ const PAUSE_MS = 1000
 // Total cycle = all letters shown once in random order
 const STEP_MS = LETTER_ANIM_MS + PAUSE_MS
 
-// ITU 2015 Morse code reference: a-z and 0-9
+// ITU Morse code reference: a-z and 0-9
 const MORSE_REFERENCE: { char: string; morse: string }[] = [
   { char: 'A', morse: '.-' },
   { char: 'B', morse: '-...' },
