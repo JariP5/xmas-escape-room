@@ -4,13 +4,13 @@ import { LanguageSelector, useI18n } from '../../i18n.tsx'
 import { getChannel } from '../../supabaseClient.ts'
 import {PATIENT_DATA_LEAK_CONNECTION_CODE} from "./constants.ts";
 
-const MORSE_TEXT = '583'
+const MORSE_TEXT = '5873'
 
 type Stage = 'code' | 'ready' | 'playing'
 
 // ITU International Morse Code
 const MORSE_MAP: Record<string, string> = {
-  '5': '.....', '8': '---..', '3': '...--'
+  '5': '.....', '8': '---..', '7': '--...', '3': '...--'
 }
 
 type Symbol = 'dot' | 'dash' | 'gap' | 'charBreak'
