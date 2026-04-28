@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import '../../App.css'
 import { LanguageSelector, useI18n } from '../../i18n.tsx'
+import {PATIENT_DATA_LEAK_RECOVERY_CODE} from "./codes.ts";
 
 type Stage = 'idle' | 'video' | 'blackout' | 'hacked' | 'solved' | 'failed'
 
-const MAX_TRIES = 4
+const MAX_TRIES = 3
 
 const ONE_HOUR = 60 * 60 * 1000
-
-const RECOVERY_CODE = "158"
 
 function formatTime(ms: number) {
   if (ms < 0) ms = 0
@@ -60,7 +59,7 @@ export default function PatientDataLeakRoom() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (stage !== 'hacked') return
-    if (input.trim().toLowerCase() === RECOVERY_CODE.trim().toLowerCase()) {
+    if (input.trim().toLowerCase() === PATIENT_DATA_LEAK_RECOVERY_CODE.trim().toLowerCase()) {
       setStage('solved')
       setFeedback(null)
     } else {

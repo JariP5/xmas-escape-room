@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react'
 import '../../App.css'
 import { LanguageSelector, useI18n } from '../../i18n.tsx'
 import { getChannel } from '../../supabaseClient.ts'
-import {PATIENT_DATA_LEAK_CONNECTION_CODE} from "./constants.ts";
+import {PATIENT_DATA_LEAK_CONNECTION_CODE} from "./codes.ts";
 
 const MORSE_TEXT = '5873'
 
